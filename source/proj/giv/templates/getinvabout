@@ -1,0 +1,34 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+
+<div style="width: 100%; text-align: left;">
+	<h1>Get Involved</h1>
+    <br>
+<div style="width:100%; overflow:hidden; margin-bottom:40px;">
+
+<div style="width:21%; height:65%; float:left;border-right:1px dotted #666666; padding-left:15px;padding-right:10px;"><span class="greenboxheader">Start a Chapter</span>
+	<p>Givology works with entrepreneurial groups of <span class="bold">students</span> who share our vision of <span class="bold">global education development</span>. Chapters contribute their creativity and dedication to help fundraise and get other students involved. </p>
+<a href="/startachapter" style="color:#FFFFFF;"><img src="../../images/gi_chapter.png"></a> 
+</div>
+
+<div style="width:23%; height:65%;float:left;border-right:1px dotted #666666; padding-left:15px;padding-right:10px;"><span class="greenboxheader">Volunteer</span>
+	<p>Learn more about opportunities to volunteer at Givology. Volunteer areas include outreach, fundraising, research, technology, translation, and public relations.</p>
+<a href="/volunteer" style="color:#FFFFFF;"><img src="../../images/gi_volunteer.png"></a> 
+</div>
+
+  
+<div style="width:21%; height:65%; float:left;padding-left:15px;padding-right:15px;"><span class="greenboxheader">Internships</span>
+	<p>Givology internships offer a great opportunity to gain an insider's look into <span class="bold">non-profit strategy and operations</span>. Work closely with one of our executive team members, from partnership formation and website management to marketing and public relations.</p>
+<a href="/internships" style="color:#FFFFFF;"><img src="../../images/gi_intern.png"></a>    
+</div>
+
+<div style="width:21%; height:65%; float:left;border-left:1px dotted #666666;padding-left:15px;"><span class="greenboxheader">Fellowships</span>
+	<p>Looking for an opportunity to be involved in <span class="bold">education research</span>? Givology fellows travel to rural villages and other sites abroad to conduct research on rural education, assist our field partners, and visit our sponsored projects and students. </p>
+<div style="text-align:center"><a href="/fellowships" style="color:#FFFFFF;"><img src="../../images/gi_fellow.png"></a></div>     
+</div>
+</div>
+	
+</div>
+
+{% endblock %}

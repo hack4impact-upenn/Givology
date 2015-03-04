@@ -1,0 +1,106 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+
+<!--h1> Donor Teams </h1-->
+
+
+
+<div style="width: 100%; float: left; height:auto;">
+
+<div style="float:left; margin-right:25px; margin-top:15px; width: 200px; height: 200px; text-align:center;">
+<img src="../../images/gteams.png">
+</div>
+
+<!--<div style="float: right; width: 100px; height: 220px; margin-left: 20px;">
+<div align="center" style="background-color:#c4e1ff;border-style:double;height:50px"><a href="/teams/create/" style="font-variant:small-caps"><br><b>make a team</b></a></div>
+</div>-->
+
+<div style="float: left; width: 620px;">
+<h1>The Power of Teams</h1>
+<p>What's better than donating on Givology? Donating as a team! Forming a Givology giving team is a great way to make an impact!</p>
+<div style="font-size:medium; font-weight:bold; color: #497912">How it works</div>
+<span>Create teams with other registered users on Givology, and work together to fund student scholarships and education projects. Or, get a group of friends together, form a team, hold fundraisers in your local area, and then track your impact and share your experiences on your team page.</p> 
+<p>Giving teams make it easy to start your own education cause on Givology.</p></span>
+<h3>Have a greater impact. <a href="/teams/create/"><b>Make your team today.</b></a></h3>
+</div>
+
+</div>
+
+<div style="width:100%">
+  <div style="width:20%;float:left;background-color:#edf4fa;padding:10px">
+    <div class="searchbox" style="width:90%">
+    <form name="searchinput" method="GET">
+
+    Name: <br />
+    <input type="text" name="name" value="{%if name %}{{name}}{%endif%}"> <br />
+
+    Location: <br />
+    <input type="text" name="location" value="{%if location %}{{location}}{%endif%}"> <br />
+		
+		Ordering: <br />
+		<select name="orderby">
+			<option{%ifequal orderby "Amount Donated" %} selected="selected"{%endifequal%}>
+				Amount Donated
+			</option>
+			<option{%ifequal orderby "Number of Members" %} selected="selected"{%endifequal%}>
+				Number of Members
+			</option>
+			<option{%ifequal orderby "Name" %} selected="selected"{%endifequal%}>
+				Name
+			</option>
+		</select> <br/>
+		
+    <br /><input type="submit" value="search!">
+    </form>
+    </div>
+	</div>
+
+	<div style="float: right; width: 75%;padding-bottom:20px;">
+    <div class="searchresults">
+		  <div align="center" style="border-style:solid;border-width:1px 0 1px 0;border-color:#999;padding:8px 0 8px 0;margin-bottom:12px;font-size:12px;">
+				{% if blog.paginated %}{% ifnotequal blog.totalpages 1 %}
+    	  <b>Pages: </b>
+				<span>
+					{% ifequal blog.page blog.prev %}Previous...{%else%}<a href="{{blog.url}}?page={{blog.prev}}{%ifnotequal blog.count blog.count0%}&count={{blog.count}}{%endifnotequal%}">Previous...</a>{%endifequal%}
+				</span>
+				<span>
+				{% for page in blog.pages %}
+				 	{%ifequal blog.page page%}{{page}}{%else%}<a href="{{blog.url}}?page={{page}}{%ifnotequal blog.count blog.count0%}&count={{blog.count}}{%endifnotequal%}">{{page}}</a>{%endifequal%}
+				{% endfor %}
+				</span>
+				<span>
+					{% ifequal blog.page blog.next %}...Next{%else%}<a href="{{blog.url}}?page={{blog.next}}{%ifnotequal blog.count blog.count0%}&count={{blog.count}}{%endifnotequal%}">...Next</a>{%endifequal%}
+				</span>
+				<br />
+				{% endifnotequal %}{% endif %}
+  		</div>
+			{% for obj in blog.objects %}
+			
+            <div style="width:100%; padding-bottom:12px; margin-bottom:20px;">
+				<div style="width:100%;float:left; margin-right:3px;border-bottom:1px dotted #666666; padding-top:10px;">
+                				<div style="width:30%; float:right; background:#ececec; padding:5px;">
+                	<div style="font-size:10pt; font-weight:bold;">Total Impact</div>
+ 					<div><span style="font-size:small; font-weight:bold; color:#497912;">${{obj.amtdonated}}</span> in <span style="font-size:small; font-weight:bold; color:#497912;">{{obj.numdonations}}</span> donations to <span style="font-size:small; font-weight:bold; color:#497912;">{{obj.numstudents}}</span> students and <span style="font-size:small; font-weight:bold; color:#497912;">{{obj.numprojects}}</span> projects.</div>
+				</div> 
+					<div style="float:left;
+					            background: #ced url({{obj.image_url}})
+					                        no-repeat scroll center;
+					            height:75px; width:100px;
+					            margin:5px;"></div>
+						<span style="font-size:medium; font-weight:bold"><a href="/teams/{{obj.slug}}/">{{obj.name}}</a></span>
+                        <div style="padding-bottom:5px;">Members: <span style="font-size:small; font-weight:bold; color:#497912;">{{obj.numdonors}}</span></div>
+						<div style="font-size:small; font-weight:bold; color:#497912;">We donate because...</div>
+						<div style="margin-bottom:15px; ">{{obj.whydonate}}</div>
+						</div>                
+			</div>
+
+{% endfor %}
+  	 	 </div>
+	</div>
+</div>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,54 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+
+<table style="font-size: 12px;" border="1" cellpadding="4" cellspacing="0">
+<tr>
+	<td style="text-align: center;">user id #</td>
+	<td>recipient name</td>
+	<td style="text-align: center;">partner</td>
+	<td style="text-align: center;">kind</td>
+	<td style="text-align: center;">have</td>
+	<td style="text-align: center;">want</td>
+	<td style="text-align: center;">completed</td>
+</tr>
+{% for obj in recipients %}
+<tr>
+	<td style="text-align: right;">{{obj.userid}}</td>
+	<td style="text-align: left;">{{obj.name}}</td>
+	<td style="text-align: left;">{{obj.partner}}</td>
+	<td style="text-align: center;">{{obj.kind}}</td>
+	<td style="text-align: right;">${{obj.have}}</td>
+	<td style="text-align: right;">${{obj.want}}</td>
+	<td style="text-align: center;">{{obj.completed}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<h3>By quarter:</h3>
+
+<table style="font-size: 12px;" border="1" cellpadding="4" cellspacing="0">
+<tr>
+	<td rowspan="2">Recipient</td>
+	{% for q in quarters %}
+		<td colspan="2">{{q}}</td>
+	{% endfor %}
+</tr>
+<tr>
+{% for q in quarters %}
+	<td>raised</td>
+	<td>total</td>
+{% endfor %}
+</tr>
+{% for obj in recipients %}
+<tr>
+	<td style="text-align: left;">{{obj.name}}</td>
+	{% for q in obj.quarters %}
+		<td>${{q.in}}</td>
+		<td>${{q.til}}</td>
+	{% endfor %}
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

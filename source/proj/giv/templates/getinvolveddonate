@@ -1,0 +1,17 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+
+<h1>Donate</h1>
+
+<div style="width:360px;float:left">
+<img src="/images/gdonate.png" style="margin:0;padding:0;"><br />
+</div>
+
+<br><br><br><p>By harnessing the power of small-denomination donations, Givology enables you to <b>improve the lives of students across the world</b>. </p>
+		<p>Your contribution through Givology <b>empowers students and villages</b> to take <b>ownership of their futures.</b> 
+<p>Be empowered and empower others: <a href="/donate/"><b>Start Giving Now</b></a></p>
+<p>To help defray Givology's operating costs: <a href="/sponsorships/"><b>Support Us</b></a></p>
+<br>
+
+{% endblock %}

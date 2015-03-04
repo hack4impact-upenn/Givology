@@ -1,0 +1,24 @@
+    <div class="widget featured">
+      <h3 class="widget-title">Featured {{feature_kind}}</h3>
+      {% for obj in featured_recipients %}
+      
+      <div class="widget-content">
+        <div class="featured-meta">
+          <div class="featured-thumb">
+            <div class="featured-thumb-img" style="background: #e9e9e9 url('{{obj.picurl}}') no-repeat scroll center;">
+            </div>
+          </div>
+          <h4 class="featured-title"><a href="{{obj.url}}">{{obj.name}}</a></h4>
+          <span class="featured-location">{{obj.location}}</span>
+          <span class="amount-donated">
+            <strong>${{obj.grant_have}}</strong> of
+            <strong>${{obj.grant_want}}</strong> Donated
+          </span>
+        </div>
+        <div class="featured-info">
+          <p>{{obj.brief_summary}} <a href="{{obj.url}}" class="read-more">Read More</a></p>
+        </div>
+      </div><!-- .widget-content -->
+      <div style="height: 20px;"></div>
+      {% endfor %}
+    </div>

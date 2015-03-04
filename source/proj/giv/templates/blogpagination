@@ -1,0 +1,24 @@
+{% if blog.paginated %}{% ifnotequal blog.totalpages 1 %}
+<div style="float: left;
+            text-align: center;
+            border-style: solid;
+            border-width: 1px 0 1px 0;
+            border-color: #999;
+            padding: 8px 0;
+            margin-bottom: 12px;
+            font-size: 12px; width: 100%;">
+	<b>Pages: </b>
+	<span>
+		{% ifequal blog.page blog.prev %}Previous...{%else%}<a href="{{blog.url}}?page={{blog.prev}}{%ifnotequal blog.count blog.count0%}&count={{blog.count}}{%endifnotequal%}">Previous...</a>{%endifequal%}
+	</span>
+	<span>
+	{% for page in blog.pages %}
+		{%ifequal blog.page page%}{{page}}{%else%}<a href="{{blog.url}}?page={{page}}{%ifnotequal blog.count blog.count0%}&count={{blog.count}}{%endifnotequal%}">{{page}}</a>{%endifequal%}
+	{% endfor %}
+	</span>
+	<span>
+		{% ifequal blog.page blog.next %}...Next{%else%}<a href="{{blog.url}}?page={{blog.next}}{%ifnotequal blog.count blog.count0%}&count={{blog.count}}{%endifnotequal%}">...Next</a>{%endifequal%}
+	</span>
+	<br />
+</div>
+{% endifnotequal %}{% endif %}

@@ -1,0 +1,15 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+   {% if canwrite %}
+   <div align="center">
+      <a href="/compose/?type=blogpost{{composeextra}}"> Add a new entry </a>
+   </div>
+   {% endif %}
+
+   {% include "giv/templates/blogtitles" %}
+	
+   <div style="float: right; width: 660px;">
+      {% include "giv/templates/blog" %}
+   </div>
+{% endblock %}

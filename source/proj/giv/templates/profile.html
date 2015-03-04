@@ -1,0 +1,469 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+<!-- Defaults to Teams page bg image. For Student or Project page bg images, add 'student' or 'project' class to #container -->
+<div id="container"
+  class="clearfix sidebar-left profile-detail
+  {% ifequal kind 's' %}
+  student
+  {% endifequal %}
+  {% ifequal kind 'p' %}
+  project
+  {% endifequal %}
+  ">
+
+  {% if isstaff %}
+    {% if isstudent or isproject %}
+      {% if confirm_mesg %}
+        <p> {{confirm_mesg}} </p>
+      {% endif %}
+      <form method="POST" action=".">
+      {% if not approved %}
+        <input type="submit" value="Approve" name="admin_action" />
+      {% else %}
+        <input type="submit" value="Unapprove" name="admin_action" />
+      {% endif %}
+      </form>
+    {% endif %}
+  {% endif %}
+  
+  {% if cansudo %}
+    <form name="sudoform" method="POST" action="/login/">
+      <input type="hidden" name="fauxuid" value="{{uid}}" />
+      <input type="submit" value="Act as this user" />
+    </form>
+  {% endif %}
+  
+  <h2 id="page-title">{{name}}</h2>
+  <div id="share">
+    <a href="#"></a>
+    <div class="share-container">
+      <!-- URLs and descriptions can all be customized either via meta tags (Facebook only) or using data attributes in the links below -->
+      <div class="fb-like" data-href="http://givology.com" data-send="false" data-layout="box_count" data-width="44" data-show-faces="false"></div>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-count="vertical" data-via="givology">Tweet</a>
+    </div>
+  </div>
+  <section role="main" id="content-main">
+  {% if isstudent or isproject %}
+    <div class="widget grant-status">
+      <div class="widget-content clearfix">
+        <div>
+          <h4 class="widget-title"><span>Grant Status</span> <span>${{grant.remaining}} needed</span></h4>
+          <dl>
+            {% if grant.grant_annotation or isstaff %}
+            <dt>{{grant.grant_annotation}} <a href="./addgrant/">+</a></dt>
+            {% endif %}
+            <dd>
+              <div class="progress"
+                data-needed="{{grant.want}}"
+                data-raised="{{grant.have}}">
+              </div>
+            </dd>
+          </dl>
+          <div class="button-container">
+            {% if viewerdonor %}
+            {% if user.get_profile.get_object.is_balance_positive %}
+            <form name="donate{{grant.id}}" method="POST" action="/donated/">
+              <input type="hidden" name="uname" value="{{uname}}">
+              <input type="hidden" name="grantid" value="{{grant.id}}">
+              <select name="donation" style="display: inline-block; vertical-align: middle; width: 75px;">{%for opt in grant.donateamts%}
+                <option value="{{opt}}">${{opt}}</option>{%endfor%}
+              </select>
+              <!-- TODO: maybe put the anonymous thing back in? -->
+              <button class="button button-cta">GIV Now</button>
+            </form>
+            {% else %}
+              Please add money to your <a href="/account/">virtual wallet</a> to donate!
+            {% endif %}
+            {% else %}
+              Please <a href="/login/">log in</a> to donate!
+            {% endif %}
+          </div>
+        </div>
+        <div>
+          <h5 class="widget-subtitle">Expected Usage of Funding</h5>
+          <dl>
+            {% if isstudent %}
+            <dt>Tuition:</dt>
+            <dd>${{grant.cost_tuition}}</dd>
+            <dt>School Supplies:</dt>
+            <dd>${{grant.cost_supplies}}</dd>
+            <dt>Textbooks:</dt>
+            <dd>${{grant.cost_textbooks}}</dd>
+            <dt>Transportation:</dt>
+            <dd>${{grant.cost_transport}}</dd>
+            <dt>Room &amp; Board:</dt>
+            <dd>${{grant.cost_roomnboard}}</dd>
+            {% endif %}
+            {% if isproject %}
+            <dt>Supplies, Furniture:</dt>
+            <dd>${{grant.cost_supplies}}</dd>
+            <dt>Labor and Salaries:</dt>
+            <dd>${{grant.cost_labor}}</dd>
+            <dt>Transportation:</dt>
+            <dd>${{grant.cost_transport}}</dd>
+            <dt>Raw Materials:</dt>
+            <dd>${{grant.cost_materials}}</dd>
+            <dt>Research:</dt>
+            <dd>${{grant.cost_rnd}}</dd>
+            <dt>Administrative:</dt>
+            <dd>${{grant.cost_admin}}</dd>
+            {% endif %}
+            <dt>Other:</dt>
+            <dd>${{grant.cost_other}}</dd>
+          </dl>
+        </div>
+      </div><!-- .widget-content -->
+    </div><!-- .widget -->
+  {% endif %}
+    
+    <section class="profile-element  profile">
+      <h3 class="section-title">Profile</h3>
+      <article>
+        <div class="article-content">
+	  {% autoescape off %}
+          {% if attrs.about %}
+            {{attrs.about}}
+          {% else %}
+            {% if attrs.description %}
+              {{attrs.description}}
+            {% endif %}
+          {% endif %}
+	  {% endautoescape %}
+	</div>
+      </article>
+      {% if isproject %}
+      
+      {% if attrs.history %}
+      <h3 class="section-title">History</h3>
+      <article>
+        <div class="article-content">
+	  {{attrs.history}}
+        </div>
+      </article>
+      {% endif %}
+	   
+      {% if attrs.impact %}
+      <h3 class="section-title">Impact</h3>
+      <article>
+	<div class="article-content">
+          {{attrs.impact}}
+        </div>
+      </article>
+      {% endif %}
+	  
+      {% if attrs.team_credentials %}
+      <h3 class="section-title">Team Credentials</h3>
+      <article>
+	<div class="article-content">
+          {{attrs.team_credentials}}
+        </div>
+      </article>
+      {% endif %}
+
+      {% endif %}
+      
+      <div class="button-container"><a href="#" class="view-more">View More</a><a href="#" class="view-less">View Less</a></div>
+    </section>
+
+    <section class="profile-element updates">
+      <h3 class="section-title">Updates</h3>
+      <ul>
+        {% for update in updates %}
+        <li>
+          <article class="update">
+            <div class="article-date"><span class="article-date-day">{{update.created_day_of_month}}</span> {{update.created_month_caps}} {{update.created_year}}</div>
+            <h3 class="article-title"><a href="{{update.url}}">{{update.subject}}</a></h3>
+            <div class="article-content">
+              {{update.summary}}
+            </div>
+          </article>
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="button-container"><a href="#" class="view-more">View More</a><a href="#" class="view-less">View Less</a></div>
+    </section>
+    
+    {% if isstudent or isproject %}
+    <section class="profile-element donors">
+      <h3 class="section-title">Donors</h3>
+      <ul>
+      {% for obj in subobjs %}
+        <li>
+          <article class="donor">
+            <div class="profile-thumb">
+              <div style="width: 101px; height: 100px; background: #e9e9e9 url('{{obj.picurl}}') no-repeat scroll center;">
+              </div>
+              <!--img src="{{obj.picurl}}" alt="Placeholder" /-->
+            </div>
+            <span class="profile-name"><a href="{{obj.url}}">{{obj.name}}</a></span>
+            <span class="profile-location">{{obj.location}}</span>
+            <ul>
+              <!-- TODO -->
+              <li><strong>${{obj.pledged}}</strong> Pledged</li>
+              <li><strong>${{obj.donated}}</strong> Total Donated</li>
+              <!--li><strong>50 <span>hrs</span>TODO</strong> Volunteered</li>
+              <li><strong>2003TODO</strong> Donor Since</li-->
+            </ul>
+          </article>
+        </li>
+      {% endfor %}
+      </ul>
+      <div class="button-container"><a href="#" class="view-more">View More</a><a href="#" class="view-less">View Less</a></div>
+    </section>
+    {% endif %}
+  
+    {% if isorganization %}
+    <section class="profile-element donors">
+      <h3 class="section-title">{{subobjs_len}} Students and Projects</h3>
+      <ul>
+      {% for obj in subobjs %}
+        <li>
+          <article class="donor">
+            <div class="profile-thumb">
+              <div style="width: 101px; height: 100px; background: #e9e9e9 url('{{obj.picurl}}') no-repeat scroll center;">
+              </div>
+              <!--img src="{{obj.picurl}}" alt="Placeholder" /-->
+            </div>
+            <span class="profile-name"><a href="{{obj.url}}">{{obj.name}}</a></span>
+            <span class="profile-location">{{obj.location}}</span>
+            <div class="progress subobj" data-needed="{{obj.grant_want}}" data-raised="{{obj.grant_have}}" style="">
+            </div>
+            <div class="button-container" style="margin-top: 2px">
+              <a href="{{obj.url}}" class="button button-cta structured">
+                <span>Giv Now</span>
+              </a>
+            </div>
+          </article>
+        </li>
+      {% endfor %}
+      </ul>
+      <div class="button-container"><a href="#" class="view-more">View More</a><a href="#" class="view-less">View Less</a></div>
+    </section>
+    {% endif %}
+  
+  </section>
+  
+  <aside>
+    <div class="widget widget-alt profile-info">
+      <div class="widget-content">
+        <div class="profile-thumb" style="text-align: center;">
+          <div class="profile-image"
+            style="background: #e9e9e9 url('{{image}}') no-repeat scroll center;">
+          </div>
+        </div>
+        <h4 class="profile-name">{{name}}</h4>
+        <span class="profile-location">{{location}}</span>
+        <a href="/compose/?type=message&to={{uname}}" class="button email">Message Me</a>
+        <a href="./blog/" class="button updates">View My Updates</a>
+        
+        {% if isviewer or isstaff %}
+        <form method="post" action="./img/" enctype="multipart/form-data">
+        <br />Add a new image:
+        <br /><input type="file" name="image" />
+        <br /><input type="submit" value="Upload" />
+        </form>
+        {% endif %}
+        
+      </div><!-- .widget-content -->
+    </div><!-- .widget -->
+    
+    <div class="widget widget-alt stats">
+      <h3 class="widget-title">Stats</h3>
+      <div class="widget-content">
+        <dl>
+          {% if gender %}
+          <dt>Gender:</dt>
+          <dd>{{gender}}</dd>
+          {% endif %}
+          {% if age %}
+          <dt>Age:</dt>
+          <dd>{{age}}</dd>
+          {% endif %}
+          {% if attrs.url %}
+          <dt>Website:</dt>
+          <dd><a href="{{attrs.url}}">{{attrs.url}}</a></dd>
+          {% endif %}
+          {% if attrs.pstatus %}
+          <dt>Partnership Status:</dt>
+          <dd>atrs.pstatus</dd>
+          {% endif %}
+
+          {% if attrs.city %}
+          {% if isdonor %}
+          <dt>City/County:</dt>
+          <dd>{{attrs.city}}</dd>
+          {% endif %}
+          {% if isorganization %}
+          <dt>Partner Headquarters (City):</dt>
+          <dd>{{attrs.city}}</dd>
+          {% endif %}
+          {% endif %}
+          
+
+          
+          {% if attrs.province %}
+          <dt>State/Province:</dt>
+          <dd>{{attrs.province}}<br />&nbsp;</dd>
+          {% endif %}
+
+          
+          
+          {% if attrs.country %}
+          {% if isorganization %}
+          <dt>Partner Headquarters (Country):</dt>
+          <dd>{{attrs.country}}</dd>
+          {% else %}
+          <dt>Country:</dt>
+          <dd>{{attrs.country}}</dd>
+          {% endif %}
+          {% endif %}
+          
+          
+          {% if attrs.opcountries %}
+          <dt>Primary Country of Operation:<dt>
+          <dd>{{attrs.opcountries}}</dd>
+          {% endif %}
+          
+          {% if attrs.proj_type %}
+          <dt>Project Type:</dt>
+          <dd>{{attrs.proj_type}}</dd>
+          {% endif %}
+          
+          {% if attrs.numhelped %}
+          <dt>Number of Students Helped:</dt>
+          <dd>{{attrs.numhelped}}</dd>
+          {% endif %}
+          
+          {% if edutype %}
+          {% if isproject %}
+          <dt>Type of Students Served:</dt>
+          <dd>{{edutype}}</dd>
+          {% endif %}
+          {% if isstudent %}
+          <dt>Education Type:</dt>
+          <dd>{{edutype}}<br />&nbsp;</dd>
+          {% endif %}
+          {% endif %}
+          
+          {% if attrs.proj_purpose %}
+          <dt>Project Purpose:</dt>
+          <dd>{{attrs.proj_purpose}}</dd>
+          {% endif %}
+          
+          {% if edulevel and isstudent %}
+          <dt>Education Level:</dt>
+          <dd>{{edulevel}}</dd>
+          {% endif %}
+          
+          {% if attrs.school_name %}
+          <dt>School Name:</dt>
+          <dd>{{attrs.school_name}}</dd>
+          {% endif %}
+          
+          {% if attrs.school_distance %}
+          <dt>Distance from School:</dt>
+          <dd>{{attrs.school_distance}}</dd>
+          {% endif %}
+          
+          {% if attrs.annual_income %}
+          <dt>Estimated Family Income:</dt>
+          <dd>${{attrs.annual_income}}</dd>
+          {% endif %}
+          
+          {% if dpci %}
+          <dt>Daily Per-Capita Income:</dt>
+          <dd>${{dpci}}</dd>
+          {% endif %}
+          
+          {% if attrs.occ_mother %}
+          <dt>Mother's Occupation:</dt>
+          <dd>{{attrs.occ_mother}}</dd>
+          {% endif %}
+          
+          {% if attrs.occ_father %}
+          <dt>Father's Occupation:</dt>
+          <dd>{{attrs.occ_father}}</dd>
+          {% endif %}
+          
+          {% if attrs.numhousehold %}
+          <dt>Number of Household Members:</dt>
+          <dd>{{attrs.numhousehold}}</dd>
+          {% endif %}
+          
+          {% if attrs.extra %}
+          <dt>Extracurricular Activities:</dt>
+          <dd>{{attrs.extra}}</dd>
+          {% endif %}
+          
+          {% if attrs.future %}
+          <dt>Future Aspirations:</dt>
+          <dd>{{attrs.future}}</dd>
+          {% endif %}
+          
+          {% if attrs.donor_student and attrs.donor_school %}
+          <dt>School:</dt>
+          <dd>{{attrs.donor_school}}</dd>
+          {% endif %}
+          
+          {% if attrs.industry %}
+          <dt>Industry:</dt>
+          <dd>{{attrs.industry}}</dd>
+          {% endif %}
+          
+          {% if attrs.company %}
+          <dt>Company:</dt>
+          <dd>{{attrs.company}}</dd>
+          {% endif %}
+          
+          {% if attrs.company_title %}
+          <dt>Title:</dt>
+          <dd>{{attrs.company_title}}</dd>
+          {% endif %}
+
+          {% if partner %}
+          <dt>Partner Org:</dt>
+          <dd><a href="{{partner.url}}">{{partner.name}}</a></dd>
+          {% endif %}
+        </dl>
+        <script>
+        $(function(){
+            /* Making the dd's and dt's align in height */
+            var n = $('.widget.stats dt').length;
+            var i = 0;
+            for(i=0; i < n; i++){
+              h1 = $($('.widget.stats dt')[i]).height()
+              h2 = $($('.widget.stats dd')[i]).height()
+              h = (h1 > h2 ? h1 : h2)
+              $($('.widget.stats dt')[i]).height(h + 5)
+              $($('.widget.stats dd')[i]).height(h + 5)
+            }
+        })
+        </script>
+      </div><!-- .widget-content -->
+    </div><!-- .widget -->
+
+    {% if isstudent or isproject %}
+    {% if moregrants %}
+    <div class="widget widget-alt grant-history">
+      <h3 class="widget-title">Grant History</h3>
+      <div class="widget-content">
+        <dl>
+          {% for grant in moregrants %}
+          <dt>{{grant.date.year}}{% if grant.grant_annotation %}: {{grant.grant_annotation}}{% endif %}</dt>
+          <dd>
+            <div class="grant progress" data-needed="{{grant.want}}" data-raised="{{grant.have}}"> </div>
+          </dd>
+          {% endfor %}
+        </dl>
+      </div><!-- .widget-content -->
+    </div><!-- .widget -->
+    {% endif %}
+    {% endif %}
+    
+  </aside>
+</div>
+
+{% include "sub-support-givology.html" %}
+
+{% endblock %}

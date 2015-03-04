@@ -1,0 +1,30 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+		<div id="container" class="who-we-are sidebar-right clearfix">
+			<section role="main" id="content-main">
+				<h2 id="page-title">Givology Shop</h2>
+				<article>
+					<div class="article-content">
+						<h1>Merchandise with a cause.</h1>
+						<p>Our talented art director Jane has come up with some exciting designs for stationary and shirts. We'll be launching our new product line later this year in which 100% of the profits go to our projects and students. In the mean time, <a href="/static/givts.pdf">click here to check out a sneak preview</a>. 
+					</div>
+				</article>
+
+			</section>
+			<aside>
+				<a href="#"><img src="/static/shirt.jpg" alt="Placeholder"></a>
+			</aside>
+		</div>
+
+	<nav id="tertiary">
+			<ul>
+				<li><a href="http://www.thetemporarytattooproject.org/index.html" target="_blank">Temporary Tattoos</a></li>
+				<li><a href="http://www.zazzle.com/givology" target="_blank">Zazzle Store</a></li>
+				
+				</ul>
+		</nav>
+
+{% include "sub-support-givology.html" %}
+
+{% endblock %}

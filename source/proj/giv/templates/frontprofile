@@ -1,0 +1,51 @@
+<!-- The mini-profiles on the front page -->
+<div style="background-color:#ececec;float: left;width: 250px; padding:10px; padding-bottom: 1px; font-size: 12px;">
+
+<div style="float: left; width: 100px; height: 100px; margin-right:10px;
+            background: #fff url('{{obj.picurl}}') no-repeat scroll center;">
+	<a href="/~{{obj.uname}}/" style="display: block; width: 100px; height: 100px;"></a>
+</div>
+
+<a href="/~{{ obj.uname }}/"> {{ obj.name }} </a>
+
+{% if obj.location %}<br /> {{obj.location}}{% endif %}
+
+{% if obj.summary %}
+<br />
+<span style="font-size: 90%;">
+	{{obj.summary}}
+</span>
+{% endif%}
+
+<div style="width: 280px; float: left; margin: 5px 0px;">
+	
+	${{obj.grant_have}} of ${{obj.grant_want}} donated
+	
+	<div style="float: left; margin-top: 5px; margin-right: 8px; width: 80px;">
+		<div style="width: 80px; height: 10px; background-color: #3a6a07;">
+			<div style="width: {% widthratio obj.grant_have obj.grant_want 80 %}px; height: 10px; background-color: #aac9e8;"></div>
+		</div>
+	</div>
+	
+	{% if obj.grant.donateamts %}
+	<form name="donate{{grant.id}}"
+	      method="POST" action="/donated/">
+		<input type="hidden" name="uname" value="{{obj.uname}}">
+		<input type="hidden" name="grantid" value="{{obj.grant.id}}">
+		<select name="donation">{%for opt in obj.grant.donateamts%}
+			<option value="{{opt}}">${{opt}}</option>{%endfor%}
+		</select>
+		<input class="donate" type="submit" value="Donate" />
+	</form>
+	{% else %}
+	<div style="float: left;">
+	Must be <a href="/login/">logged in as a donor</a> and have <a
+	href="/wallet/">added money to your account</a> to donate!
+	</div>
+	{% endif%}
+	
+
+</div>
+
+</div>
+
