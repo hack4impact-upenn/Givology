@@ -6,6 +6,12 @@ urlpatterns = patterns(
     (r'^robots.txt$', 'robotstxt'),
     (r'^favicon.ico$', 'faviconredir'),
 
+
+    # HACK4IMPACT TEMP URLS - TO DELETE
+    (r'^impact/$', 'impact'), 
+
+
+
     #(r'^nyc/$', 'nyc'),                             #marquis promotion (2009)
 
     (r'^$', 'index'),                                #frontpage
