@@ -2997,15 +2997,11 @@ def adddonor(request, user):
 
 # HACK4IMPACT TEMPORARY VIEWS - TO DELETE
 
-def impact(request):
-        return render_to_response(request, tloc+'impact_temp.html')
 
 def impact(request):
-    return render_to_response(tloc+'impact_temp.html', dictcombine(
-        [maindict(request),
-         {'title':'Givology: About',
-          'choice0': 'who-we-are',
-          'choice1': '',
-          }]))
+    return render_to_response(tloc+'impact_temp.html', dictcombine([maindict(request),{}]))
+
+def similar(request):
+    return render_to_response(tloc+'similar_temp.html', dictcombine([maindict(request),{}]))
 
 
