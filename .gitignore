@@ -3,3 +3,8 @@ source/proj/images/user
 cathy_backup.sql
 giv
 *.pyc
+*.pyc
+
+*.pyc
+
+source/proj/urls.pyc

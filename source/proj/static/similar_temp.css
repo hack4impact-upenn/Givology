@@ -1,0 +1,13 @@
+#slides {
+	display: none
+}
+
+.container {
+	border-style: solid;
+	border-width: 15px;
+	margin: 0 auto
+}
+
+.slidesjs-pagination .active {
+	color:red;
+}
