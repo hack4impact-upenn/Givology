@@ -76,9 +76,9 @@
 
 
 //Specify the slider's width (in pixels)
-var sliderwidth="600px"
+var sliderwidth="230px"
 //Specify the slider's height
-var sliderheight="230px"
+var sliderheight="600px"
 //Specify the slider's slide speed (larger is faster 1-10)
 var slidespeed=3
 //configure background color:
@@ -87,23 +87,23 @@ slidebgcolor="#000000"
 //Specify the slider's images
 var leftrightslide=new Array()
 var finalslide=''
-leftrightslide[0]='<a href="http://"><img src="/images/vis_pic1.jpg" border=1></a>'
-leftrightslide[1]='<a href="http://"><img src="/images/vis_pic2.jpg" border=1></a>'
-leftrightslide[2]='<a href="http://"><img src="/images/vis_pic1.jpg" border=1></a>'
-leftrightslide[3]='<a href="http://"><img src="/images/vis_pic2.jpg" border=1></a>'
-leftrightslide[4]='<a href="http://"><img src="/images/vis_pic1.jpg" border=1></a>'
+leftrightslide[0]='<a href="/giv-now"><img src="/images/vis_pic1.jpg" border=0 height="200" width="230"></a>'
+leftrightslide[1]='<a href="/giv-now"><img src="/images/vis_pic2.jpg" border=0 height="200" width="230"></a>'
+leftrightslide[2]='<a href="/giv-now"><img src="/images/vis_pic1.jpg" border=0 height="200" width="230"></a>'
+leftrightslide[3]='<a href="/giv-now"><img src="/images/vis_pic2.jpg" border=0 height="200" width="230"></a>'
+leftrightslide[4]='<a href="/giv-now"><img src="/images/vis_pic1.jpg" border=0 height="200" width="230"></a>'
 
 //Specify gap between each image (use HTML):
-var imagegap="5"
+var imagegap=" "
 
 //Specify pixels gap between each slideshow rotation (use integer):
-var slideshowgap=5
+var slideshowgap=0
 
 
 ////NO NEED TO EDIT BELOW THIS LINE////////////
 
 var copyspeed=slidespeed
-leftrightslide='<nobr>'+leftrightslide.join(imagegap)+'</nobr>'
+leftrightslide='<nobr>'+leftrightslide.join(imagegap + '<br>')+'</nobr>'
 var iedom=document.all||document.getElementById
 if (iedom)
 document.write('<span id="temp" style="visibility:hidden;position:absolute;top:-100px;left:-9000px">'+leftrightslide+'</span>')
@@ -128,42 +128,42 @@ ns_slide2.left=actualwidth+slideshowgap
 ns_slide2.document.write(leftrightslide)
 ns_slide2.document.close()
 }
-lefttime=setInterval("slideup()",30)
+lefttime=setInterval("slideleft()",30)
 }
 window.onload=fillup
 
-function slideup(){
+function slideleft(){
 if (iedom){
-if (parseInt(cross_slide.style.left)>(actualwidth*(-1)+8))
-cross_slide.style.left=parseInt(cross_slide.style.left)-copyspeed+"px"
+if (parseInt(cross_slide.style.top)>(actualwidth*(-1)+8))
+cross_slide.style.top=parseInt(cross_slide.style.top)-copyspeed+"px"
 else
-cross_slide.style.left=parseInt(cross_slide2.style.left)+actualwidth+slideshowgap+"px"
+cross_slide.style.top=parseInt(cross_slide2.style.top)+actualwidth+slideshowgap+"px"
 
-if (parseInt(cross_slide2.style.left)>(actualwidth*(-1)+8))
-cross_slide2.style.left=parseInt(cross_slide2.style.left)-copyspeed+"px"
+if (parseInt(cross_slide2.style.top)>(actualwidth*(-1)+8))
+cross_slide2.style.top=parseInt(cross_slide2.style.top)-copyspeed+"px"
 else
-cross_slide2.style.left=parseInt(cross_slide.style.left)+actualwidth+slideshowgap+"px"
+cross_slide2.style.top=parseInt(cross_slide.style.top)+actualwidth+slideshowgap+"px"
 
 }
 else if (document.layers){
-if (ns_slide.left>(actualwidth*(-1)+8))
-ns_slide.left-=copyspeed
+if (ns_slide.top>(actualwidth*(-1)+8))
+ns_slide.top-=copyspeed
 else
-ns_slide.left=ns_slide2.left+actualwidth+slideshowgap
+ns_slide.top=ns_slide2.top+actualwidth+slideshowgap
 
 if (ns_slide2.left>(actualwidth*(-1)+8))
-ns_slide2.left-=copyspeed
+ns_slide2.top-=copyspeed
 else
-ns_slide2.left=ns_slide.left+actualwidth+slideshowgap
+ns_slide2.top=ns_slide.top+actualwidth+slideshowgap
 }
 }
 
 
 if (iedom||document.layers){
 with (document){
-document.write('<table border="0" cellspacing="0" cellpadding="0"><td>')
+document.write('<table border="0" cellspacing="0" cellpadding="0" borderColor: "#0000ff"><td>')
 if (iedom){
-write('<div style="position:relative;width:'+sliderwidth+';height:'+sliderheight+';overflow:hidden">')
+write('<div style="position:relative;width:'+sliderwidth+';height:'+sliderheight+';overflow:hidden;background-color: #0000ff">')
 write('<div style="position:absolute;width:'+sliderwidth+';height:'+sliderheight+';background-color:'+slidebgcolor+'" onMouseover="copyspeed=0" onMouseout="copyspeed=slidespeed">')
 write('<div id="test2" style="position:absolute;left:0px;top:0px"></div>')
 write('<div id="test3" style="position:absolute;left:-1000px;top:0px"></div>')
