@@ -1,0 +1,39 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+
+<div style="margin-left: 0px; width: 875px; text-align: justify;">
+
+<div style="float: left; width: 100%;">
+<h1>Vision</h1>
+
+<p> <b>Give to Learn, Learn to Give.</b> </p>
+</div>
+
+<div style="float: left; width: 100%;">
+<img src="/images/vis_pic1.jpg" style="margin-right:10px;padding:0;float:left;">
+
+<p>Around the world, more than 115 million children of primary-school age are not in school, and even more do not have the opportunity to pursue secondary school or higher education. Poverty is one of the principal causes. Often times, families may have difficulty affording school fees or the cost of supplies, or may simply need to keep children working to contribute to the family income. </p>
+
+<p>The transformational powers of knowledge and a good education are undeniable. At Givology, we believe education is the single most important and <b>sustainable</b> resource for individual empowerment, advancement, and poverty alleviation. Givology democratizes philanthropy by allowing any Internet user to impact the lives of students in need of educational assistance.</p>
+</div>
+
+
+<div style="float: left; width: 100%;">
+<h1>Mission</h1>
+
+<img src="/images/vis_pic2.jpg" style="margin-left:10px;margin-bottom:25px;padding:0;float:right;">
+<p>Launched in March 2008 by students at the University of Pennsylvania, Givology is an Internet online giving marketplace for education that leverages small dollar donations to support grassroots projects and student scholarships in the developing world. As a P2P community at the forefront of the internet microphilanthropy revolution, Givology partners with NGOs and schools throughout the world and connects internet donors to grassroots causes. Through donor message functions, open blogging, and frequent student updates, Givology democratizes philanthropy by introducing choice, transparency, and information sharing in education philanthropy. In particular, we aspire to do the following:</p>
+
+<ul style="font-size:90%">
+  <li>Create an online community for giving - to connect our donors to high-impact investments in education</li>
+  <li>Serve as an online hub for grassroots education organizations that do transformational work in the community</li>
+  <li>Leverage small dollar donations to improve access to quality education in developing countries</li>
+  <li>Raise funding and support to enable our global partners to scale and expand their impact</li>
+  <li>Spread awareness and generate research about problems in education delivery</li>
+  <li>Share information and promote cross-cultural relationships through blogging, messaging, and social media</li>
+</ul>
+</div>
+
+</div>
+{% endblock %}

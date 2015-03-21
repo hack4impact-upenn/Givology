@@ -1,0 +1,102 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+
+<div id="root" style="width:100%;overflow:hidden;">
+<div id="left" style="width:20%;height:500px;float:left;padding:10px;">
+<div style="color:#417fc5;font-size:large;font-weight:bold;margin-bottom:10px;">Chapter Highlights</div>
+<div class="gradualfader" style="width:175px;height:125px;background:url('/images/sc_feat1.png');margin-bottom:10px;">
+<div style="background-color:#ECECEC;position:relative;left:0;top:85px;padding:4px;font-size:small;filter:alpha(opacity=75);opacity:0.75;"><a style="color:black" href="http://www.givology.org/~joycemeng/blog/515/">Chapter Photos</a></div>
+</div>
+<div class="gradualfader" style="width:175px;height:125px;background:url('/images/sc_feat2.png');margin-bottom:10px;">
+<div style="background-color:#ECECEC;position:relative;left:0;top:85px;padding:4px;font-size:small;filter:alpha(opacity=75);opacity:0.75;"><a style="color:black" href="http://givology.org/teams/the-raven-conspiracy/">Chapter Profile: CCA</a></div>
+</div>
+<div class="gradualfader" style="width:175px;height:125px;background:url('/images/sc_feat3.png');margin-bottom:10px;">
+<div style="background-color:#ECECEC;position:relative;left:0;top:85px;padding:4px;font-size:small;filter:alpha(opacity=75);opacity:0.75;"><a style="color:black" href="http://www.givology.org/~joycemeng/blog/515/">Chapter Impact</a></div>
+</div>
+<div style="padding:10px;background:#ececec;"><div style="font-size:small;font-weight:bold;color:#417fc5;border-bottom:#666666 1px dotted;margin-bottom:5px;">College Chapters</div>
+<ul style="font-size:x-small;font-weight:normal;color:#000000;padding:2px;margin:2px;">
+<li class="scli">&raquo; Shanghai University of Finance and Economics</li>
+<li class="scli">&raquo; <a href="http://givology.org/teams/givology-spiders/">University of Richmond</a></li>
+<li class="scli">&raquo; <a href="http://givology.org/~Clarissa/blog/">Beijing University</a></li>
+<li class="scli">&raquo; Harvard</li>
+<li class="scli">&raquo; Dartmouth</li>
+<li class="scli">&raquo; Purdue</li>
+<li class="scli">&raquo; <a href="http://givology.org/teams/oxford/">Oxford</a></li>
+<li class="scli">&raquo; <a href="http://givology.org/teams/northwestern-givology-cha/">Northwestern</a></li> 
+<li class="scli">&raquo; <a href="http://givology.org/teams/george-washington-univers/">George Washington</a></li>
+<li class="scli">&raquo; <a href="http://givology.org/~GivologySpiders/">University of Richmond</a></li>
+<li class="scli">&raquo; <a href="http://givology.org/teams/university-of-pennsylvani">University of Pennsylvania</a></li>
+</ul>
+<ul style="font-size:x-small;font-weight:normal;color:#000000;padding:2px;margin:2px;"><div style="font-size:small;font-weight:bold;color:#417fc5;border-bottom:#666666 1px dotted;margin-bottom:5px;">High School Chapters</div>
+<li class="scli">&raquo; A. Beckman High School</li>
+<li class="scli">&raquo; Thomas Jefferson High School</li>
+<li class="scli">&raquo; Central Bucks High School East</li>
+<li class="scli">&raquo; East Brunswick</li>
+<li class="scli">&raquo; <a href="http://givology.org/teams/the-raven-conspiracy/">Canyon Crest Academy High School </a></li>
+</ul>
+<ul style="font-size:x-small;font-weight:normal;color:#000000;padding:2px;margin:2px;"><div style="font-size:small;font-weight:bold;color:#417fc5;border-bottom:#666666 1px dotted;margin-bottom:5px;">Regional Chapters</div>
+<li class="scli">&raquo; <a href="http://givology.org/teams/nyc-chapter/">New York City, NY</a></li>
+<li class="scli">&raquo; Philadelphia, PA </li>
+<li class="scli">&raquo; Sugar Land, TX</li>
+</ul>
+</div>
+</div>
+<div id="right" style="width:auto;overflow:hidden; padding-left:10px;">
+	<div id="rtop" style="width:100%;padding:10px;"><h1>Start a Givology Chapter today</h1></div>
+    <div id="rbody" style="width:99%;padding:10px;">
+    Givology Chapters are <b>volunteer-driven</b> organizations that are affiliated with Givology. In support of Givology's mission, Givology Chapters recruit their own volunteers, establish their own goals, and devise their own strategies. Givology chapters not only contribute by raising funding to support community-driven education initiatives and student scholarships throughout the world, but also identify strategic partnerships for Givology and increase awareness locally about issues confronting education in the developing world. Starting a Givology chapter is a way to <b>make an impact and run your own nonprofit</b>!
+    
+    <p><a href="http://www.givology.org/~joycemeng/blog/516/">Click here</a> to view a list of our current chapters. If you would like to speak with an existing chapter, please contact us and we will put you in touch.</p>
+    <div id="rlcol" style="width:46%;float:left;padding:10px;">
+         <h3>What does a chapter do?</h3>
+      Givology chapters have the opportunity to engage in cross-cultural discussion by sharing ideas with the Givology leadership team, our partner organizations, and chapters throughout the world. Our online network and biweekly conference calls allow chapters to collaborate, share best practices, plan coordinated events, and exchange ideas. Givology chapter members and leaders have the opportunity to <b>educate, inspire and motivate</b> others to improve access and the quality of education to students in the developing world. 
+      
+      Main functions of a Givology chapter include:
+<p><span class="bold">Marketing and Outreach (Education Advocacy):</span> Spread awareness about Givology, hold events on campus to mobilize and educate students on issues related to education in the developing world, recruit Givology chapter members and volunteers, get donors registered and engaged with our site, create and post videos in support of Givology</p>
+<p><span class="bold">Fundraising: </span>Plan creative fundraising events to support Givology-sponsored education initiatives and student scholarships, as well as raise money for approved partnerships formed by the chapter (see below)</p>
+<p><span class="bold">Identification of Partnerships: </span>Find and recommend grassroots partner organizations that Givology should contact and financially support through the posting of student and project profiles on our site</p>
+<p><span class="bold">Research (Secondary): </span>Write about your own experiences and blog about issues related to education in the developing world on our site</p>
+<p><span class="bold">Research (Field): </span>Organize a trip to one of our partner organizations, contribute as a volunteer (teaching English, building libraries, etc.), assess the impact and quality of our partners' work, and share your experiences on our site through photos, videos, and blog posts on our site</p>
+<p><span class="bold">Technology: </span>Contribute to our central tech team by recommending and creating additional web features</p>
+<p><span class="bold">Translation: </span>Help translate project and student profiles that Givology receives from our partner organizations</p>
+
+   
+    </div>
+    <div id="rrcol" style="width:46%;float:right;padding:10px;">
+    <h3>Who can start a chapter?</h3>
+    Chapters can be formed at a high school, university, or within a local community. We encourage <b>any interested individuals to contact</b> Julia Gooding, our Chapter Coordinator, at <a href="mailto:julia.gooding@givology.org">julia.gooding@givology.org</a>. 
+    <p>Start by downloading the Givology Chapter Guidebook (see below), which provides some suggestions to get started. Afterward, please contact Julia to discuss next steps. We look forward to seeing an active and vibrant Givology chapter in your community!</p>
+    <p><span style="color:#417fc5;font-size:large;font-weight:bold;">For High School Chapters</span><br>
+    <a href="/static/chapterguidebook.doc">&raquo; Download the High School Chapter Guidebook</p></a>
+    <a href="/static/givactivities.doc">&raquo; Download the Givology Activities Guide</p></a>
+    <a href="/static/chapter_proj.doc">&raquo; Download the Givology Chapter Project</p></a>
+    
+    <p><span style="color:#417fc5;font-size:large;font-weight:bold;">For University Chapters</span><br>
+    <a href="/static/chapterguidebook.doc">&raquo; Download the University Chapter Guidebook</p></a>
+    <a href="/static/givactivities.doc">&raquo; Download the Givology Activities Guide</p></a>
+    <a href="/static/chapter_proj.doc">&raquo; Download the Givology Chapter Project</p></a>
+    
+    <p><span style="color:#417fc5;font-size:large;font-weight:bold;">For Regional Chapters</span><br>
+    <a href="/static/chapter_regional_givology.doc">&raquo; Download the Regional Chapter Guidebook</p></a>
+    <a href="/static/givactivities.doc">&raquo; Download the Givology Activities Guide</p></a>
+    <a href="/static/chapter_proj.doc">&raquo; Download the Givology Chapter Project</p></a>
+    
+    <div id="talkbubble" style="margin-top:20px;width:275px;height:172px;background:url('/images/sc_bubble.png')">
+    <div style="padding:13px;text-align:center;">
+    <h3>"What's Next?"</h3> 
+    <p>After you have read the guidebooks, please discuss your plans with Julia and <a href="/static/givchapterapp.doc">submit an application.</a></p>
+    </div>
+     </div>
+    <p><span style="color:#417fc5;font-size:large;font-weight:bold;">Chapters Feedback</span><br>
+        <p>Make sure to contact your Givology chapter mentor regularly and log your required <a href="https://spreadsheets.google.com/viewform?hl=en&formkey=dFlrR0ZBem9zZklrV2NhcFpFek1fbkE6MA"><b>monthly updates here</b></a>.</p>
+        <p>In addition, we love to hear all existing chapters about ways to improve. <a href="https://spreadsheets.google.com/viewform?hl=en&formkey=dFFpX0ZJMXhUcTFmS0N4MXhVS3dDMHc6MA">We really appreciate your feedback!</a></p>
+        
+   
+      </div>
+</div>
+<script type="text/javascript">
+gradualFader.init() //activate gradual fader
+</script>
+</div>
+{% endblock %}

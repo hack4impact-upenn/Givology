@@ -1,0 +1,60 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+<div id="container">
+
+<form method="POST" action="/register/">
+<input type="text" id="asdf" name="asdf" value="" size="5" style="display: none; border: 0;">
+<table>
+<tr><td><h1>Creating a Donor Account</h1></td></tr>
+<table style="padding: 10px;">
+<tr valign="top">
+	<td width="200px">
+		<label for="name">Name</label>
+	</td>
+	<td>
+		<input type="text" value="" name="name" id="name" size="30">
+	</td>
+</tr>
+<tr valign="top">
+	<td width="200px">
+		<label for="email">Email Address</label>
+	</td>
+	<td>
+		<input type="text" value="" name="email" id="email" size="30">
+		<br /><span style="font-size:80%">Your email address will NOT be displayed on the site, but is very important for the site to function (eg, receive payments from you).</span>
+	</td>
+</tr>
+<tr valign="top">
+	<td width="200px">
+		<label for="username">New Username</label>
+	</td>
+	<td>
+		<input type="text" value="" name="username" id="username" size="30">
+	</td>
+</tr>
+<tr valign="top">
+	<td width="200px">
+		<label for="password">New Password</label>
+	</td>
+	<td>
+		<input type="password" value="" name="password" id="password" size="30">
+	</td>
+</tr>
+<tr valign="top">
+	<td width="200px">
+		<label for="heard">How did you hear about Givology? (optional)</label>
+	</td>
+	<td>
+		<input type="text" value="" name="heard" id="heard" size="30">
+	</td>
+</tr>
+</table>
+{% autoescape off %}
+{{captcha_html}}
+{% endautoescape %}
+<input type="submit" value="submit"> </input>
+</form>
+
+</div>
+{% endblock %}

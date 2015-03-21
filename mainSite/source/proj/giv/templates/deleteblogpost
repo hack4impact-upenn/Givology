@@ -1,0 +1,16 @@
+{% extends "giv/templates/pubview" %}
+
+{% block mainbody %}
+	<div align="center">
+		<p>
+			Are you sure you want to delete this?
+		</p>
+		<p>
+			Deleting this will also hide comments under this, so if you want to keep those around, consider editing the post instead.
+		</p>
+		<form method="POST" action=".">
+			<input type="hidden" name="deleteit" value="yes" />
+			<input type="submit" value="Delete It Forever" />
+		</form>
+	</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+<div class="message">
+
+<table class="message-left" border="0" width="20%" style="float:left">
+  <tr>
+    <td width="50%" style="vertical-align:text-top">
+      <p class="messagetext"><b>From:</b></p>
+    </td>
+    <td width="50%" style="vertical-align:text-top">
+      <p class="messagetext"><a href="/~{{msg.from}}/">{{msg.from}}</a></p>
+			{% if msg.from_img %}
+			<img src="{{msg.from_img}}">
+			{% else %}
+      <img src="/images/givicon.ico">
+			{% endif %}
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" style="vertical-align:text-top">
+      <p class="messagetext"><b>To:</b></p>
+    </td>
+    <td width="50%" style="vertical-align:text-top">
+      <p class="messagetext">{% if msg.to_img %}<a href="/~{{msg.to}}/">{{msg.to}}</a>{%else%}{{msg.to}}{%endif%}</p>
+			{% if msg.to_img %}
+			<img src="{{msg.to_img}}">
+			{% else %}
+      <img src="/images/givicon.ico">
+			{% endif %}
+    </td>
+  </tr>
+	<tr>
+		<td width="100%" colspan="2" class="messagetext">
+			{{msg.date}}
+		</td>
+	</tr>
+</table>
+
+<div class="message-right" style="background-color:#fff;width:75%;float:left;margin-top:10px;border-style:solid;border-width:1px 0 1px 0;border-color:#666;padding:8px">
+	<h1 style="text-align: left;">
+		{% if msg.subject %}{{msg.subject}}{% else %}(No Subject){% endif %}
+	</h1>
+	<p class="messagetext">
+		 {{msg.body}}
+	</p>
+	{% ifequal msg.from user.username%}{%else%}
+	{% ifequal msg.from "givbot" %}{% else %}
+	<p class="messagetext"><a href="/compose/?type=message&to={{msg.from}}&subject=Re:{%if msg.subject%}{{msg.subject}}{%else%}No Subject{%endif%}"> Reply </a> </p>
+	{% endifequal %}{% endifequal %}
+</div>
+
+</div>

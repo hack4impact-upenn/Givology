@@ -1,0 +1,46 @@
+<table width="700" height="400" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+			<img src="http://www.givology.org/images/giftcerts/giftcert05_01.jpg" width="350" height="400" alt=""></td>
+		<td>
+        <div style="width:252px; height:400px; background-color:#73ab06;font-size:small;font-family:Arial, Helvetica, sans-serif; overflow:hidden;">
+        <div style="font-weight:bold;margin-bottom:8px;margin-top:15px;">
+        {% if bmesg %}
+			{{bmesg}}
+		{% else %}
+			<span id="gcbody5"></span>{% comment %}
+				this is replaced with the body of the message by javascript
+			{% endcomment %}
+		{% endif %}
+        </div>
+        Dear {%if name%}{{name}}{%else%}
+				<span id="gcname5"></span>{%endif%},
+
+			you have received a <span style="font-weight:bold;
+			color:#385107">Givology.org</span> gift certificate
+			from <a href="http://www.givology.org/~{{fromu}}/"
+			style="color:#385107"> {{from}} </a> in the amount of
+			
+			${%if amount%}{{amount}}{%else%}
+				<span id="gcamount5"></span>{%endif%}.
+			
+			To learn more about
+			Givology, <a href="http://www.givology.org/about/"
+			style="color:#385107">click here</a>. To register and start
+			helping young students all over the
+			world, <a href="http://www.givology.org/register/"
+			style="color:#385107">click here</a>. Once you have registered,
+			you can accept your gift certificate by
+			<a href="http://www.givology.org/giv-now/gift-certificates/"
+			style="color:#385107"> clicking here </a> and entering the
+			confirmation key!
+            <div style="font-weight:bold;color:#385107;margin-top:8px;font-size:medium;">
+			Confirmation Key: {% if code %}{{code}}{% else %}
+				<br />(number will go here){% endif %} 
+            </div>
+        </div>
+        </td>
+		<td>
+			<img src="http://www.givology.org/images/giftcerts/giftcert05_03.jpg" width="98" height="400" alt=""></td>
+	</tr>
+</table>

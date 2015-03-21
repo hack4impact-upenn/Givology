@@ -1,0 +1,47 @@
+{% extends "giv/templates/messages" %}
+
+{% block mainbody %}
+
+<div style="margin: 50px;">
+<form method="GET" action=".">
+<p>
+Some selection:
+</p>
+
+<p>
+Partner Organization: 
+<select name="org">
+{% for org in orgs %}
+	<option value="{{org.uname}}"{%if org.selected%} selected="selected"{%endif%}>{{org.name}}</option>
+{% endfor %}
+</select>
+</p>
+
+<p>
+Created before:
+<input type="text" name="before" size="9" value="{{before}}" />
+</p>
+
+<p>
+Created after:
+<input type="text" name="after" size="9" value="{{after}}" />
+</p>
+
+<p>
+<input type="submit" value="submit" />
+</p>
+
+<p>
+{{nummessages}} result{{s}}.
+</p>
+
+</form>
+</div>
+
+{% for msg in messages %}
+<div style="width: 100%; float: left; margin-bottom: 20px; border-style: solid; border-width: 1px; border-color: #ccc;">
+	{% include "giv/templates/messagesub" %}
+</div>
+{% endfor %}
+
+{% endblock %}

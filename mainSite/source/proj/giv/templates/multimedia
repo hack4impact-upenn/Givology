@@ -1,0 +1,113 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+
+<div style="width: 100%;">
+<div style="float: left;margin-bottom:30px;">
+<img src="/images/multimedia.png" style="float:left; margin-right:30px;">
+<h1 style="line-height:15px;">Multimedia</h1>
+
+<p>
+In this section, you can find photos, videos, and written reflections from Givology field partners, university chapters, 
+and fellows throughout the world. Through the accounts of our partners and network, you have the opportunity to peer into the lives
+of the children and villages your contribution supports. If you would like to contribute to our archive, please e-mail Joyce Meng
+at <a href="mailto:joyce.meng@givology.org">joyce.meng@givology.org</a>.</p>
+</p>
+
+</div>
+
+<h2 style="border-bottom:1px dotted #666666;padding-bottom:5px;"style="border-bottom:1px dotted #666666;padding-bottom:5px;">Givology in the News</h2 style="border-bottom:1px dotted #666666;padding-bottom:5px;">
+
+<p><a href="http://www.intelius.com/corp/press/intelius-entrepreneurship-award-winners-talk-about-innovation-and-entrepreneurship-churchill-c" target="_blank">"Intelius Entrepreneurship Award Winners Talk about Innovation and Entrepreneurship (May 2010)</a>
+<br>Givology wins the Intelius Social Entrepreneurship Award. The Intelius Entrepreneurship Awards recognize exceptional college student-founded companies in the following categories: social impact, technology, marketing, international, and sustainability.
+
+<p><a href="http://vivanista.com/2010/03/what-would-you-buy-with-50/" target="_blank">"What Would You Buy With $50? (March 2010)</a>
+<br>Read more about Givology's innovative $50 Campaign to raise $10,000 for the Peace School in Kampala, Uganda.
+
+<p><a href="http://kristof.blogs.nytimes.com/2009/02/10/do-it-yourself-foreign-aid/" target="_blank">"Do it Yourself Foreign Aid" - New York Times Blog of Nicholas Kristof (February 2009)</a>
+<br>Givology was featured in Nicholas Kristof's blog
+
+<p><a href="http://knowledge.wharton.upenn.edu/article.cfm?articleid=2159" target="_blank">"Givology: Using Social Networks to Connect Education with the Developing World" - Knowledge@Wharton (April 2009)</a>
+<br>Click above to read a transcript or hear a podcast about Givology's strategy and operations</p>
+
+<p><a href="http://www.upenn.edu/gazette/0709/gaz06.html" target="_blank">"Givology" - University of Pennsylvania Gazette (July/August 2009)</a>
+<br>Read more about what inspires us, and the motivations of our founders</p>
+
+<p><a href="http://www.philly.com/philly/phillywomen/20090428_Penn_students__philanthropy_inspires.html" target="_blank">"Penn students' philanthropy inspires" - Philadelphia Inquirer (March 2009)</a>
+<br>Read more about our impact and our connections to Philadelphia and the University of Pennsylvania</p>
+
+<p><a href="http://blog.seattletimes.nwsource.com/philanthropy/2009/03/09/kiva_inspires_education_donati.html" target="_blank">"Kiva and Grameen Inspire Creative Start-Ups to Fund Education" - Business of Giving Blog (Seattle Times) (March 2009)</a>
+<br>Read more about the work of Givology and the spread of Internet P2P communities for education sponsorship</p>
+
+<p><a href="http://www.uxforgood.org/blog/interview-givology.html" target="_blank">"Interview: Givology.org's Founder Joyce Meng" - UserExperienceforGood Blog (July 2009)</a>
+<br>Check out a transcript of an interview with Givology's CEO and Founder Joyce Meng</p>
+
+<p><a href="http://news.mk.co.kr/outside/view.php?year=2009&no=152369" target="_blank">"Promoting Education through Online Social Networks" (Maeil Business Newspaper) (March 2009)</a>
+<br>Givology was featured in the most widely-circulated business newspaper in South Korea (Article in Korean)</p>
+
+<p><a href="http://www.connectionnewspapers.com/article.asp?article=324736&paper=73&cat=104" target="_blank">"Givology Helps Students Abroad" - Vienna Connection (January 2009)</a>
+<br>Read more about Givology's mission for change, in line with Obama's inauguration</p> 
+
+<p><a href="http://www.asianamericangiving.com/2008/10/givology---demo.html" target="_blank">"Givology - Democratizing Giving to Benefit Students" - Asian American Giving (October 2008)</a></p>
+
+<p><a href="http://media.www.dailypennsylvanian.com/media/storage/paper882/news/2008/10/02/News/New-Site.Gives.Donors.More.Control.In.Giving-3465088-page2.shtml" target="_blank">"New Site Gives Donors More Control in Giving" - Daily Pennsylvanian (October 2008)</a>
+<br>Read about Givology's initial launch
+  
+<h2 style="border-bottom:1px dotted #666666;padding-bottom:5px;">Annual Reports and Impact Analysis</h2 style="border-bottom:1px dotted #666666;padding-bottom:5px;">
+
+<p><a href="/static/givology_2009_report.pdf" target="_blank">Givology 2009-2010: Year in Review</a>
+<br><b>Summary:</b> We are pleased to announce that in two years of operations, we have raised approximately $111,707 to support over 2,635 students in 19 different countries through 30 grassroots partners. Our organization has 4,000+ supporters on Facebook, Linked-in, and Twitter, 1,400+ registered donors, 12 chapters started at universities, high schools, and various cities, 30 core team members and 90 volunteers globally. Notably, we received the Intelius Award for "Best Student-Run Social Enterprise", received a "Top Education Non-profit" rating from GreatNonprofits, and won a significant Google Grant Award, in addition to being selected once again as one of the "Top 100 Student-Run Enterprises in the United States" by the Kairos Society for Entrepreneurship. As we formed new connections through social media, we were extremely pleased to be featured in Nicholas Kristof's inspiring book Half the Sky, Vivanista, New York Times, among other print and media sources. 
+
+<p><a href="/static/2008_givology_report.pdf" target="_blank">Givology 2008-2009: Year in Review</a>
+<br><b>Summary:</b> As of September 28, 2009, exactly one year since the launch of our website, Givology has raised $41,638 in online donations and fundraisers, partnered with 20 grassroots organizations in 9 countries, started 12 chapters worldwide, registered 539 donors, and have over 3,000 supporters in our networks on Facebook, Linked-in, and Twitter.  In total, through student scholarships and projects, we estimate that Givology has benefitted 1,259 students worldwide.
+Click to download our 2008-2009 report card! 
+
+<p><a href="/static/microphilanthropy_education.pdf" target="_blank">Online Marketplace for Education: Leveraging the Internet for Creative Microphilanthropy Solutions (Joyce Meng)</a>
+<br><b>Summary</b>: What's the difference between a single million-dollar donation versus a million one-dollar donations? With technological advances reducing transaction costs and increasing usage of P2P social networking sites, the Internet has fundamentally revolutionized education philanthropy, empowering information sharing to make giving by individuals much more targeted, transparent, and rewarding. This in-depth case study on Givology seeks to discuss microphilanthropy's implications for education, its benefits and limitations, potential risks, and future opportunities.</p>
+<p>This submission to the <b>2009 Education Without Borders Conference</b> by Givology's CEO, Joyce Meng, won the "Best Paper Prize".</p> 
+
+<p><a href="/static/mediapackage.pdf" target="_blank">Givology Media Package</a>
+<br>Click above to download our media package, which provides a summary of our operations, activities, sponsors, and events.</p>
+
+<h2 style="border-bottom:1px dotted #666666;padding-bottom:5px;">Givology Videos</h2 style="border-bottom:1px dotted #666666;padding-bottom:5px;">
+
+<p><a href="http://www.youtube.com/user/givology" target="_blank">Givology YouTube Channel</a> 
+<br>Visit our youtube channel to view videos from our partners and highlights from our global activities.</p>
+
+<p><a href="http://www.youtube.com/watch?v=z6k5sm18Juo&feature=player_embedded" target="_blank">Givology 2010 Video Campaign</a> 
+<br>Watch our 2010 challenge video and the responses we got from our community on the question: what does giving mean to you?</p>
+
+<p><a href="http://www.youtube.com/watch?v=9Eiw7su6j0o&feature=channel_page" target="_blank">Give to Learn, Learn to Give: An Introduction to Givology</a> 
+<br>Watch our short introductory video about how Givology works and the students that we help</p>
+
+</p>
+
+<h2 style="border-bottom:1px dotted #666666;padding-bottom:5px;">Photojournals and Photo Albums</h2 style="border-bottom:1px dotted #666666;padding-bottom:5px;">
+
+<p><a href="http://www.50dollars.org" target="_blank" target="_blank">Givology's $50 Campaign for the Peace School (April 2010)</a>
+<br>What would you buy for $50? We asked this question to more than 150 kids in Uganda from rural villages to the sprawling capital city of Kampala. The kids responded with drawings of what they would buy if they had $50. From school fees and banana trees to iPhones and laptops, their drawings reveal so much about their aspirations
+and the obstacles they face. With attendance by the Permanent Mission of Uganda to United Nations,
+Uganda American Association of Greater New York, and Joanita Senoga,
+founder of the Circle of Peace School on opening night, the exhibition raised
+awareness for the Circle of Peace School and Uganda as a whole. This campaign was created by Jiashan Wu, artist/designer, in collaboration with Joyce Meng, founding CEO of Givology. 100% of the proceeds go to support the Peace School.
+
+<p><a href="http://www.wix.com/joycemeng/uganda2009" target="_blank" target="_blank">Givology at the Circle of Peace School in Uganda (Dec-Jan 2010)</a>
+<br>Givology's CEO Joyce Meng and volunteer Jiashan Wu traveled to visit the Circle of Peace School in Makindye Village of Uganda. Click above to view the detailed day-by-day blog entries, photos, and videos of their experiences. For any supporter of the Circle of Peace School, the above link provides a wealth of detailed information.</a> 
+
+<p><a href="http://jalbum.net/browse/user/album/287155/" target="_blank">Givology's NYC Launch at Marquee (August 2009)</a>
+<br>On August 15, 2009, Givology's NYC Chapter hosted a fundraiser at the Marquee Nightclub to raise funding in support of our students and projects. Click above to view the photos taken at the event, courtesy of <a href="http://www.benfranke.com" target="_blank">Ben Franke and Gabe Waxman.</a> 
+
+<p><a href="/static/photojournal_jamesliu.pdf" target="_blank">James Liu (December 2008) - Beijing, China</a>
+<br>You can read an online version of James's photojournal in our <a href="/~joycemeng/blog/38/">Notes from the Field</a>  
+
+<p><a href="https://www.givology.org/~joycemeng/blog/46/" target="_blank">Skye Gilbert (January 2009) - Anhui Province, China</a>
+<br>Click above to view the photojournal of Skye's reflections in visiting a school in a rural village of Anhui Province</p>
+
+</p>
+
+<h2 style="border-bottom:1px dotted #666666;padding-bottom:5px;">Givology Newsletters</h2 style="border-bottom:1px dotted #666666;padding-bottom:5px;">
+
+<p><a href="http://hosted-p0.vresp.com/593911/f523b7eece/ARCHIVE" target="_blank">January 2010 Newsletter</a>
+<br>Our January 2010 issue featured our New Year Resolutions and our 2009 Accomplishments!</p>
+
+{% endblock %}

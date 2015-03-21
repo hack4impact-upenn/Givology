@@ -1,0 +1,124 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+
+<div id="container" class="clearfix sidebar-right profile-listing">
+  <section role="main" id="content-main">
+    <h2 id="page-title">GIV to Students</h2>
+    <article>
+      <div class="article-content">
+        <p>Give the gift that keeps on giving! Individual student scholarships change lives. Even though our students come from difficult backgrounds, they share a common dream of finishing school and doing something better with their lives. Every dollar counts in helping us make tuition, uniforms, and textbooks affordable to our studies and their families. Even though our students may be across the globe, you can read their letters and send them a message that we translate.</p>
+      </div>
+    </article>
+    <section>
+      <h3 class="section-heading">Students</h3>
+      <section class="filters">
+        <form action="">
+        <div class="profile-search">
+          <label for="profile-search-text">Search for Students</label>
+          <input id="profile-search-text" type="text" name="name" value="{{name}}" />
+          <input type="submit" />
+        </div>
+        <div class="profile-sort">
+          <p>Showing <strong>{{numshown}}</strong> students of <strong>{{numresults}}</strong> students found by search</p>
+        </div>
+        <div class="profile-filter">
+          <select name="agegroup">
+            <option value="">Age Group</option>
+            {%for opt in agegroups%}
+            <option value="{{opt}}"{%ifequal opt agegroup%} selected="selected"{%endifequal%}>
+              {{opt}} years old
+            </option>
+            {%endfor%}
+          </select>
+          <select name="edulevel">
+            <option value="">Education Level</option>
+            {%for opt in edulevels%}
+            <option value="{{opt}}"{%ifequal opt edulevel%} selected="selected"{%endifequal%}>
+              {{opt}}
+            </option>
+            {%endfor%}
+          </select>
+          <select name="gender">
+            <option value="">Gender</option>
+            {%for opt in genders%}
+            <option value="{{opt}}"{%ifequal opt gender%} selected="selected"{%endifequal%}>
+              {{opt}}
+            </option>
+            {%endfor%}
+          </select>
+          <select name="country">
+            <option value="">Country</option>
+            {% for opt in countries %}
+            <option value="{{opt}}"{%ifequal opt country%} selected="selected"{%endifequal%}>
+              {{opt}}
+            </option>
+            {%endfor%}
+          </select>
+          <select name="province">
+            <option value="">Region</option>
+            {% for opt in provinces %}
+            <option value="{{opt}}"{%ifequal opt province%} selected="selected"{%endifequal%}>
+              {{opt}}
+            </option>
+            {%endfor%}
+          </select>
+          <select name="partner" style="width: 150px;">
+            <option value="">Partner Org.</option>
+            {% for opt in partners %}
+            <option value="{{opt}}"{%ifequal opt partner%} selected="selected"{%endifequal%}>
+              {{opt}}
+            </option>
+            {%endfor%}
+          </select>
+          {% if completions %}
+          <select name="completion">
+            <option value="">Funding Status</option>
+            {% for opt in completions %}
+            <option value="{{opt}}"{%ifequal opt completion%} selected="selected"{%endifequal%}>
+              {%if opt%}{{opt}}%{%endif%}
+            </option>
+            {%endfor%}
+          </select>
+          {% endif %}
+          <button type="submit" class="button">Search</button>
+        </div>
+        </form>
+      </section>
+
+      <section class="filter-results">
+        <h4>Your Results:</h4>
+      </section><!-- .results -->
+      
+      {% include 'widgets/giv-recipients-pagination-section.html' %}
+      
+      <ul class="profiles profiles-student">
+        <li>
+        {% for obj in results %}
+          <article>
+            <div class="profile-thumb">
+              <div class="profile-thumb-img" style="background: #e9e9e9 url('{{obj.picurl}}') no-repeat scroll center;"></div>
+            </div>
+            <h5 class="profile-title"><a href="{{obj.url}}">{{obj.name}}</a></h5>
+            <div class="subtitle">{{obj.location}}</div>
+            <div class="progress" data-needed="{{obj.grant_want}}" data-raised="{{obj.grant_have}}">
+            </div>
+            <div class="button-container">
+              <a href="{{obj.url}}" class="button button-cta structured">
+                <span>Giv Now</span>
+              </a>
+            </div>
+          </article>
+        {% endfor %}
+        </li>
+      </ul>
+      {% include 'widgets/giv-recipients-pagination-section.html' %}
+    </section>
+  </section>
+  
+  <aside>
+    {% include "giv/templates/widgets/recipient-search-add-wallet.html" %}
+    {% include "giv/templates/widgets/recipient-featured-listing.html" %}
+  </aside>
+</div>
+{% endblock %}

@@ -1,0 +1,439 @@
+{% extends "giv/templates/wrapper" %}
+
+{% block main %}
+
+
+<header>
+  <div class="inner">
+  <h1 id="logo"><a href="/">Givology - give to learn, learn to give</a></h1>
+  <div id="header-meta">
+  {% if user.username %}
+    <p style="font-size: 22px;">
+      Hi <b>{{user.username}}!</b>
+    </p>
+    <nav id="header-nav">
+      <ul>
+        <li>
+          <a href="/account/" class="button">Dashboard</a>
+        </li>
+        <li>
+          <form name="logoutform" method="POST" action="/logout/" style="display:inline;margin:0;padding:0;">
+            <input type="hidden" name="logaction" value="logout" />
+            <a href="javascript:document.logoutform.submit();" class="button">Logout</a>
+          </form>
+        </li>
+      </ul>
+    </nav>
+  {% else %}
+    <p>Make an impact on kids around the world.</p>
+    <nav id="header-nav">
+      <ul>
+        <li><a href="/register/" class="button button-cta">Join Today</a></li>
+        <li><a id="login" href="/login/" class="button">Login</a></li>
+      </ul>
+    </nav>
+  {% endif %}
+    <ul class="social">
+      <li><div class="fb-like" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false" data-href="http://givology.org"></div></li>
+      <li>
+        <div class="twitter-share">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://givology.org">Tweet</a>
+        </div>
+      </li>
+    </ul><!-- .social -->
+  </div>
+  </div>
+</header>
+
+<nav id="primary">
+  <ul>
+    <li {% ifequal choice0 'who-we-are' %}class="active"{% endifequal %}>
+      <a href="/who-we-are/">Who We Are</a>
+    </li>
+    <li {% ifequal choice0 'our-community' %}class="active"{% endifequal %}>
+      <a href="/our-community/">Our Community</a>
+    </li>
+    <li {% ifequal choice0 'giv-now' %}class="active"{% endifequal %}>
+      <a href="/giv-now/">GIV Now</a>
+    </li>
+    <li {% ifequal choice0 'get-involved' %}class="active"{% endifequal %}>
+      <a href="/get-involved/">Get Involved</a>
+    </li>
+    <li {% ifequal choice0 'blogs' %}class="active"{% endifequal %}>
+      <a href="/blogs/">Blogs</a>
+    </li>
+    <li {% ifequal choice0 'media' %}class="active"{% endifequal %}>
+      <a href="/giv-media/">Media</a>
+    </li>
+    <li {% ifequal choice0 'shop' %}class="active"{% endifequal %}>
+      <a href="/shop/">Shop</a>
+    </li>
+  </ul>
+  <div id="search"> <!-- style="width: 300px; height: 50px;"-->
+    <form action="http://www.google.com/cse" method="GET">
+<!-- attempting to mimic this query:
+http://www.google.com/cse?cx=011049783155794172906:uwuivzdvxfe&q=asdf&oq=asdf&gs_l=partner.3...192713.192926.0.193750.0.0.0.0.0.0.0.0..0.0.gsnos%2Cn%3D13..0.0.230j18158j4..1ac.#gsc.tab=0&gsc.q=asdf&gsc.page=1
+-->
+      <input type="hidden" name="cx" value="011049783155794172906:uwuivzdvxfe" />
+      <label for="s">Search</label>
+      <input name="q" id="s" type="text" class="text" />
+      <input type="submit" class="submit" value="Submit" />
+    </form>
+  </div><!-- #search -->
+</nav>
+
+{% ifequal choice0 'who-we-are' %}
+<nav id="secondary">
+  <ul>
+    <li {% ifequal choice1 'how-it-works' %}class="active"{% endifequal %}>
+      <a href="/who-we-are/how-it-works/">How Givology Works</a>
+    </li>
+    <li {% ifequal choice1 'mission-vision' %}class="active"{% endifequal %}>
+      <a href="/who-we-are/mission-vision/">Mission & Vision</a>
+    </li>
+    <li {% ifequal choice1 'board-of-directors' %}class="active"{% endifequal %}>
+      <a href="/who-we-are/board-of-directors/">Board of Directors</a>
+    </li>
+    <li {% ifequal choice1 'executive-team' %}class="active"{% endifequal %}>
+      <a href="/who-we-are/executive-team/">Executive Team</a>
+    </li>
+    <li {% ifequal choice1 'partnerships' %}class="active"{% endifequal %}>
+      <a href="/who-we-are/partnerships/">Partnerships</a>
+    </li>
+    <li {% ifequal choice1 'faq' %}class="active"{% endifequal %}>
+      <a href="/who-we-are/faq/">FAQ</a>
+    </li>
+    <li {% ifequal choice1 'contact-us' %}class="active"{% endifequal %}>
+      <a href="/who-we-are/contact-us/">Contact Us</a>
+    </li>
+  </ul>
+</nav>
+{% endifequal %}
+
+{% ifequal choice0 'our-community' %}
+<nav id="secondary">
+  <ul>
+    <li {% ifequal choice1 'our-donors' %}class="active"{% endifequal %}>
+      <a href="/our-community/our-donors/">Our Donors</a>
+    </li>
+    <li {% ifequal choice1 'field-partners' %}class="active"{% endifequal %}>
+      <a href="/our-community/field-partners/">Field Partners</a>
+    </li>
+    <li {% ifequal choice1 'giving-teams' %}class="active"{% endifequal %}>
+      <a href="/our-community/giving-teams/">Giving Teams</a>
+    </li>
+  </ul>
+</nav>
+{% endifequal %}
+
+{% ifequal choice0 'giv-now' %}
+<nav id="secondary">
+  <ul>
+    <li {% ifequal choice1 'giv-students' %}class="active"{% endifequal %}>
+      <a href="/giv-now/giv-students/">GIV to a Student</a>
+    </li>
+    <li {% ifequal choice1 'giv-projects' %}class="active"{% endifequal %}>
+      <a href="/giv-now/giv-projects/">GIV to a Project</a>
+    </li>
+    <li {% ifequal choice1 'giv-givology' %}class="active"{% endifequal %}>
+      <a href="/giv-now/giv-givology/">GIV to Givology</a>
+    </li>
+    <li {% ifequal choice1 'gift-certificates' %}class="active"{% endifequal %}>
+      <a href="/giv-now/gift-certificates/">GIV a Gift Certificate</a>
+    </li>
+  </ul>
+</nav>
+{% endifequal %}
+
+{% ifequal choice0 'get-involved' %}
+<nav id="secondary">
+  <ul>
+    <li {% ifequal choice1 'start-chapter' %}class="active"{% endifequal %}>
+      <a href="/get-involved/start-chapter/">Start a Chapter</a>
+    </li>
+    <li {% ifequal choice1 'volunteer' %}class="active"{% endifequal %}>
+      <a href="/get-involved/volunteer/">Volunteer</a>
+    </li>
+    <li {% ifequal choice1 'internships' %}class="active"{% endifequal %}>
+      <a href="/get-involved/internships/">Internships</a>
+    </li>
+    <li {% ifequal choice1 'fellowships' %}class="active"{% endifequal %}>
+      <a href="/get-involved/fellowships/">Fellowships</a>
+    </li>
+    <li {% ifequal choice1 'spread-the-word' %}class="active"{% endifequal %}>
+      <a href="/get-involved/spread-the-word/">Spread the Word</a>
+    </li>
+  </ul>
+</nav>
+{% endifequal %}
+
+{% ifequal choice0 'blogs' %}
+<nav id="secondary">
+  <ul>
+    <li {% ifequal choice1 'givology-blog' %}class="active"{% endifequal %}>
+      <a href="/blogs/">Givology News</a>
+    </li>
+    <li {% ifequal choice1 'givology-blog-notes' %}class="active"{% endifequal %}>
+      <a href="/blogs/notes-from-the-field/">Notes from the Field</a>
+    </li>
+    <li {% ifequal choice1 'givology-blog-students' %}class="active"{% endifequal %}>
+      <a href="/blogs/students">Student Updates</a>
+    </li>
+    <li {% ifequal choice1 'givology-blog-projects' %}class="active"{% endifequal %}>
+      <a href="/blogs/projects">Project Updates</a>
+    </li>
+    {% for choice1 in choice1s %}
+    <li class="active">
+      {% ifequal choice1.name 'givology-blog' %}
+      <a href="/blogs/">Givology's Blog</a>
+      {% else %}
+      <a href="/~{{choice1.uname}}/blog/">{{choice1.name}}'s Blog</a>
+      {% endifequal %}
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
+{% endifequal %}
+
+{% ifequal choice0 'media' %}
+<nav id="secondary">
+  <ul>
+    <li {% ifequal choice1 'photos' %}class="active"{% endifequal %}>
+      <a href="/giv-media/photos/">Photos</a>
+    </li>
+    <li {% ifequal choice1 'videos' %}class="active"{% endifequal %}>
+      <a href="/giv-media/videos/">Videos</a>
+    </li>
+    <li {% ifequal choice1 'press' %}class="active"{% endifequal %}>
+      <a href="/giv-media/press/">Press</a>
+    </li>
+    <li {% ifequal choice1 'annual-reports' %}class="active"{% endifequal %}>
+      <a href="/giv-media/annual-reports/">Annual Reports</a>
+    </li>
+  </ul>
+</nav>
+{% endifequal %}
+
+{% if user.username %}
+{% ifequal choice0 'dashboard' %}
+<nav id="secondary">
+  <ul>
+    <li {% ifequal choice1 'account' %}class="active"{% endifequal %}>
+      <a href="/account/">Account</a>
+    </li>
+    <li {% ifequal choice1 'blog' %}{% if user.is_staff %}class="active"{% endif %}{% endifequal %}>
+      <a href="{{user.get_profile.blog_url}}">My Blog</a>
+    </li>
+    <li>
+      <a href="{{user.get_profile.url}}">My Profile</a>
+    </li>
+    <li {% ifequal choice1 'edit' %}class="active"{% endifequal %}>
+      <a href="{{user.get_profile.edit_url}}">Edit Profile</a>
+    </li>
+    <li {% ifequal choice1 'inbox' %}class="active"{% endifequal %}>
+      <a href="{{user.get_profile.url}}inbox/">Inbox</a>
+    </li>
+    <li {% ifequal choice1 'outbox' %}class="active"{% endifequal %}>
+      <a href="{{user.get_profile.url}}outbox/">Outbox</a>
+    </li>
+  </ul>
+</nav>
+{% endifequal %}
+{% endif %}
+
+
+
+
+
+
+{% block mainbody %}
+
+		<div id="banner">
+			<ul class="clearfix">
+				<li>
+					<a href="http://givology.org/~eckborape/"><img width="169" height="378" src="http://staticcontent.givology.netdna-cdn.com/banner/banner-amcav.jpg" alt="Placeholder"></a>
+					<div class="student-meta">
+						<span class="profile-name"><a href="http://givology.org/~eckborape/">Educate Congolese Students</a></span>
+						<span class="profile-location">South Kivu, DRC</span>
+						<p class="profile-excerpt">Your contribution provides three months of full tuition to fifty stigmatized children (most born of sexual violence) at the Elimu Bora School in the Democratic Republic of Congo</p>
+						<h4 class="widget-title"><span>Grant Status</span> <span>$1000 needed</span></h4>
+						<div class="progress" data-needed="1000" data-raised="50" > </div>
+						<a href="http://givology.org/~eckborape/" class="button button-cta">GIV Now to this Project</a>
+					</div>
+				</li>
+				<li>
+					<a href="http://givology.org/~fvitraining/"><img width="169" height="378" src="http://staticcontent.givology.netdna-cdn.com/banner/banner-starfish.jpg" alt="Placeholder"></a>
+					<div class="student-meta">
+						<span class="profile-name"><a href="http://givology.org/~fvitraining/">Family Violence Training</a></span>
+						<span class="profile-location">Solala, Guatemala</span>
+						<p class="profile-excerpt">Young women in the Starfish program are breaking the glass ceiling by committing to mentoring and education for their future. Help support training programs to combat domestic violence</p>
+						<h4 class="widget-title"><span>Grant Status</span> <span>$1000 needed</span></h4>
+						<div class="progress" data-needed="1000" data-raised="1000"> </div>
+						<a href="http://givology.org/~fvitraining/" class="button button-cta">GIV Now to this Project</a>
+					</div>
+				</li>
+				<li>
+					<a href="http://www.givology.org/~yzfa/"><img width="169" height="378" src="http://staticcontent.givology.netdna-cdn.com/banner/banner-yang.jpg" alt="Placeholder"></a>
+					<div class="student-meta">
+						<span class="profile-name"><a href="http://www.givology.org/~yzfa/">Yang Zhe Fa</a></span>
+						<span class="profile-location">Yunnan, China</span>
+						<p class="profile-excerpt">Yang Zhe Fa ranks seventh in his class at Hong He School. He works very hard to maintain high grades so that he can make his family proud and support them in the future</p>
+						<h4 class="widget-title"><span>Grant Status</span> <span>$1250 needed</span></h4>
+						<div class="progress" data-needed="1200" data-raised="0"> </div>
+						<a href="http://www.givology.org/~yzfa/" class="button button-cta">GIV Now to this Student</a>
+					</div>
+				</li>
+				<li>
+					<a href="https://www.givology.org/~ase/"><img width="169" height="378" src="http://staticcontent.givology.netdna-cdn.com/banner/banner-abaarso.jpg" alt="Placeholder"></a>
+					<div class="student-meta">
+						<span class="profile-name"><a href="https://www.givology.org/~ase/">Instant Library through E-Readers</a></span>
+						<span class="profile-location">Woqooyi, Somaliland</span>
+						<p class="profile-excerpt">Abaarso is a non-profit boarding school in Northern Somalia. The kids love reading, and e-readers give them access to an instant library of thousands of books otherwise unavailable</p>
+						<h4 class="widget-title"><span>Grant Status</span> <span>$2500 needed</span></h4>
+						<div class="progress" data-needed="2500" data-raised="0"> </div>
+						<a href="https://www.givology.org/~ase/" class="button button-cta">GIV Now to this Project</a>
+					</div>
+				</li>
+			
+				<li>
+					<a href="http://www.givology.org/~tclassroom/"><img width="169" height="378" src="http://staticcontent.givology.netdna-cdn.com/banner/banner-camionarte.jpg" alt="Placeholder"></a>
+					<div class="student-meta">
+						<span class="profile-name"><a href="http://www.givology.org/~tclassroom/">Camion Arte!</a></span>
+						<span class="profile-location">Guanjato, Mexico</span>
+						<p class="profile-excerpt">Camion Arte brings a moving classroom of equipment and supplies into communities to hold workshops to connect communities and increase learning and interacting</p>
+						<h4 class="widget-title"><span>Grant Status</span> <span>$5000 needed</span></h4>
+						<div class="progress" data-needed="5000" data-raised="60"> </div>
+						<a href="http://www.givology.org/~tclassroom/" class="button button-cta">GIV Now to this Project</a>
+					</div>
+				</li>
+				<li>
+					<a href="https://www.givology.org/~sstationery1/"><img width="169" height="378" src="http://staticcontent.givology.netdna-cdn.com/banner/banner-umbrella.jpg" alt="Placeholder"></a>
+					<div class="student-meta">
+						<span class="profile-name"><a href="https://www.givology.org/~sstationery1/">School Stationary</a></span>
+						<span class="profile-location">Nepal</span>
+						<p class="profile-excerpt">The Umbrella Foundation helps young former victims of child trafficking reunite with their families and achieve their goals through education. School stationary enables their potential!</p>
+						<h4 class="widget-title"><span>Grant Status</span> <span>$655 needed</span></h4>
+						<div class="progress" data-needed="655" data-raised="0"> </div>
+						<a href="https://www.givology.org/~sstationery1/" class="button button-cta">GIV Now to this Project</a>
+					</div>
+				</li>
+
+				<li>
+					<a href="https://www.givology.org/~pfarm/"><img width="169" height="378" src="http://staticcontent.givology.netdna-cdn.com/banner/banner-poultry.jpg" alt="Placeholder"></a>
+					<div class="student-meta">
+						<span class="profile-name"><a href="https://www.givology.org/~pfarm/">Poultry Farm for the Peace School</a></span>
+						<span class="profile-location">Kampala, Uganda</span>
+						<p class="profile-excerpt">By purchasing hens and selling their eggs, the Peace School generates a sustainable revenue source to fund free and subsidized tuition for their students and supplement school lunch</p>
+						<h4 class="widget-title"><span>Grant Status</span> <span>$2900 needed</span></h4>
+						<div class="progress" data-needed="2900" data-raised="614"> </div>
+						<a href="https://www.givology.org/~pfarm/" class="button button-cta">GIV Now to this Project</a>
+					</div>
+				</li>
+
+				<li>
+					<a href="http://www.givology.org/~sfnstudents/"><img width="169" height="378" src="http://staticcontent.givology.netdna-cdn.com/banner/banner-naura.jpg" alt="Placeholder"></a>
+					<div class="student-meta">
+						<span class="profile-name"><a href="http://www.givology.org/~sfnstudents/">Supplies for Naura Students</a></span>
+						<span class="profile-location">Arusha, Tanzania</span>
+						<p class="profile-excerpt">Each year EfforTZ provides basic school supplies and materials that will enable children to participate more actively in learning. Your support help funds shipping costs for supplies</p>
+						<h4 class="widget-title"><span>Grant Status</span> <span>$600 needed</span></h4>
+						<div class="progress" data-needed="600" data-raised="205"> </div>
+						<a href="http://www.givology.org/~sfnstudents/" class="button button-cta">GIV Now to this Project</a>
+					</div>
+				</li>
+			
+				<li>
+					<a href="http://www.givology.org/~madams/"><img width="169" height="378" src="http://staticcontent.givology.netdna-cdn.com/banner/banner-maryadams.jpg" alt="Placeholder"></a>
+					<div class="student-meta">
+						<span class="profile-name"><a href="http://www.givology.org/~madams/">Mary Adams</a></span>
+						<span class="profile-location">Chikwawa, Malawi</span>
+						<p class="profile-excerpt">Mary is from the village of Ndakwera in rural Chikwawa. Despite being an orphan, she has excelled academically and wants to attend nursing school to help others</p>
+						<h4 class="widget-title"><span>Grant Status</span> <span>$1000 needed</span></h4>
+						<div class="progress" data-needed="1000" data-raised="70"> </div>
+						<a href="http://www.givology.org/~madams/" class="button button-cta">GIV Now to this Student</a>
+					</div>
+				</li>
+					<li>
+					<a href="http://www.givology.org/~ehpasgroup/"><img width="169" height="378" src="http://staticcontent.givology.netdna-cdn.com/banner/slot-5.jpg" alt="Placeholder"></a>
+					<div class="student-meta">
+						<span class="profile-name"><a href="http://www.givology.org/~ehpasgroup/">Emotional Health Project</a></span>
+						<span class="profile-location">Central Province, Sri Lanka</span>
+						<p class="profile-excerpt">The Emotional Health Project & Support Group aids students by offering somewhere to study and understand depression, anger, and addiction. The studies aid in recognizing these symptoms and having some basic strategies to cope with resulting feelings and problems.</p>
+						<h4 class="widget-title"><span>Grant Status</span> <span>$1060 needed</span></h4>
+						<div class="progress" data-needed="1060" data-raised="690"> </div>
+						<a href="http://www.givology.org/~ehpasgroup/" class="button button-cta">GIV Now to this Project</a>
+					</div>
+				</li>
+					<li>
+					<a href="http://www.givology.org/~ghavoice/"><img width="169" height="378" src="http://staticcontent.givology.netdna-cdn.com/banner/slot-10.jpg" alt="Placeholder"></a>
+					<div class="student-meta">
+						<span class="profile-name"><a href="http://www.givology.org/~ghavoice/">Give Her a Voice!</a></span>
+						<span class="profile-location">Solola, Guatemala</span>
+						<p class="profile-excerpt">Give Her a Voice is a project by Starfish One by One to aid in giving a strong voice to their students. They will conduct trainings on voice and resiliency to ensure all Starfish students, starting in 7thh grade, are able to use their voice, talents, and skills.</p>
+						<h4 class="widget-title"><span>Grant Status</span> <span>$500 needed</span></h4>
+						<div class="progress" data-needed="500" data-raised="500"> </div>
+						<a href="http://www.givology.org/~ghavoice/" class="button button-cta">GIV Now to this Project</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+
+
+
+		<div id="container" class="clearfix sidebar-right home"><div class="inner">
+			<section role="main" id="content-main">
+				<article>
+					<div class="article-content">
+						<h1>Givology is a P2P online giving marketplace, directly connecting donors to students and grassroots projects around the world. <strong>Give to learn. Learn to give.</strong></h1>
+					</div>
+				</article>
+				<div class="whats-new">
+					<h2>What's New from Givology</h2>
+					<ul>
+                                        {% for headline in headlines %}
+				          <li>
+					    <article>
+					      <div class="article-date">
+                                                <span class="article-date-day">
+                                                  {{headline.created_day_of_month}}
+                                                </span>
+                                                {{headline.created_month_caps}}
+                                                {{headline.created_year}}
+                                              </div>
+					    <h3 class="article-title"><a href="{{headline.url}}">{{headline.subject}}</a></h3>
+							</article>
+						</li>
+                                        {% endfor %}
+					</ul>
+					<a href="/blogs/" class="view-more">View More</a>
+				</div>
+			</section>
+
+			<aside>
+{% include "giv/templates/widgets/featured-recipients.html" %}
+			</aside>
+		</div></div>
+
+		<section id="total-impact">
+			<h3 class="section-heading">Total Impact So Far</h3>
+			<h4 class="total-impact-amount">${{impact.dollars}}</h4>
+			<ul>
+				<li><strong>{{impact.payments}}</strong> Donations</li>
+				<li><strong>{{impact.studs}}</strong>Students</li>
+				<li><strong>{{impact.projs}}</strong>Projects</li>
+				<li><strong>{{impact.volhours}}</strong>Volunteer Hrs.</li>
+				<li><strong>{{numdonors}}</strong>No. of Donors</li>
+			</ul>
+			<a href="/who-we-are/how-it-works/" class="button">Learn How It Works</a><a href="/giv-now/" class="button button-cta">Make a Donation Now</a>
+		</section>
+
+
+
+{% include "sub-support-givology.html" %}
+
+
+{% endblock %}
+
+{% endblock %}
+

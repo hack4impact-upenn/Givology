@@ -1,0 +1,13 @@
+<html>
+<head>
+<title> Redirecting... </title>
+<meta http-equiv="REFRESH" content="{% if mesg %} 5 {% else %} 0 {% endif %};url={{ destination }}"> </meta>
+</head>
+<body>
+<div align="center">
+<div style="height:25%"></div>
+<!--<img src="/images/logo.png"><br />-->
+<p style="font-family:Arial;font-size:12px"> {% if mesg %} {{ mesg }} {% else %} <b>Redirecting...</b> {% endif %}</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+
+<head>
+
+<!--
+{% if imageappend %}
+	<script type="text/javascript">
+		function addtext() {
+			top.content.document.getElementById("composeform").body.value += "{{imageappend}}";
+		}
+	</script>
+{% endif %}
+-->
+</head>
+
+<body style="font-size: 12px;">
+
+<form method="post"
+      action="/composeimg/"
+      enctype="multipart/form-data"
+      name="imguploader">
+	<input type="hidden" name="images" value="{{images_h}}" />
+	<span style="font-size: 20px;">
+		Image Uploader
+	</span><br />
+	<div style="font-size: 10px;">	
+	<br />
+	{% for image in images %}
+		&lt;img src="{{image}}"&gt;<br />
+	{% endfor %}
+	<br />
+	</div>
+	Add an image:<br />
+	<input type="file" name="image" size="10" /><br />
+	Resize Width: <input type="text" name="resize_x" value="{{resize_x}}" size="4" /><br />
+	Resize Height: <input type="text" name="resize_y" value="{{resize_y}}" size="4" /><br />
+	<input type="submit" value="Upload" /><br />
+	<ol>
+		<li>
+
+			Upload an image (.jpg only at the moment) using the small form
+			above.
+
+		</li>
+		<li>
+
+			Html for the image will appear above.
+
+		</li>
+		<li>
+
+			Copy the Html to your composition on the left. When you preview,
+			it will appear. Images wider than 600 pixels or taller than 1000
+			pixels will be resized (and you can set it to resize smaller
+			than that by editing the values above).
+
+		</li>
+		<li>
+
+			If you upload another image, the second image's Html will appear
+			below the first's, so both snippets will be available.
+
+		</li>
+	</ol>	
+</form>
+
+</body>
+
+</html>

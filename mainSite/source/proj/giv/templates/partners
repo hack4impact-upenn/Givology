@@ -1,0 +1,171 @@
+{% extends "giv/templates/about" %}
+
+{% block mainbody %}
+
+<div style="float: left; width: 100%;">
+</div>
+
+
+<div style="float:left;width:28%;margin-right:10px">
+    {% include "giv/templates/curveboxbegin" %}
+    <h1>Our Partners</h1>
+    <p>
+      <a href="/partners/beijingwesternsunshine/">Beijing Western Sunshine Rural Development Foundation</a><br>
+	  <a href="/partners/freethechildren/">Free the Children</a><br>
+	  <a href="/partners/phelex/">Phelex Foundation</a><br>
+      <a href="/partners/peach/">Peach Foundation</a><br>
+      <a href="/partners/zhuhai/">Zhuhai Charity Foundation</a><br>	  
+    </p>
+    {% include "giv/templates/curveboxend" %}
+
+    <div style="padding-top:10px">
+      <b class="greenbox">
+      <b class="greenbox1"><b></b></b>
+      <b class="greenbox2"><b></b></b>
+      <b class="greenbox3"></b>
+      <b class="greenbox4"></b>
+      <b class="greenbox5"></b></b>
+
+      <div class="greenboxfg" style="font-size: 90%">
+        <h1>Partnerships in Progress</h1>
+        <p>
+          <a href="/partners/asha/">Asha For Education</a>
+        </p>
+      </div>
+
+      <b class="greenbox">
+      <b class="greenbox5"></b>
+      <b class="greenbox4"></b>
+      <b class="greenbox3"></b>
+      <b class="greenbox2"><b></b></b>
+      <b class="greenbox1"><b></b></b></b>
+    </div>
+</div>
+
+
+
+{% if not name %}
+
+<p style="font-weight:"><b>Givology's partner organizations are the true engines behind our operations. </b>Sharing a common vision, our partners deliver funding to students and education projects worldwide, as well as monitor progress.<br><br>Prior to accepting interested parties as field partners, Givology conducts careful due diligence to validate their credentials and the execution of their previous charitable endeavors. Additional information on the criterion for partner selection can be found <a href="/partnerships/">here</a>. To learn more about our partners, click on their name. </p></div>
+{% endif %}
+
+{% ifequal name "phelex" %}
+<h1>Phelex Foundation</h1>
+<p><img src="/images/logo_phelex.gif"><br />
+<a href="http://www.phelex.com">www.phelex.com</a></p>
+
+<p><b>Description</b>:The Phelex Foundation is a 501(c)(3) operating charity based in Massachusetts, the United States. Founded in 1995 by a group of Boston-area residents, the foundation actively promotes basic education for financially, socially or physically disadvantaged children in the poverty-stricken regions of rural Asia. It focuses on establishing self-sustainable funding sources through school operated work-study programs, educational partnerships, communal participation and volunteerism. The Phelex Foundation has three operating divisions:</p>
+
+<ul style="font-size:90%">
+  <li>The Phelex Sustainable Tuition Aid Program (1995)</li>
+  <li>The Phelex Institute for the Study of Rural Education (2000)</li>
+  <li>International Youth Urban-suburban Cross-cultural Exchange (2003)</li>
+</ul>
+
+<p><b>Interactions with Givology</b>: Recently, Phelex has been working hard in Sichuan, China to partner up with national organizations such as the China Foundation for the Handicapped and the Beijing Foundation of Youth Development to track all children affected by the earthquake. Phelex posts individual student profiles from sponsored schools, as well as sustainable tuition projects from Sichuan and other parts of China. For areas without a computer or Internet, Phelex always donates a computer to their partner schools, hence providing an easy method for teachers and students to maintain communication with Givology. </p>
+{% endifequal %}
+
+{% ifequal name "peach" %}
+<h1>Peach Foundation</h1>
+<p><img src="/images/logo_peach.gif"><br />
+<a href="http://www.PeachFoundationUSA.org">www.PeachFoundationUSA.org</a></p>
+
+<p><b>Description</b>: Peach stands for Promoting Education, Art, and Community Harvest. Created by a group of U.S. citizens in 2001, Peach Foundation is a California non-profit organization with no political or religious affiliations. The Peach Foundation was formed to help children from the poorest parts of China obtain an opportunity to complete a college education. The Foundation makes arrangement with local regions to elect qualified teachers, who are then entrusted to recommend students based on financial need and academic potential. After a stringent evaluation process, selected students will receive financial assistance directly in the form of a scholarship. The teachers from the local regions are responsible for communicating with the Peach Foundation and for handling matters related to this task. Each year, appointed volunteers representing the Foundation will travel to various regions in China at their own expense to evaluate the program. Since 2002, Peach has also published its own annual reports that summarize their progress.</p>
+
+<p><b>Interactions with Givology</b>: Givology and PEACH are very complementary, as one offers a platform for expansion and visibility for the other. Together, we work to fund an increasingly large base of students in China. PEACH has offered an initial twenty student profiles of $250.00 in requested donation per child, and maintains regular visits to track the progress of the student. </p>
+{% endifequal %}
+
+{% ifequal name "zhuhai" %}
+<h1>Zhuhai Charity Foundation</h1>
+<p><a href="http://www.zhcsh.org.cn/index.asp">www.zhcsh.org.cn/index.asp</a></p>
+
+<p><b>Description:</b> Through Zhuhai Charity Federation, we team up with Ahelp, a non-profit NGO found in 2004 focusing on helping education for low-income students that channel funds through the school. The Zhuhai Charity Foundation was established on October 30, 2003. It focuses very broadly on helping organizations and constituents alleviate poverty through channeling donations, especially post-disasters.Zhuhai Charity Foundation works in primarily to "help overcome educational obstacles," "save orphans," "cover medical fees," "save the poor," and "save the handicapped" (translated). On the other hand, Ahelp sets up projects for schools and children, specifically. In the past, it has helped build over forty libraries for schools and mobilized visits to 600 villages and 6,000 student families in 3 provinces. In total, it has delivered over two million yuan delivered to schools and students. It has:</p>
+
+<ul style="font-size:90%">
+    <li>Over 80,00 forum members worldwide</li>
+    <li>Over 500 volunteers worldwide</li>
+    <li>Over 1000 donors worldwide</li>
+</ul>
+
+<p><b>Interactions with Givology:</b> Givology works with Zhuhai Charity Federation, a working partner of Ahelp, to assist the schools and student populations in rural Southern China. The actual volunteers and information collected for our site are primarily associated with Ahelp.</p>
+{% endifequal %}
+
+{% ifequal name "ahelp" %}
+<!--
+<h1>Ahelp</h1>
+<p><img src="/images/logo_ahelp.gif"><br />
+<a href="http://www.Ahelp.cn">www.Ahelp.cn</a></p>
+
+<p><b>Description</b>: Ahelp was founded in 2004 in China. It is a non-profit NGO focusing on helping education for low-income students that channel funds through the school. Serving as a bridge between donors and children in need, it has had a track record of helping over 2,200 children obtain long-term education from middle through high school (with a focus on high school tuition fees due to Nine Year Compulsory Education Act in China). Ahelp also sets up projects for its schools. In the past, it has helped build over forty libraries for schools and mobilized visits to 600 villages and 6,000 student families in 3 provinces. In total, it has delivered over two million Yuan delivered to schools and students. Some numbers that it reports:</p>
+
+<ul style="font-size:90%">
+  <li>Over 8000 forum members worldwide</li>
+  <li>Over 500 volunteers worldwide</li>
+  <li>Over 1000 donors worldwide</li>
+</ul>
+
+<p><b>Interactions with Givology</b>: Givology and Ahelp are testing a partnership, mainly through sharing web resources and student information. As all of Ahelp's operations are in Chinese and its current population of supporters are solely Chinese, Givology aims to become the international arm of Ahelp. Ahelp's methodologies of collecting information and displaying it to potential donors on a blog-like site closely parallel that of Givology's. Going forward, Ahelp will direct traffic to Givology for an increasingly larger number of student profiles. For Givology users, Ahelp's link will also be available.</p>
+-->
+{% endifequal %}
+
+{% ifequal name "beijingwesternsunshine" %}
+<h1>Beijing Western Sunshine Rural Development Foundation</h1>
+<p><img src="/images/logo_wesac.gif"><br />
+<a href="http://www.westsa.org/cn/">www.westsa.org/cn/</a></p>
+
+<p><b>Description</b>: From 1998-2002, this Foundation's founder traveled on bicycle to survey villages across China and report on their quality of education. In 2003, it began its operations in reaching out to the rural village leaders and setting up a donations system. In 2006, it became the only purely bottom-up grassroots non-governmental organization recognized by the government as a potential driving force behind educational issues in China. Its missions are:</p>
+
+<ul style="font-size:90%">
+  <li>To raise awareness about the lack of attention given to the Western regions of China</li>
+  <li>Expand the volunteer base that goes to villages to collect information</li>
+  <li>To coordinate efforts to help children in China by posting profiles and publicizing information found in village visits</li>
+  <li>Begin newsletter and publications frequently</li>
+</ul>
+
+<p><b>Interactions with Givology</b>: Givology is currently sponsoring a variety of projects by the Beijing Western Sunshine Rural Development Foundation, which are innovative, community-driven initiatives.</p>
+{% endifequal %}
+
+{% ifequal name "asha" %}
+<h1>Asha for Education</h1>
+<p><img src="/images/logo_asha.png"><br />
+<a href="http://www.ashanet.org/philadelphia/">www.ashanet.org/philadelphia/</a></p>
+
+<p><b>Description</b>: Asha for Education is an all-volunteer worldwide non-profit organization that works to provide basic education to underprivileged children in India. Since it's inception in 1991, Asha has raised over $4,000,000 and has directly supported 385 projects in 24 states benefiting thousands of children in India.</p>
+<p>The Asha Philadelphia chapter was founded in the Summer of 2001 with the purpose of supporting and catalyzing socioeconomic change through the promotion of basic education in India. By raising financial resources and awareness on campuses and in the greater Philadelphia community, Asha Philadelphia has funded educational projects that have improved the lives of Indian children.</p> 
+<p>Donations to Asha for Education are tax-deductible under section 501(c)(3) of the IRS Tax Code. Asha strengths including its decentralized structure, volunteer spirit and commitment to minimal overhead has resulted in a 4-star rating from Charity Navigator. The projects that the Asha Philadelphia chapter are currently sponsoring include:</p> 
+<ul style="font-size:90%">
+  <li><b>Aasra Sewa Sansthan</b>: Asha works with Aasra Sewa Sansthan to bring education to the children of the marginalized communities in the village near Varanasi. The main goal is to facilitate the social progress of the marginalized communities in Varanasi by providing access to education. At present this community deprived access to education. Secondary goals are to make the community free of intoxicants and end the practice of child marriage.</li>
+  <li><b>Asha Samajik Vidyalaya</b>: Asha Samajik Vidyalaya was started in December 2005 by an Asha volunteer with the objective of initiating the process of education among the Mushar and Chamar communities in a tola (hamlet) called Gonwara, in Samastipur district, Bihar. These Dalit communities are landless and most of them including children below the age of 14 work in brick kilns. Total population of this tola is about 300. The major issues are untouchability, exploitation, poverty, illiteracy and consequent lack of awareness. This project has identified education as one of the ways to empower these communities and bring them into the mainstream of society.</li>
+
+</ul>
+
+<p><b>Interactions with Givology</b>: Givology is currently working on details of our partnership with Asha for Education. Check back for project postings!</p>
+{% endifequal %}
+
+{% ifequal name "freethechildren" %}
+<h1>Free the Children</h1>
+<p><img src="/images/logo_freethechildren.gif"><br />
+<a href="http://www.freethechildren.com/index.php">http://www.freethechildren.com/</a></p>
+
+<p><b>Description</b>: Free The Children is the world's largest network of children helping children through education, with more than one million youth involved in our innovative education and development programs in 45 countries. Founded in 1995 by international child rights activist Craig Kielburger, Free The Children has a proven track record of success. The organization has received the World's Children's Prize for the Rights of the Child (also known as the Children's Nobel Prize), the Human Rights Award from the World Association of Non-Governmental Organizations, and has formed successful partnerships with leading school boards and Oprah's Angel Network.</p>
+<p>The primary goals of the organization are to free children from poverty and exploitation and free young people from the notion that they are powerless to affect positive change in the world. Through domestic empowerment programs and leadership training, Free The Children inspires young people to develop as socially conscious global citizens and become agents of change for their peers around the world.</p>
+<p>To date, Free the Children has accomplished the following milestones:</p>
+<ul style="font-size:90%">
+  <li>Built more than 500 schools-providing education to more than 50,000 children every day</li>
+  <li>Established Youth in Action groups in more than 1,000 schools across the United States and Canada, engaging more than 20,000 young people in total</li>
+  <li>Distributed more than 207,500 school and health kits sent to children in need</li>
+  <li>Reached more than 350,000 across North America through motivational speaking tours</li>
+  <li>Shipped more than $15 million US worth of medical supplies and built health care centers, impacting the lives of more than 512,500 people around the world</li>
+  <li>Developed an efficient administrative model that allows 91 cents of every donated dollar to go to programs that directly benefit children</li>
+  <li>Equipped 23,500 women to be economically self-sufficient</li>
+  <li>Improved access to clean water and sanitation for 138,500 people</li>
+</ul>
+
+<p><b>Interactions with Givology</b>: Givology is currently sponsoring the education initiatives of Free the Children's Adopt a Village program. Adopt a Village is Free The Children's unique holistic development program that supports four aspects of community development (Education, Healthcare, Alternative Income, and Water and Sanitation). Through this multi-faceted approach, children and their families are truly empowered to break out of poverty.</p>
+{% endifequal %}
+
+</div>
+
+
+{% endblock %}
+

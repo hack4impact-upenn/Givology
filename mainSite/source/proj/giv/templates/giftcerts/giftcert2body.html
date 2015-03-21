@@ -1,0 +1,63 @@
+<table width="700" height="400" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+			<img src="http://www.givology.org/images/giftcerts/giftcert02_01.jpg" width="360" height="155" alt=""></td>
+		<td>
+			<img src="http://www.givology.org/images/giftcerts/giftcert02_02.jpg" width="289" height="155" alt=""></td>
+		<td>
+			<img src="http://www.givology.org/images/giftcerts/giftcert02_03.jpg" width="51" height="155" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="http://www.givology.org/images/giftcerts/giftcert02_04.jpg" width="360" height="196" alt=""></td>
+		<td>
+        <div style="background-color:#000;width:289px;height:196px;font-family:Arial, Helvetica, sans-serif;font-size:x-small;color:#FFF;overflow:hidden;">
+                    <div style="font-weight:bold;margin-bottom:8px;">
+        {% if bmesg %}
+			{{bmesg}}
+		{% else %}
+			<span id="gcbody2"></span>{% comment %}
+				this is replaced with the body of the message by javascript
+			{% endcomment %}
+		{% endif %}
+        </div>
+        Dear {%if name%}{{name}}{%else%}
+				<span id="gcname2"></span>{%endif%},
+
+			you have received a <span style="font-weight:bold;
+			color:#497912">Givology.org</span> gift certificate
+			from <a href="http://www.givology.org/~{{fromu}}/"
+			style="color:#497912"> {{from}} </a> in the amount of
+			
+			${%if amount%}{{amount}}{%else%}
+				<span id="gcamount2"></span>{%endif%}.
+			
+			To learn more about
+			Givology, <a href="http://www.givology.org/about/"
+			style="color:#497912">click here</a>. To register and start
+			helping young students all over the
+			world, <a href="http://www.givology.org/register/"
+			style="color:#497912">click here</a>. Once you have registered,
+			you can accept your gift certificate by
+			<a href="http://www.givology.org/giv-now/gift-certificates/"
+			style="color:#497912"> clicking here </a> and entering the
+			confirmation key!
+            <div style="font-weight:bold;color:#497912;margin-top:5px;font-size:small;">
+			Confirmation Key: {% if code %}{{code}}{% else %}
+				<br />(number will go here){% endif %} 
+            </div>
+          </div>
+            </td>
+		<td><img src="http://www.givology.org/images/giftcerts/giftcert02_06.jpg" width="51" height="196" alt="">
+        </td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="http://www.givology.org/images/giftcerts/giftcert02_07.jpg" width="360" height="49" alt=""></td>
+		<td>
+			<img src="http://www.givology.org/images/giftcerts/giftcert02_08.jpg" width="289" height="49" alt=""></td>
+		<td>
+			<img src="http://www.givology.org/images/giftcerts/giftcert02_09.jpg" width="51" height="49" alt=""></td>
+	</tr>
+</table>

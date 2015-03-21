@@ -1,0 +1,53 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+
+<h1>Fellowships</h1>
+
+<div style="width:360px;float:right">
+<img src="/images/fellowships2.png" style="margin:0;padding:0;">
+</div>
+
+<p><b><a href="/static/givology_fellowship.pdf">Download our Fellowship Program Overview</b></a>
+<p><b><a href="/static/fellowship_application.doc">Download our Fellowship Program Application</b></a>
+<p><b><a href="https://www.givology.org/~joycemeng/blog/180/">Click here to view our past and present Givology fellows</a></b>, as well as read their writings and view their inspiring photos and videos from their world travels.</p>
+
+<p>Are you studying abroad and looking for an opportunity to be involved in rural education research? Or, are you interested in traveling during the summer or winter to visit villages and schools? </p>
+
+<p>Each year, Givology sends a group of research fellows to sites around the globe as part of its ongoing efforts to raise awareness about rural education issues. These fellows serve as our contacts in the field, interacting with the students and teachers who motivate our work.  They are able to witness first-hand the impact of Givology donations and document this impact to transmit to our donors. Through their work, our fellows not only visually show Internet donors the impact of their donations on students' lives but also aid in the process of monitoring the progress and work of our partner organizations. To read the journals of our past fellows, visit our <a href="http://www.givology.org/fellowships/">Notes from the Field</a>blog.</p>
+
+<p>Field fellows are  either:</p>
+<ul style="font-size:100%">
+<li><b>Assigned to a partner organization</b>. Field Fellows work closely with a Givology-affiliated partner NGO or school, as well as provide monitoring and feedback of sponsored projects and students.</li> 
+<p><li><b>Commissioned for an independent research project relating to access to and quality of education</b>. Fellows make their own arrangements, but contribute to Givology's field blog by providing insights and information to our blog, which is shared with our donor community.  Fellows also have the opportunity to contribute to Givology's future partner selection process.</li></p>
+</ul>
+
+<p>The time frame for the fellowship program is flexible. Fellowships with a specific partner organization assignment have a minimum of <b>three weeks</b>, while the independent research project is more flexible. Applications are accepted on a rolling basis. All completed applications should be sent to <a href="mailto:info@givology.org">info@givology.org</a>.</p>     
+
+<p>The fellowship is an <b>unpaid, volunteer-based</b> position designed to increase Givology's impact, promote the flow of information, and offer participants a hands-on experience in supporting education initiatives abroad. A small within-country travel and subsistence stipend may be available, depending on the arrangement with the partner or the research project.</p> 
+
+<h2>Application Process</h2>
+
+<p><b><a href="/static/givology_fellowship.pdf">Please download a copy of our Fellowship Program Overview</b></a> for additional details and description of responsabilities.</p>
+
+<ol style="font-size:100%">
+<li>Complete our <a href="/static/fellowship_application.doc"><b>Fellowship Application</b></a></li>
+<li>Submit the application, along with your <b>resume</b> and <b>cover letter</b> to <a href="mailto:info@givology.org">info@givology.org</a>.</li>
+<li>A Givology team member will contact you for a short interview to discuss your interests and placement preferences</li>
+<li>Pre-fellowship logistical arrangements will be made, along with optional training sessions held on the web or in various cities in the United States (NYC, Philadelphia, Washington DC) </li>
+<li>After the fellowship, a post-fellowship meeting and recap will be held</li>
+
+</ol>
+
+<p>Givology seeks applicants who are:</p>
+<ul style="font-size:90%">
+  <li>Highly motivated </li>
+  <li>Good at working independently and taking the initiative </li>
+  <li>Have a pioneering and creative mind </li>
+  <li>Committed, responsible, and open-minded </li>
+  <li>Have an understanding of, and a desire to learn about education in developing countries</li>
+  <li>Able to work and communicate effectively in a timely fashion </li>
+  <li>At least 15 years of age </li>
+</ul>
+
+{% endblock %}

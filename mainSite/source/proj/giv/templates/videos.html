@@ -1,0 +1,113 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+
+
+		<div id="container" class="media-videos">
+			<h2 id="page-title">Videos</h2>
+                        <h3 style="text-align: center" id="IE_warning"></h3>
+			<section role="main" id="content-main">
+				<nav class="media-filter">
+					<h3>Category</h3>
+					<ul>
+						<li class="active"><a href="#">All</a></li>
+					</ul>
+				</nav>
+				<ul class="media-items" id="videos_list">
+				</ul>
+                                <h3 style="text-align: center" id="youtube_link"></h3>
+			</section>
+		</div>
+
+                <div id="modal-video" class="modal">
+		  <div class="modal-content">
+                    <iframe id="modal-iframe"></iframe>
+                    <p id="modal-title"></p>
+                    <p id="modal-meta"></p>
+                  </div>
+		</div>
+
+                <script src="/static/util.js"></script>
+                <script type="text/javascript">
+                if (navigator.appName === "Microsoft Internet Explorer") {
+                  $("#content-main").remove();
+                  $("#page-title").remove();
+                  $("#IE_warning").append(
+                          'Sorry, feature is currently not compatible with Internet Explorer.'
+                        + '  Please check out our '
+                        + '<a href="http://www.youtube.com/user/givology">youtube page</a>!').css('margin-top', '5%');
+               }
+               else {
+                   $("#youtube_link").append(
+                         'See more at our '
+                       + '<a href="http://www.youtube.com/user/givology" target="_blank">youtube page</a>!');
+                  $.getJSON("https://gdata.youtube.com/feeds/api/users/givology/uploads/?",
+                    {
+                      v: "2",
+                      alt: "json"
+                    },
+                    function(data) {
+                      $.each(data.feed.entry, function(i,item) {
+
+                         media_group = item['media$group'];
+
+                         images = media_group['media$thumbnail'].filter(
+                                         function(o) {
+                                             return(o['yt$name'] == "middle");
+                                         });
+                         image_url = "http://placehold.it/148x83.jpg";
+                         if (images.length > 0) {
+                             image_url = images[0].url;
+                         }
+
+                         title = shorten_string(media_group['media$title']['$t'], 40);
+                         id    = media_group['yt$videoid']['$t'];
+
+                         view_count = item['yt$statistics'].viewCount;
+
+                         html = (   '<li><article><span class="media-thumb">'
+                                  + '<a href="#" data-vidID="' + id
+                                  + '"><img src="' + image_url
+                                  + '" alt="' + title
+                                  + '"></a></span>'
+                                  + '<span class="media-title"><a href="#" data-vidID="' + id
+                                  + '">' + title
+                                  + '</a></span><span class="media-meta">'
+                                  + view_count + ' Views</span></article></li>');
+
+                         //$('#test_stuff').append('<li>' + image_url + ' ' + title + ' ' + id +  '</li>');
+                         $('#videos_list').append(html);
+
+                         if (i == 15) { return false; }
+                      } );
+                    }).success(function() {
+                         $('.media-videos .media-items img').each(function(e){
+                            var that = this;
+                            var set_id = $(that).attr('set_id');
+                             $(this).css('width', 'auto')
+                                    .css('margin-left', 'auto')
+                                    .css('margin-right', 'auto')
+                                    .css('padding-left', 'auto')
+                                    .css('padding-right', 'auto');
+                           } );
+	             
+                  
+                          //C+P from LightBringer's siteFunctions.js
+                          $('.media-videos .media-items a').click(function(e){
+	 	              e.preventDefault();
+
+                    	      $('#modal-iframe').attr('src','http://www.youtube.com/embed/' + $(this).attr('data-vidID') + '?wmode=opaque');
+                              $('#modal-title').text($(this).closest('article').find('.media-title').text());
+                              $('#modal-meta').text($(this).closest('article').find('.media-meta').text());
+
+                              $('#modal-overlay').fadeIn(500,function(){
+                                  $('#modal-video').fadeIn().css('margin-top', -( Math.round( $('#modal-video').height() / 2) ));
+                              });
+	               });
+                  });
+               }               
+                </script>
+
+
+
+{% endblock %}
