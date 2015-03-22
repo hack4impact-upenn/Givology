@@ -8,15 +8,16 @@
 
 
 <body>
+
+  <div id="sectionInfo">
   {% for result in results %} 
       {{result.my_given}}
+      ***{{result.picurl57}} /
+      <img src='../..{{result.picurl57}}'>
+      <span class="profile-name"><a href="{{result.url}}">{{result.name}}</a></span>
     {% endfor %}
 
   {{total}}
 
-
-  <div id="sectionInfo">
-
   </div>
 </body>
-

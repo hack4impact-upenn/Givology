@@ -3013,6 +3013,10 @@ def impact(request, user, profile, obj):
             in pgs)
            ]
 
+
+    print time.clock()
+
+
     total = 0;
 
     recs = [r.profile.summary() for r in recs]

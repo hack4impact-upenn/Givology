@@ -1,7 +1,6 @@
 config
-source/proj/images/user
+mainSite/source/proj/images/user
 cathy_backup.sql
-giv
 *.pyc
 *.pyc
 
