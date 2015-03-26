@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="/static/impact_temp.css">
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="/static/impact_temp.js"></script>
+
+
+<body>
+
+  <div id="sectionInfo">
+  {% for result in results %} 
+      {{result.my_given}}
+      ***{{result.picurl57}} /
+      <img src='../..{{result.picurl57}}'>
+      <span class="profile-name"><a href="{{result.url}}">{{result.name}}</a></span>
+    {% endfor %}
+
+  {{total}}
+
+  </div>
+</body>

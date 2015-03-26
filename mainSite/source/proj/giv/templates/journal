@@ -1,0 +1,36 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+    
+    {% include "giv/templates/blogtitles" %}
+	 
+    <div style="float: right; width: 660px;">
+    <div style="width:95%; margin-bottom:20px; border-bottom: 1px dotted #666666;font-size: 24px; font-weight:bold; color:#417fc5; padding:5px;"> <img src="../../images/journ_news.png" > News</div>
+    <div style="width:100%;padding-bottom:20px; overflow:hidden;">
+	{% for post in posts %}
+		{% include "blogpost" %}
+    {% endfor %}
+	</div>
+
+    <div style="width:95%; margin-bottom:20px; border-bottom: 1px dotted #666666;font-size: 24px; font-weight:bold; color:#417fc5; padding:5px;"> <img src="../../images/journ_supd.png">Student Updates</div>
+    <div style="width:100%;padding-bottom:20px; overflow:hidden;">
+    	{% for post in posts %}
+		{% include "blogpost" %}
+    {% endfor %}
+    </div>
+    
+       <div style="width:95%; margin-bottom:20px; border-bottom: 1px dotted #666666;font-size: 24px; font-weight:bold; color:#417fc5; padding:5px;"><img src="../../images/journ_pupd.png">Project Updates</div>
+    <div style="width:100%; padding-bottom:20px; overflow:hidden;">
+    	{% for post in posts %}
+		{% include "blogpost" %}
+    {% endfor %}
+    </div>
+    
+       <div style="width:95%; margin-bottom:20px; border-bottom: 1px dotted #666666;font-size: 24px; font-weight:bold; color:#417fc5; padding:5px;"><img src="../../images/journ_notes.png">Notes from the Field</div>
+    <div style="width:100%;padding-bottom:20px; overflow:hidden;">
+    	{% for post in posts %}
+		{% include "blogpost" %}
+    {% endfor %}
+    </div>
+    
+{% endblock %}

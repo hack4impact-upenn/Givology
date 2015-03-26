@@ -1,0 +1,54 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+
+		<div id="container" class="clearfix sidebar-right annual-reports">
+			<section role="main" id="content-main">
+				<h2 id="page-title">Annual Reports</h2>
+				<article>
+					<div class="article-content">
+						<p>Since our launch in 2008, we have grown substantially as an organization. Each year brings new milestones, discoveries, fresh ideas, and new people into our network. Download our annual reports to learn more about our progress and our impact around the world.  </p>
+						<ul>
+						
+						<li><a href="/static/givology_2013_annual.pdf">Givology 2012-2013: Year in Review</a></li>
+							<p><b>Summary</b>: . In our five years of operations ended 9/30/2013, we have raised approximately $381,000 to support over 3,677 students in 28 different countries through 48 grassroots partners. Our organization has 8,600+ supporters on Facebook, Linked-in, and Twitter, 7,000+ registered donors, 19 chapters started at universities, high schools, and various cities, 35 core team members and over 100+ volunteers globally. This year, we were very excited to be featured in Forbes Magazine (30 under 30 in Education), and by the Philadelphia 76ers as an innovative non-profit in the community.
+							
+							<li><a href="/static/givology_2012_annual.pdf">Givology 2011-2012: Year in Review</a></li>
+							<p><b>Summary</b>: As of September 30, 2012, Givology has raised approximately $310,000 to support over 3,130 students in 26 different countries through 48 grassroots partners. Our organization has 6,000+ supporters on Facebook, Linked-in, and Twitter, 3,300+ registered donors, 16 chapters started at universities, high schools, and various cities, 30 core team members and 90 volunteers globally. Highlights of the year included: launching a newly re-designed Givology 3.0 website, raising awareness for our cause through our "Education Gives" campaign, receiving the 2012 Great Non-Profits "Top Rated Non-Profit" Award, growing our membership base and partnership network organically, and publishing our book <a href="http://www.amazon.com/A-Guide-to-Giving-ebook/dp/B00B46UV5I">"A Guide to Giving"</a> (available on Amazon). </p>
+							
+							
+							<li><a href="/static/givology_2011_annual.pdf">Givology 2010-2011: Year in Review</a></li>
+							<p><b>Summary</b>: In our three years of operations, Givology has raised approximately $220,000 to support over 2,875 students in 23 different countries through 44 grassroots partners. Our organization has 6,000+ supporters on Facebook, Linked-in, and Twitter, 2,440+ registered donors, 11 chapters started at universities, high schools, and various cities, 30 core team members and 90 volunteers globally. We received the Intelius Award for "Best Student-Run Social Enterprise", were rated a "Top Education Non-profit" by GreatNonprofits, won a significant Google Grant Award, in addition to being recognized by the Kairos Society as an innovative entrepreneurial venture. As we formed new connections through social media, we were extremely pleased to be featured in Nicholas Kristof's inspiring book Half the Sky, Vivanista, Knowledge@Wharton, Philadelphia Inquirer, MTVAct, among other print and media sources. </p>
+							
+							<li><a href="/static/givology_2009_report.pdf">Givology 2009-2010: Year in Review</a></li>
+							
+							<p><b>Summary</b>: We are pleased to announce that in two years of operations, we have raised approximately $111,707 to support over 2,635 students in 19 different countries through 30 grassroots partners. Our organization has 4,000+ supporters on Facebook, Linked-in, and Twitter, 1,400+ registered donors, 12 chapters started at universities, high schools, and various cities, 30 core team members and 90 volunteers globally. Notably, we received the Intelius Award for "Best Student-Run Social Enterprise", received a "Top Education Non-profit" rating from GreatNonprofits, and won a significant Google Grant Award, in addition to being selected once again as one of the "Top 100 Student-Run Enterprises in the United States" by the Kairos Society for Entrepreneurship. As we formed new connections through social media, we were extremely pleased to be featured in Nicholas Kristof's inspiring book Half the Sky, Vivanista, New York Times, among other print and media sources.</p>
+							
+							<li><a href="/static/2008_givology_report.pdf">Givology 2008-2009: Year in Review</a></li>
+							<p><b>Summary</b>: As of September 28, 2009, exactly one year since the launch of our website, Givology has raised $41,638 in online donations and fundraisers, partnered with 20 grassroots organizations in 9 countries, started 12 chapters worldwide, registered 539 donors, and have over 3,000 supporters in our networks on Facebook, Linked-in, and Twitter. In total, through student scholarships and projects, we estimate that Givology has benefitted 1,259 students worldwide. Click to download our 2008-2009 report card!</p>
+							
+							<li><a href="/static/microphilanthropy_education.pdf">Microphilanthropy in Education</a></li>
+							<p><b>Summary</b>: What's the difference between a single million-dollar donation versus a million one-dollar donations? With technological advances reducing transaction costs and increasing usage of P2P social networking sites, the Internet has fundamentally revolutionized education philanthropy, empowering information sharing to make giving by individuals much more targeted, transparent, and rewarding. This in-depth case study on Givology seeks to discuss microphilanthropy's implications for education, its benefits and limitations, potential risks, and future opportunities. This submission to the 2009 Education Without Borders Conference by Givology's CEO, Joyce Meng, won the "Best Paper Prize".</p>
+							
+					</div>
+				</article>
+			</section>
+
+			<aside>
+
+				<div class="widget total-impact">
+					<h3 class="widget-title">Total Impact So Far</h3>
+					<div class="widget-content">
+{% include 'widgets/total-impact-aside-stats.html' %}
+						<p>Make an impact today! Help us give the gift of opportunity to students around the world.</p>
+						<div class="button-container"><a href="/giv-now/giv-projects/" class="button">GIV to a project</a></div>
+						<div class="button-container"><a href="/giv-now/giv-students/" class="button button-cta">GIV to a student</a></div>
+					</div><!-- .widget-content -->
+				</div><!-- .widget -->
+			</aside>
+		</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "giv/templates/donatestudents" %}
+
+{% block typespecific %}{% endblock %}
+
+{% block blurb %}
+<div style="width:100%; margin-top: 10px; margin-bottom: 20px;">
+<div style="float:left;margin-right:20px;"><img src="../../images/hd_projects.jpg" height="192" width="200"></div>
+<div style="margin-left: 25%; height:193px; margin-right: 10px;">
+<p>
+<span class="whiteboxheader">Grassroots community projects are the best way to improve education.</span><br> Our philosophy is that the community needs to take ownership in order for the project to be truly sustainable. The projects we support span a full spectrum, but they all share a common commitment to innovation and sustainability.
+</p>
+
+<p>
+<span class="whiteboxheader">How to Donate:</span><br> Add money to your Givology wallet, browse through project profiles, and then allocate your funds. If you prefer to randomly allocate your donation, please visit your <a href="/account/">account page</a>.
+</p>
+{% endblock %}

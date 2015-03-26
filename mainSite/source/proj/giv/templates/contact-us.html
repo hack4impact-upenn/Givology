@@ -1,0 +1,67 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+<div id="container" class="clearfix sidebar-right faq">
+  <section role="main" id="content-main">
+    <h2 id="page-title">Contact Us</h2>
+    <article>
+      <div class="article-content">
+        <p>How do you like Givology? For any general questions, concerns, technical issues, or anything else, please use the form below. Our team will be in touch shortly! Whether you want more information or would like to collaborate with us on a fundraiser or an event, we're excited to have you join our network. </p>
+        
+        <p>If you are interested in becoming a field partner please visit our <a href="/who-we-are/partnerships/">Apply to be a Partner page</a>.</p>
+        
+        <p>If you are interested in contributing your time to the Givology team, please visit our <a href="/get-involved/">Get Involved Portal</a> to find out next steps. </p>
+        
+        <p>We aim to reply to your inquiry within 3-5 business days.</p>
+        <br />
+{% if messagesent %}
+<br /><i>Message Sent!</i> <br /> <br />
+{% endif %}
+        <form method="POST" action=".">
+          <table>
+            <tbody>
+              <tr>
+                <td style="font-size: 12px;">Name:  </td>
+                <td><input type="text" name="from" /></td>
+              </tr>
+              <tr>
+                <td style="font-size: 12px;">Email:  </td>
+                <td><input type="text" name="email" /></td>
+              </tr>
+              <tr>
+                <td style="font-size: 12px;">Subject:  </td>
+                <td><input type="text" name="subject" /></td>
+              </tr>
+              <tr style="display:none;">
+                <td style="font-size: 12px;">Reason:</td>
+                <td><input type="text" name="reason" /></td>
+              </tr>
+            </tbody>
+          </table>
+          <textarea name="message"
+                   style="width : 500px; height: 200px; font-size: 12px;"></textarea>
+          <br />
+          <input type="submit" value="Send!">
+        </form>	
+        
+      </div>
+    </article>
+  </section>
+        
+  <aside>
+    <div class="widget general become-partner">
+      <h3 class="widget-title">Our Mailing Address</h3>
+      <div class="widget-content">
+        <p>To send donations by check or any other general purpose mail, please use our address below. </p>
+        <br>Givology
+        <br>PO Box 2105
+        <br>New York, NY 10185
+        <div class="button-container">
+          <a href="mailto:info@givology.org" class="button">Contact Us</a>
+        </div>
+      </div><!-- .widget-content -->
+    </div><!-- .widget -->
+  </aside>
+  
+</div>
+{% endblock %}

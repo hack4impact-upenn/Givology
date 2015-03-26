@@ -1,0 +1,101 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<style>
+body {font-size: 14px;}
+</style>
+</head><body>
+
+<h3>cygwin setup:</h3>
+<ol>
+  <li>select 'install from internet'</li>
+  <li>root install directory should be something like C:\cygwin (but it doesn't matter much)</li>
+  <li>select a place for it to download packages to temporarily (unimportant decision)</li>
+  <li>internet connection type (probably just direct connection)</li>
+  <li>select a place to download from arbitrarily</li>
+  <li>select packages to install:
+  <ol>
+    <li>in
+the upper right corner, click the 'view' button until it says 'Full' to
+the right, so that we can view all categories (probably just one click
+needed).</li>
+    <li>might want to widen the box so we can see everything.</li>
+    <li>you
+can select packages to install by clicking on where it says 'skip', so
+that it will select a version of that package. if it has a version
+number or says 'keep', then you already have that selected or
+installed. when clicking on a package, it will also select any
+dependencies it needs.</li>
+    <li>the following packages are needed (if it says 'skip' on them, click that to change it):
+    <ul>
+      <li>'gcc: C compiler upgrade helper'</li>
+      <li>'ImageMagick: Image manipulation software suite (utilities)'</li>
+      <li>'libsqlite3-devel: An embeddable SQL database engine (3.x development)'</li>
+      <li>'openssh: The OpenSSH server and client programs'</li>
+      <li>'openssl: The OpenSSL runtime environment'</li>
+      <li>'python: An interactive object-oriented scripting language'</li>
+      <li>'sqlite3: An embeddable SQL database engine (3.x apps and docs)'</li>
+      <li>'subversion: A version control system'</li>
+      <li>'wget: Utility to retrieve files from the WWW via HTTP and FTP'</li>
+    </ul>
+    </li>
+  </ol>
+  </li>
+  <li>wait
+a while for it to download and install all those things (this could
+take as long as a half hour, depending on your internet connection
+and/or hard drive speeds)</li>
+</ol>
+
+<h3>setting up other things (pysqlite and django):</h3>
+
+<p> get and install django 0.96 ... </p>
+<ol>
+  <li>`cd`</li>
+  <li>`wget https://www.givology.org/static/Django-0.96.5.tar.gz`</li>
+  <li>`tar xzvf Django-0.96.5.tar.gz`</li>
+  <li>`cd Django-0.96.5`</li>
+  <li>`python setup.py install`</li>
+</ol>
+<p> and get and install pysqlite ... </p>
+<ol>
+  <li>`cd`</li>
+  <li>`wget https://www.givology.org/static/pysqlite-2.6.3.tar.gz`</li>
+  <li>`tar xzvf pysqlite-2.6.3.tar.gz`</li>
+  <li>`cd pysqlite-2.6.3`</li>
+  <li>`python setup.py build_static install`</li>
+</ol>
+also needs pysqlite and django.
+
+<h3>to check out the code and get started (once you have an account on xp-dev):</h3>
+<p> create an account on <a href="http://xp-dev.com/">xp-dev</a>. email me (cjmackey@stwing.upenn.edu) for information on how to get access to the svn repository. </p>
+<ol>
+  <li>`cd /django` #(this step is not needed if you want to put the code elsewhere)<br>
+      <i>#if you have checked out the code before, move the giv folder somewhere else, eg: `mv giv giv_old`</i></li>
+  <li>`svn checkout http://svn.xp-dev.com/svn/cjmackey_giv/giv/` #(this may take a while, since there's a lot to download)</li>
+  <li>`cd giv/proj`</li>
+  <li>`python
+manage.py syncdb` #(choose a superuser username and password, doesn't
+need to be strong since it's only on your own computer)</li>
+  <li>`python
+manage.py runserver` #(starts the server on your own computer, which
+you can visit in your web browser at http://localhost:8000/ )</li>
+</ol>
+
+<h3>to see other people's changes, update your working copy:</h3>
+<ol>
+  <li>`cd /django/giv` #(it's important that you go here, otherwise you might only update a part of your working copy)</li>
+  <li>`svn update`</li>
+</ol>
+
+<h3>to commit your changes:</h3>
+<ol>
+  <li>`cd /django/giv` #(it's important that you go here, otherwise you might only commit a part of your working copy)</li>
+  <li>`svn status`<br>
+      <i>#(look at the list of files; M means modified, A means added, ? means it doesn't know)</i></li>
+  <li>`svn add FILE` #(if you want to change a file from ? to A (if you made a new file that you want everyone else to see))</li>
+  <li>`svn commit -m "YOUR COMMIT MESSAGE"` #(don't forget the minus m and commit message! briefly state what you changed.)<br>
+      <i>#(you can also commit individual files, if you want, by running `svn commit FILE -m "YOUR COMMIT MESSAGE"`)</i></li>
+</ol>
+
+</body></html>

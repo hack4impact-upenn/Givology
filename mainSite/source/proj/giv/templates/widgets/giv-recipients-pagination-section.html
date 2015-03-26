@@ -1,0 +1,18 @@
+{% if is_paginated %}
+<section>
+  Pages:
+  
+  {% if prev_page_link %}
+  <a href="{{prev_page_link}}">Previous</a>
+  {% endif %}
+  
+  {% for page_link in page_links %}
+  <a href="{{page_link.url}}">{{page_link.page_num}}</a>
+  {% endfor %}
+  
+  {% if next_page_link %}
+  <a href="{{next_page_link}}">Next</a>
+  {% endif %}
+  
+</section>
+{% endif %}

@@ -1,0 +1,869 @@
+
+textarea {
+  font: 75% Verdana, Arial, Helvetica, sans-serif;
+}
+
+html {overflow-y: scroll;}
+
+body {
+	background-color: #666;
+	font: 75% Verdana, Arial, Helvetica, sans-serif;
+	background: #666;
+	margin: 0 auto; 
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	line-height: 1.4;
+}
+
+#container {
+  text-align: left; /* For IE bug */
+  margin: 0 auto;
+  width: {{mainwidth}};
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.majorblock {
+  float: left;
+  width: {{mainwidth}};
+  background-color: #fff;
+}
+
+#invisible {
+display:block;
+position:absolute;
+top:25px;
+left:475px;
+width:400px;
+height:100px;
+}
+
+#invisible a{
+  display:block;
+  width:100%;
+  height:100%;
+  text-decoration:none;
+}
+
+#intro {
+	float: left;
+	width: 312px;
+	border: 0px;
+	margin-left: 10px;
+	padding-top: 15px;
+} /* note that width + 2*padding = margin-left of featstubox */
+
+.givenow a {
+display: block;
+width: 270px;
+height: 78px;
+background: transparent url(/images/give_button.jpg) no-repeat;
+margin-bottom:5px;
+}
+
+.givenow a:hover {
+background-position: -270px 0;
+}
+
+.challenge a {
+width:234px;
+height:64px;
+display:block;
+background: transparent url(../../images/challenge_stat.png) no-repeat;
+margin-bottom:5px;
+}
+
+.challenge a:hover {
+background-position: 0 -64px;
+}
+
+#featstubox {
+	margin-left: 330px;
+	padding-top: 15px;
+}
+
+/* set millions of background images */
+.rbroundbox { background: url("/images/nt.gif") repeat; margin-bottom: 5px;}
+.rbtop div { background: url("/images/tl.gif") no-repeat top left; }
+.rbtop { background: url("/images/tr.gif") no-repeat top right; }
+.rbbot div { background: url("/images/bl.gif") no-repeat bottom left; }
+.rbbot { background: url("/images/br.gif") no-repeat bottom right; }
+
+.rbtop div, .rbtop, .rbbot div, .rbbot {
+height: 7px;
+font-size: 1px;
+}
+.rbcontent { margin: 0 7px; color: #fff; }
+/*.rbroundbox { width: 90%; margin: 1em auto; float:left }*/
+.rbcontent * { color: #fff; }
+
+.scli {
+list-style-type:none;
+margin-bottom:5px;
+}
+
+.bold {
+	font-weight: bold;
+	color: #497912;
+	}
+	
+#howitworks {
+	font-weight: bold;
+	font-size: 30px;
+	/*font-size: large;*/
+	color: #497912;
+	}
+	
+#diagram {
+	color: #497912;
+	font-size: 12px;
+	font-weight:bold;
+}
+
+.greenboxbody {}
+
+.greenboxheader {
+	font-size: 16px;
+	/*font-size:medium;*/
+	font-weight:bold;
+}
+
+.studentprofiletext {
+	width: 95%;
+	font-size: 90%;
+	border: 0px;
+	padding: 10px;
+}
+
+img.stupro {
+    float: left; 
+    margin: 6px; 
+	border: 2px solid #497912; 
+	}
+
+.whiteboxheader {
+	color: #497912;
+	font-size: 18px;
+	font-weight:bold;
+}
+
+#blogbox {
+	float: left
+    width: 300px;
+	border: 0px;
+	padding: 15px;
+}	
+
+
+h1{
+font-size:24px;
+color: #497912;
+font-weight:bold;
+}
+
+h2{
+font-size:20px;
+font-weight:bold;
+}
+
+h3{
+font-size:16px;
+font-weight:bold;
+bottom-margin:4px;
+}
+
+a{color: #417fb9;text-decoration: none;}
+a:visited{color: #417fb9;text-decoration: none;}
+a:hover{color: #417fb9;text-decoration: none;}
+a:visited:hover{color: #417fb9;text-decoration: none;}
+
+
+
+#blogtitles{
+  float: left;
+  width: 180px;
+  background-color:#ececec;
+  padding:10px;
+}
+.blogtitlesmonth{
+  /*margin-bottom: 5px;*/
+  font-weight: bold;
+}
+.blogtitle{
+  /*border-bottom:1px dotted #666666;*/
+  padding-left: 10px;
+  /*margin-bottom: 5px;*/
+  font-weight: bold;
+}
+
+
+
+/********************************
+ *  My Wallet (edited 7/14)
+ *
+ *********************************/
+#headerbar
+{
+  height: 25px;
+  width: 100%;
+  background-color: #92bfeb;
+  padding: 4 0 0 4;
+  font-weight: bold;
+}
+
+#brspacer
+{
+  width: 100%;
+  background-color: #ffffff;
+}
+
+#boxtext
+{
+  height: 100%
+  width: 100%;
+  background-color: #ffffff;
+  padding: 4 0 4 4;
+  line-height: 150%;
+}
+
+#tablevals
+{
+  height: 66px; /* 22 for each line */
+  width: 50%;
+  background-color: #ffffff;
+  padding: 4 25 4 25;
+  line-height: 150%;
+}
+
+#entry
+{
+  height: 20px;
+  padding: 2 0 0 4;
+  font-size: 90%;
+  float: left;
+  width: 45%;
+  background-color: #dde6d7;
+  line-height: 150%;
+}
+
+#value
+{
+  height: 20px;
+  padding: 2 0 0 4;
+  font-size: 90%;
+  float: left;
+  width: 13%;
+  background-color: #ffffff;
+  line-height: 150%;
+}
+/* END */
+
+
+
+
+
+/*************************************
+ * Main Page
+ *
+ *************************************/
+.maindivwrapper
+{
+  float: left;
+  width: 100%;
+}
+
+.maindiv {
+	width: {{ mainwidth }};
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+.mainbody {
+  float: left;
+  width: {{ mainwidth }};
+	background-color: #fff;
+}
+/* Header: .header, .logo, .userstatus */
+
+
+.header{
+	margin-left: auto;
+	margin-right: auto;
+	width: {{ mainwidth }};
+	position: relative;
+	overflow: hidden;
+	/*background: #00cccc;*/
+}
+
+.logo {
+  width: 308px;
+  height: 83px;
+	float: left;
+	background-image: url('/images/logo.png');
+	background-position: center;
+}
+
+.logo2 /*For login page (7/14) */
+{
+  width: 308px;
+  height: 83px;
+	background-image: url('/images/logo.png');
+	background-position: center;
+}
+
+.searchbox {
+	background-color: #edf4fa;
+	width: {{ searchwidth }};
+	float: left;
+}
+//note that we must match .searchresults's margin-left with .searchbox's width, as well as margin-left in .searchresult
+.searchresults {
+	width: inherit;
+	margin-left: {{ searchresultsleft }};
+	background-color: #dddddd;
+}
+
+.searchresult { 
+	width: inherit;
+	margin: 1em;
+	margin-left: 11em;
+	background-color: #eeeeee;
+}
+
+
+.leftdiv {
+  width: 48.5%;
+  float: left;
+  margin-left: 1%;
+  padding: 0;
+}
+.rightdiv {
+  width: 48%;
+  float: right;
+  margin-right: 1%;
+  padding: 0;
+}
+
+.comment {
+  width: 100%;
+  margin-left: 3%;
+  margin-top: .3em;
+  float: left;
+}
+
+.messagetext {
+  font-size:12px;
+}
+
+.messagetable {
+  border: 0px;
+  border-left: none;
+  border-top: none;
+  border-spacing: 0;
+}
+.messagetable tr td {
+	/*font-family: "lucida grande", verdana, sans-serif;*/
+	font-size: 10pt;
+	padding: .2em;
+  margin: 0;
+  overflow: hidden;
+  border: 0px;
+  border-right: none;
+  border-bottom: none;
+}
+.messagetable .odd {
+  border: medium double rgb(250,0,255);
+  background-color: #fff;
+}
+.messagetable .even {
+  background-color: #fff;
+}
+.messagetable .mono { /* Not used */
+  font-family: monospace;
+  font-size: 8pt;
+}
+.messagetable tr.odd:hover{
+  background-color: #daffda;
+}
+.messagetable tr.even:hover{
+  background-color: #daffda;
+}
+
+/* Top Menu */
+#topmenu {
+	float: right;
+	margin: 0;
+	margin-top: 0px;
+	height: 10px;
+	font-weight: bold;
+	font-size: 10px;
+	color: #515151;
+	white-space: nowrap;
+	width: auto;
+	padding-right: 62px;
+}
+#topmenu span {
+	color: #fff;
+}
+#topmenu a {
+	color: #2d72b5;
+	text-decoration: none;
+}
+#topmenu a:hover {
+	color: #666666;
+	text-decoration: underline;
+}
+#topmenu span.left {
+	width: 31px;
+	height: 19px;
+	display: block;
+	float: left;
+}
+
+.top{margin-top:0;padding:0;}
+
+/* The hint to Hide and Show */
+.hint {
+   	display: none;
+   	position: relative;
+   	left:100px;
+    font-size: 12px;
+    border: 1px solid #c93;
+    padding: 5px 6px;
+    background: #ffc url(/images/pointer.gif) no-repeat -10px 5px;
+}
+
+/* The pointer image is hadded by using another span */
+.hint .hint-pointer {
+    position: absolute;
+    left: -10px;
+    top: 5px;
+    width: 10px;
+    height: 19px;
+    background: url(/images/pointer.gif) left top no-repeat;
+}
+
+
+
+
+/*
+ * BLOG SECTION
+ */
+
+.blogpost{
+  font-size:12px;
+  float: left;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+.blog { float: left; width: inherit;}
+.blog a{text-decoration:none;}
+.blog h2 h3 h4 h5{font-size:12px;}
+
+/* Box for header ONLY */
+.blogheader {
+  background-color: #C4E1FF;
+  width: 100%;
+  float: left;
+  font-weight: bold;
+}
+.blogheaderin{
+  margin: 5px 10px;
+  overflow: hidden;
+}
+/* Title on left */
+.blogsubj {
+  font-size: 12px;
+  text-align: left;
+}
+
+/* Username on the right */
+.blogauth {
+  float: right;
+  font-size: 12px;
+  text-align: right;
+  padding-left: 10%;
+}
+
+/* Body of the blog text */
+.blogbody{
+  background-color: #e6f2fe;
+  float: left;
+  text-align: left;
+  font-size: 12px;
+  width: 100%;
+  margin: auto;
+}
+.blogbodyin{
+  margin: 5px 10px;
+  overflow: hidden;
+}
+
+
+
+
+
+
+/*
+ * BOX SECTION
+ */
+
+{% for boxkind in boxkinds %}
+.{{boxkind.name}}{
+  display:block}
+  
+.{{boxkind.name}} *{
+  display:block;
+  height:1px;
+  overflow:hidden;
+  font-size:.01em;
+  background:#{{boxkind.fgbgcolor}}}
+  
+.{{boxkind.name}}1{
+  margin-left:3px;
+  margin-right:3px;
+  padding-left:1px;
+  padding-right:1px;
+  border-left:1px solid #{{boxkind.color1}};
+  border-right:1px solid #{{boxkind.color1}};
+  background:#d2e8ff}
+  
+.{{boxkind.name}}2{
+  margin-left:1px;
+  margin-right:1px;
+  padding-right:1px;
+  padding-left:1px;
+  border-left:1px solid #{{boxkind.color2}};
+  border-right:1px solid #{{boxkind.color2}};
+  background:#cfe6ff}
+  
+.{{boxkind.name}}3{
+  margin-left:1px;
+  margin-right:1px;
+  border-left:1px solid #{{boxkind.color3}};
+  border-right:1px solid #{{boxkind.color3}};}
+  
+.{{boxkind.name}}4{
+  border-left:1px solid #{{boxkind.color4}};
+  border-right:1px solid #{{boxkind.color4}};}
+  
+.{{boxkind.name}}5{
+  border-left:1px solid #{{boxkind.color5}};
+  border-right:1px solid #{{boxkind.color5}};}
+  
+.{{boxkind.name}}fg{
+  background:#{{boxkind.fgbgcolor}};padding:10 10 10 10;}
+
+{% endfor %}
+
+
+
+
+
+
+/*
+ * PROFILE SECTION
+ */
+
+.leftopt{border-color:#ececec;border-style:solid;border-width:0 0 1px 0;font-size:90%;padding:2px;}
+.profpic{border:2px solid #417fb9;}
+.donate input
+{
+color: #000;
+background: #ffa20f;
+border: 2px outset #d7b9c9
+}
+.fieldname{text-align:right;width:45%;color:#417fb9;font-weight:bold; margin:0px; padding:0px;padding-right:15px;}
+.fieldname2{margin-left:15px;color:#0076cc;font-weight:bold;}
+.fieldentry{margin:0px; padding:0px;}
+.fieldentry2{margin-left:25px}
+.abouttable{font-size: 12px; width: 100%; margin:0px; padding:0px;}
+.abouttable tr {margin: 0px 10px; margin:0px; padding:0px;}
+
+
+/*
+ * WALLET SECTION
+ */
+
+#headerbar{
+background-color: #92bfeb;
+font-weight:bold;
+height:25px;
+padding:4 0 0 4;
+width:100%;
+}
+
+#brspacer{background-color: #fff;width:100%;}
+
+#boxtext{
+background-color:#fff;
+height:100%;
+line-height: 150%;
+padding:4 0 4 4;
+width:100%;
+}
+
+#tablevals{
+  height: 66px; /* 22 for each line */
+  width: 100%;
+  background-color: #ffffff;
+  padding: 4 25 4 25;
+  line-height: 150%;}
+
+#entry{
+background-color:#dde6d7;
+float:left;
+font-size:90%;
+height:20px;
+line-height:150%;
+padding:2 0 0 4;
+width:45%;
+}
+
+#value{
+background-color:#fff;
+float:left;
+font-size: 90%;
+height:20px;
+line-height: 150%;
+padding:2 0 0 4;
+width:13%;
+}
+
+
+
+
+
+
+/*
+ * MAIN PAGE SECTION
+ */
+
+.mainImg{
+  background-image: url('/images/mainImg_back.png');
+  background-repeat: repeat-x;
+  height: 200px;
+  margin: 0;
+  padding: 0;
+  width: 100%;}
+
+.mainBox{
+  margin: 0 auto;
+  padding: 0;
+  width: 800px;}
+
+.mainText{
+  float: left;
+  text-align: left;}
+
+/* This only applies to blog posts on front page */
+.blogheadermain {
+  background-color: #C4E1FF;
+  width: 375px;
+  margin-top: 0;
+  margin-bottom: 0;
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Title on left */
+.blogsubjmain {
+  font-size: 13px;
+  font-style: italic;
+  font-variant: normal;
+  margin-top: 10px;
+  text-align: left;
+  float: left;
+}
+/* Username on the right */
+.blogauthmain {
+  font-size: 13px;
+  margin-top: 10px;
+  text-align: right;
+  float: right;
+}
+
+/* Body of the blog text */
+.blogbodymain{
+  text-align: left;
+  background-color: #C4E1FF;
+  font-size: 12px;
+  float: left;
+  width: 375px;
+  padding: 10 10 10 10;
+  margin-bottom:10px;
+}
+
+
+
+.volunteerlog{
+  font-size: 12px;
+}
+.volunteerlog th { font-size: 12px; }
+.volunteerlog .minutes { padding-right: 5px; text-align: right; }
+
+
+
+/*
+ * NAVBAR STUFF
+ *
+ * (based on http://www.tjkdesign.com/articles/new_drop_down/default.asp)
+ *
+ * for some reason, it just flat-out doesn't work in ie if you try to
+ * set a width on a top anchor. text is also not centered; i'm just
+ * going with flexible-width buttons now :(
+ *
+ */
+
+#menuwrapper {
+  position: absolute;
+  top: 90px;
+  width: {{mainwidth}};
+  height: 40px;
+  font-family: Arial;
+}
+
+/* neither margin nor padding by default */
+#menu,
+#menu * {
+  margin:  0;
+  padding: 0;
+}
+
+/* "Master" UL (the whole Menu) */
+#menu {
+  float: left;
+  position: relative;
+  left: {{menushift}};
+  width: {{mainwidth}};
+  max-width: {{mainwidth}};
+  margin-bottom: 10px;
+  padding-left: 0px;
+  background: no-repeat 100% 50%;
+}
+/* sub-menu ULs */
+#menu li ul {
+  width: {{mainwidth}};
+  max-width: {{mainwidth}};
+  position: absolute;
+  height: 30px;
+  top: 35px;
+  padding: 0;
+  padding-left: 0px !important;
+  margin-left: 0px;
+  background-position:0 0 !important;
+  left:-9000px;
+}
+/* All LIs */
+#menu li {
+  float: right;
+  text-align:center;
+  list-style-type:none;
+  font-weight:bold;
+  margin-right: 15px;
+  margin-left: -10px;
+}
+/* sub-menu LIs */
+#menu li ul li {
+  float: right;
+  width:auto;
+  max-width:none;
+}
+/* All anchors */
+#menu li a {
+  padding-left: 8px;
+  padding-right: 8px;
+	color: #ddd;
+	text-decoration: none;
+	display:block;
+	float:left;
+	height: 40px;
+	line-height: 40px;
+}
+/* sub-menu Anchors */
+#menu li ul li a {
+  padding-left: 16px;
+  padding-right: 16px;
+	color: #333;
+  text-decoration: none;
+	position:relative !important; /* ie Mac */
+	white-space: nowrap;
+	height:30px;
+	line-height: 30px;
+	background-position:0 50% !important;
+}
+/* button text */
+#menu li span {
+  font-size: 16px;
+}
+#menu li ul li span {
+  /* may need an adjustment in ie...? */
+  font-size: 12px;
+}
+
+/* :hover and stuff */
+#menu li a:hover,
+#menu li a:focus,
+#menu li a:active {text-decoration:underline;}
+#menu li ul li a:hover,
+#menu li ul li a:focus,
+#menu li ul li a:active {color: #666;}
+/* position and z-index for the sub-menus */
+/*  NOTE: removing these, so that hover does not change the active one
+#menu li:hover ul,
+#menu li.msieFix ul {left:0; z-index:10;}
+*/
+
+/* Current location - class on Body must match LI's id.
+ * 
+ * decorates anchors and raises appropriate ul.
+ * 
+ */
+.item0 #menu li#item0 a,
+.item1 #menu li#item1 a,
+.item2 #menu li#item2 a,
+.item3 #menu li#item3 a,
+.item4 #menu li#item4 a,
+.item5 #menu li#item5 a {text-decoration: underline;}
+.item0 #menu li#item0 ul li a,
+.item1 #menu li#item1 ul li a,
+.item2 #menu li#item2 ul li a,
+.item3 #menu li#item3 ul li a,
+.item4 #menu li#item4 ul li a,
+.item5 #menu li#item5 ul li a {text-decoration: none;}
+.item0 #menu li#item0 ul,
+.item1 #menu li#item1 ul,
+.item2 #menu li#item2 ul,
+.item3 #menu li#item3 ul,
+.item4 #menu li#item4 ul,
+.item5 #menu li#item5 ul {left:-{{menushift}};z-index:5;}
+
+/* "trigger" and "msieFix" classes */
+#menu li.msieFix a {}
+
+#item0{ 
+ }
+#item1{ 
+ }
+#item2{ 
+ }
+#item3{ 
+ }
+#item4{ 
+}
+#item5{ 
+}
+
+
+
+
+
+.hidden {
+  display: none;
+}
+.block {
+  display: block;
+}
+

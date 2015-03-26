@@ -1,0 +1,26 @@
+{% extends "giv/templates/compose" %}
+
+{% block mainbody %}
+<form method="post" action="/composed/">
+	<input type="hidden" name="id" value="{{m.id}}" />
+	<input type="hidden" name="type" value="{{m.kind}}" />
+	<input type="hidden" name="bsubject" value="{{m.bsubject}}" />
+	<input type="hidden" name="brbody" value="{{m.brbody}}" />
+	{% if m.parent %}
+		<input type="hidden" name="parent" value="{{m.parent}}" />
+	{% endif %}
+	<input type="hidden" name="to" value="{{m.to}}" />
+	<input type="hidden" name="tags" value="{{m.tags}}" />
+	
+	<h2> Preview </h2>
+	<p>	Below, you can see an approximate preview of your post. Press "Back" in your browser if you wish to continue editing, or click the Commit button if you are ready. </p>
+	<p> <input type="submit" value="Commit" /> </p>
+</form>
+
+{% ifequal m.kind "message" %}
+	{% include "giv/templates/messagesub" %}
+{% else %}
+	{% include "giv/templates/blogpost" %}
+{% endifequal %}
+
+{% endblock %}

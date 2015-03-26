@@ -1,0 +1,75 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+
+<h1>Donate Now</h1>
+
+<!--div style="margin-left: 0px; width: 800px; text-align: justify;"-->
+
+
+<div style="width:550px; float:left;">
+	<h3> Already a member? Sponsor a <a href="/donate/students/">student</a> or <a href="/donate/projects/">project</a>. </h3>
+	
+	<p>
+	Your contribution to talented students and grassroots education projects is a gift of opportunity. The student and project profiles below are almost fully funded. You can make the difference today.
+	</p>
+	
+	<div style="margin:10px 5px;float:left;">
+		<div>
+			<span style="font-size:medium;font-weight:bold; color:#497912;">Students</span>
+			<span style="font-style: italic;"><a href="/donate/students/">(view all students)</a></span>
+		</div>
+		<div style="width: 100%;border-bottom:solid 1px #417fb9; border-top:solid 1px #417fb9; float: left; background:#e6f0fe;">
+    	{% for obj in nearlydonestudents %}
+				{% include "giv/templates/boxprofile" %}
+			{% endfor %}
+		</div>
+	</div>
+	<div style="margin:10px 5px;float:left;">
+		<div>
+			<span style="font-size:medium;font-weight:bold; color:#497912;">Projects</span>
+			<span style="font-style: italic;"><a href="/donate/projects/">(view all projects)</a></span>
+		</div>
+    <div style="width: 100%; border-bottom:solid 1px #417fb9; border-top:solid 1px #417fb9; float: left; background:#e6f0fe;">
+			{% for obj in nearlydoneprojects %}
+				{% include "giv/templates/boxprofile" %}
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+<div style="width:295px; float:right;background-color:#ECECEC; margin: 10px;">
+<div style="width: 285px; margin: 10px;">
+    
+<h3>
+	New to Givology? 
+    <br>
+    <a href="/register">Register today.</a>
+	
+	</h3>
+	
+	<p>
+		
+		Become part of the Givology donor community. If you register, you
+		will have the ability to choose the student whose future you can
+		directly transform. Your contribution directly funds the dreams of
+		bright minds across the globe.
+		
+  </p>
+		
+		<h3>Support Givology</h3>
+		
+		<p>Interested in a donation to support Givology's operations?</p>
+		
+		<span class="bold"><p>
+			
+			Simply fill in the amount you wish to give below. Your donation helps Givology work to fund students
+			around the world.
+			
+		</p></span>
+		
+{% include "giv/templates/donationbutton" %}		
+	</div>
+</div>
+    
+{% endblock %}

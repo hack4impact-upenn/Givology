@@ -1,0 +1,38 @@
+{% extends "giv/templates/blogview" %}
+
+{% block mainbody %}
+	<p>
+		Displaying {{count}} of {{total}} updates.
+		{% ifnotequal offset 0 %}<a href=".?offset={{prevoffset}}&sortby={{sortby}}"> previous {{count0}} </a> {% endifnotequal %}
+		{% ifequal count count0 %}<a href=".?offset={{nextoffset}}&sortby={{sortby}}"> next {{count0}} </a> {% endifequal %}
+	</p>
+	<table class="messagetable" width="100%">
+		<tr>
+			<td width="24%">
+				<a href=".?offset={{offset}}&sortby=created">
+					Created
+				</a>
+			</td>
+			<td width="24%">
+				<a href=".?offset={{offset}}&sortby=modified">
+					Modified
+				</a>
+			</td>
+			<td width="52%">
+				<a href=".?offset={{offset}}&sortby=subject">
+					Subject
+				</a>
+			</td>
+		</tr>{% for post in posts %}
+		<tr class="{% if post.odd %}odd{% else %}even{% endif %}">
+			<td> {{post.created}}</td>
+			<td> {{post.modified}}</td>
+			<td> 
+				<a href="/~{{uname}}/blog/{{post.id}}/">
+					{{post.subject}}
+				</a>
+			</td>
+		</tr>{% endfor %}
+	</table>
+{% endblock %}
+

@@ -1,0 +1,13 @@
+{% if titles %}
+	<div id="blogtitles">
+		{% for t in titles %}
+			<div class="blogtitle hidden">
+				<a href="{{t.url}}">{{t.title}}</a><br />
+                                <input type="hidden" class="titlemonth" value="{{t.month}}" />
+			</div>
+		{% endfor %}
+	</div>
+<script type="text/javascript">
+{% include "giv/templates/blogtitles.js" %}
+</script>
+{% endif %}

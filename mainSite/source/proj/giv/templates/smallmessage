@@ -1,0 +1,12 @@
+{% extends "giv/templates/messages" %}
+{% block main %}
+
+<div>
+<p style="text-align: left;">You have a message to your Givology account.</p>
+<p style="text-align: left;">Link: <a href="{{link}}">{{link}}</a></p>
+</div>
+
+<div style="text-align: left;">
+{% include "giv/templates/messagesub" %}
+</div>
+{% endblock %}

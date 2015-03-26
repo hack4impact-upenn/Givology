@@ -1,0 +1,23 @@
+<div id="nearlydone" style="width: 204px; float: left;">
+
+<div style="margin-left: 0px; margin-bottom: 5px;">
+{% include "giv/templates/curveboxgreenbegin" %}
+<div style="padding: 10px; padding-bottom: 5px;">
+{% if isloggedin %}
+	<form method="POST" action="/autodonate/">
+		AutoDonation!<br />
+		$<input type="text" name="amount" size="5" /> <input type="submit" value="Donate!"><br />
+		<span style="font-size: 10px; margin-left: 30px;"><a href="/FAQ/#autodonate">what is this?</a></span>
+	</form>
+{% else %}
+		<span style="font-size: 14px;"><a href="/login/">Log in</a> or <a href="/register/">Register</a></span>
+		<br /> <span style="font-size: 11px;">to start donating and helping students around the world!</span>
+{% endif %}
+</div>
+{% include "giv/templates/curveboxgreenend" %}
+</div>
+
+{% for obj in nearlydone %}
+  {% include "giv/templates/boxprofile" %}
+{% endfor %}
+</div>

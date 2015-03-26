@@ -1,0 +1,92 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+<div id="container" class="clearfix sidebar-left profile-listing">
+
+  <div id="top-thing">
+  <h1 id="page-title">Givology's Donor Community</h1>
+  
+  <p>Givology is an Internet community that empowers individual donors to connect with students and communities in need of education support. By leveraging the Internet to support education grants and projects, Givology creates a global community of people connected through their belief in the power of education.</p>
+  
+  <p>We partner with leading grassroots non-profit organizations, local communities, and schools to sponsor education grants and innovative community-based education projects. Through our site, you can support these initiatives.</p>
+  
+  <br>
+  <div class="button-container"><a href="#" class="button">Search for a Donor</a></div>
+  <form action="/donorsearch/" method="GET">
+    <input type="text" name="name" />
+    <input type="submit" value="Search!"/>
+  </form>
+  </div>
+  
+  <div id="new-donors" style="width: 306px; float: left;margin:10px;">
+    <div style="float: right; padding-right:10px; font-style: italic; margin-top: 20px; font-size: 14px;">
+      <a href="/donorsearch/">view all donors</a>
+    </div>
+    
+    <div style="padding: 10px; background-color:#e6f2fe;">
+      <h2>New Donors</h2>
+      
+      {% for obj in newdonors %}
+      <div style="padding-bottom:10px;margin-bottom:10px;">
+        {% include "giv/templates/wideprofile" %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+  <div id="recent-donations"
+    style="float: left;background-color:#ececec;margin:10px;overflow:hidden;">
+    <div style="width: 495px; margin-left: 14px;overflow:hidden;">
+      <h2>Recent donations</h2>
+      
+      {% for ds in newdonations %}
+      <div style="background-color: #ffffff; height: 70px;
+                  margin: 10px 10px 10px 0px; padding: 10px;
+	          oveflow: hidden;">
+        <div style="padding:5px; font-size:small; font-weight:bold; color:#497912;">
+          <div style="float: left; margin-right:10px;
+                      width: 50px; height: 50px; overflow: hidden;
+                      border: #417fc5 2px solid;
+                      background: #666 url('{{ds.donorimg}}')
+                      no-repeat scroll center;">
+            <a style="display: block; width: 50px; height: 50px;"
+                href="{{ds.donorurl}}"></a>
+          </div>
+          
+          <div style="float: left; margin-right:10px;
+            width: 50px; height: 50px; overflow: hidden;
+            border: #497912 2px solid;
+            background: #666 url('{{ds.recipimg}}')
+            no-repeat scroll center;">
+            <a style="display: block; width: 50px; height: 50px;"
+            href="{{ds.recipurl}}"></a>
+          </div>
+          
+          <div style="font-weight:bold;font-size:large;">
+            <a href="{{ds.donorurl}}">{{ds.donorname}}</a>
+          </div>
+          
+          <div style="font-weight:normal; font-size:small;color:#000000">{{obj.location}}</div>
+          
+          <div style="margin-top:5px;font-size:small;font-weight:bold;">
+            <span style="color:#497912">${{ds.amount}} &rarr; </span>
+            <span style="color:#417fc5;"><a href="{{ds.recipurl}}">{{ds.recipname}}</a></span>
+            &nbsp; <span style="color:#497912">{{ds.date}} {{ds.time}}</span>
+          </div>
+          
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+</div>
+<script>
+$(function(){
+    lh = $('#new-donors').height();
+    rh = $('#recent-donations').height();
+    h = (lh > rh ? lh : rh);
+    $('#container').height(h+20+$('#top-thing').height());
+})
+</script>
+{% endblock %}

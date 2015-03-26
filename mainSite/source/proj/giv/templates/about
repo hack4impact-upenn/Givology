@@ -1,0 +1,71 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+
+		<nav id="primary">
+			<ul>
+				<li class="active"><a href="/who-we-are.html">Who We Are</a></li>
+				<li><a href="/our-community.html">Our Community</a></li>
+				<li><a href="/giv-now.html">GIV Now</a></li>
+				<li><a href="/get-involved.html">Get Involved</a></li>
+				<li><a href="/blogs.html">Blogs</a></li>
+				<li><a href="/media.html">Media</a></li>
+				<li><a href="/shop.html">Shop</a></li>
+			</ul>
+			<div id="search">
+				<form action="#"><label for="s">Search</label><input id="s" type="text" class="text" /><input type="submit" class="submit" value="Submit" /></form>
+			</div><!-- #search -->
+		</nav><!-- #primary -->
+		<nav id="secondary">
+			<ul>
+				<li><a href="/about/how-it-works/">How Givology Works</a></li>
+				<li><a href="#">Mission &amp; Vision</a></li>
+				<li><a href="#">Board of Directors</a></li>
+				<li><a href="/executive-team.html">Executive Team</a></li>
+				<li><a href="#">Partnerships</a></li>
+				<li><a href="/faq.html">FAQ</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav><!-- #secondary -->
+
+
+
+		<div id="container" class="who-we-are sidebar-right clearfix">
+			<section role="main" id="content-main">
+				<h2 id="page-title">Who We Are</h2>
+				<article>
+					<div class="article-content">
+						<h1>You have the opportunity to change the life of a child.</h1>
+						<p>Narwhal exercitation farm-to-table proident, authentic food truck vero id. Aute cliche before they sold out bushwick deserunt, mollit brooklyn. Godard yr nesciunt veniam, aesthetic DIY shoreditch consectetur sapiente jean shorts. American apparel <a href="#">gastropub</a> seitan veniam. Culpa commodo organic id kale chips non. Farm-to-table lomo VHS biodiesel. Enim dolore duis.</p>
+
+					</div>
+				</article>
+
+			</section>
+			<aside>
+				<a href="#"><img src="http://placehold.it/448x251.jpg" alt="Placeholder"></a>
+			</aside>
+		</div>
+
+		<nav id="tertiary">
+			<ul>
+				<li><a href="/about/how-it-works/">How It Works</a></li>
+				<li><a href="#">Mission &amp; Vision</a></li>
+				<li><a href="#">Our Team</a></li>
+				<li><a href="#">Partnershops</a></li>
+				<li><a href="faq.html">FAQ</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+
+		<section id="support-givology">
+			<h3 class="section-heading">Support Givology</h3>
+			<ul>
+				<li id="giv-givology"><a href="giv-givology.html"><span class="button">Giv to Givology</span></a></li>
+				<li id="giv-student"><a href="giv-student.html"><span class="button">Giv to a Student</span></a></li>
+				<li id="giv-project"><a href="giv-project.html"><span class="button">Giv to a Project</span></a></li>
+				<li id="giv-gift-certificate"><a href="giv-gift-certificate.html"><span class="button">Giv a Gift Certificate</span></a></li>
+			</ul>
+		</section>
+
+{% endblock %}

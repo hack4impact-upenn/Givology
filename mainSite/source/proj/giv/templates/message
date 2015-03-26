@@ -1,0 +1,20 @@
+{% extends "giv/templates/messages" %}
+
+{% block mainbody %}
+<div id="container">
+{% include "giv/templates/messagesub" %}
+</div>
+<script>
+var message_container_resize = function() {
+    var mlh = $('.message-left').height();
+    var mrh = $('.message-right').height();
+    var h = (mlh > mrh ? mlh : mrh);
+    $('#container').height(h+20);
+}
+$(function() {
+    message_container_resize();
+    $('img').load(message_container_resize);
+    $('object').load(message_container_resize);
+})
+</script>
+{% endblock %}

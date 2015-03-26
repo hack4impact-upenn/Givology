@@ -1,0 +1,16 @@
+body {
+  font: 10px sans-serif;
+}
+
+.arc path {
+  stroke: #fff;
+  stroke-width: 5px;
+}
+
+#sectionInfo {
+	height: 200px;
+	background-color: #F4F4F4;
+	width: 500px;
+	position: absolute;
+	right: 0;
+}

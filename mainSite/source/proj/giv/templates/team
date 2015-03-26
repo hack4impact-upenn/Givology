@@ -1,0 +1,372 @@
+{% extends "giv/templates/about" %}
+
+{% block mainbody %}
+<div style="float:left;">
+  <div style="width: 300px; padding-left: 10px; padding-right: 10px;">
+    {% include "giv/templates/curveboxbegin" %}
+    <h1>Board Members:</h1>
+    <p>
+	<a href="/team/egrabowski/">Ernst Grabowski</a>
+    <br />
+	<a href="/team/ehannum/">Dr. Emily Hannum</a>
+    <br />
+	<a href="/team/jnanduri/">Jay Nanduri</a>
+	<br />
+    <a href="/team/droberts/">David Roberts</a>
+	<br />
+    <a href="/team/ktorrington/">Katherine Torrington</a>	
+    <br />
+    <a href="/team/gwade/">Gene Wade</a><br />
+</p>
+    {% include "giv/templates/curveboxend" %}
+
+    <div style="padding-top:10px">
+      <b class="greenbox">
+      <b class="greenbox1"><b></b></b>
+      <b class="greenbox2"><b></b></b>
+      <b class="greenbox3"></b>
+      <b class="greenbox4"></b>
+      <b class="greenbox5"></b></b>
+
+      <div class="greenboxfg" style="font-size: 90%">
+
+        <h1>Givology Executive Team:</h1>
+        <p>Chief Executive Officer: <a href="/team/jmeng/">Joyce Meng</a><br />
+        Contact: <a href="mailto:joyce.meng@givology.org">joyce.meng@givology.org</a><br />
+        <br />
+        President: <a href="/team/jqchen/">Jennifer Chen</a><br />
+        Contact: <a href="mailto:jennifer.chen@givology.org">jennifer.chen@givology.org</a><br />
+        <br />
+        Vice President: <a href="/team/xli/">Xiang Li</a><br />
+        Contact: <a href="mailto:xiang.li@givology.org">xiang.li@givology.org</a><br />
+        <br />
+        Chief Technical Officer: <a href="/team/cmackey/">Carl Mackey</a><br />
+        Contact: <a href="mailto:carl.mackey@givology.org">carl.mackey@givology.org</a><br />
+        <br />
+		Chief Creative Director: <a href="/team/mdavydenko/">Maria Davydenko</a><br />
+        Contact: <a href="mailto:maria.davydenko@givology.org">maria.davydenko@givology.org</a><br />
+        <br />		
+		Chief Operating Officer: TBA<br>
+        Contact: <a href="mailto:TBA@givology.org">TBA</a><br />
+        <br />
+        Chief Financial Officer: <a href="/team/jdecosta/">John DeCosta</a><br />
+        Contact: <a href="mailto:john.decosta@givology.org">john.decosta@givology.org</a><br />
+        <br />
+		Chief Marketing Officer: <a href="/team/jjia/">Jennifer Jia</a><br />
+        Contact: <a href="mailto:jennifer.jia@givology.org">jennifer.jia@givology.org</a><br />
+        <br />		
+		Chief Development Officer: <a href="/team/cgao/">Catherine Gao</a><br />
+        Contact: <a href="mailto:catherine.gao@givology.org">catherine.gao@givology.org</a><br />
+        <br />		
+		Public Relations Coordinator: <a href="/team/tchai/">Tim Chai</a><br />
+        Contact: <a href="mailto:tim.chai@givology.org">tim.chai@givology.org</a><br />
+        <br />		
+		Translation Coordinator: <a href="/team/dmatsumoto/">Danielle Matsumoto</a><br />
+        Contact: <a href="mailto:danielle.matsumoto@givology.org">danielle.matsumoto@givology.org</a><br />
+        <br />
+        Fellows Coordinator: <a href="/team/lreitz/">Landon Reitz</a><br />
+        Contact: <a href="landon.reitz@givology.org">landon.reitz@givology.org</a><br />
+        <br />
+       
+       
+      </p></div>
+
+      <b class="greenbox">
+      <b class="greenbox5"></b>
+      <b class="greenbox4"></b>
+      <b class="greenbox3"></b>
+      <b class="greenbox2"><b></b></b>
+      <b class="greenbox1"><b></b></b></b>
+    </div>
+        
+    <div style="padding-top:10px">
+      <b class="redbox">
+      <b class="redbox1"><b></b></b>
+      <b class="redbox2"><b></b></b>
+      <b class="redbox3"></b>
+      <b class="redbox4"></b>
+      <b class="redbox5"></b></b>
+
+      <div class="redboxfg" style="font-size: 90%">
+        <h1>Givology Team:</h1>
+		<p>
+		Co-Founders: Joyce Meng, Jennifer Chen, Anton Bernstein, Ian Cohen, Pengcheng Gao, Shruti Iyer, Xiang Li, Carl Mackey, Grace Meng, Adam Powell, Geoffrey See, Danny Yoo, Lauren Zarzar</br>
+		<br>Technology: Alex Yen (Design), Kiley Williams, Carlin Yuen</br>
+		<br>Partnerships: Linda Xiao Kang, Kathy Luong, Kunal Rai, Conan Wang</br>
+		<br>Marketing: Tim Chai, Maria Davydenko, Yuqing Fan, Catherine Gao, Danielle Matsumoto, Jiying Zhang</br>
+		<br>Translation: Xiao Qiao, Jay Yang		     
+	
+      </p></div>
+      <b class="redbox">
+      <b class="redbox5"></b>
+      <b class="redbox4"></b>
+      <b class="redbox3"></b>
+      <b class="redbox2"><b></b></b>
+      <b class="redbox1"><b></b></b></b>
+    </div>
+	
+   <div style="padding-top:10px;padding-bottom:10px">
+      <b class="greenbox">
+      <b class="greenbox1"><b></b></b>
+      <b class="greenbox2"><b></b></b>
+      <b class="greenbox3"></b>
+      <b class="greenbox4"></b>
+      <b class="greenbox5"></b></b>
+      <div class="greenboxfg" style="font-size: 90%">
+		<h1>Our Network:</h1>
+		<p>Advisory Board: Nii Addy, Paloma Acevedo, Subika Farazi, Priya Joshi
+        <p>Chapter Presidents: Grace Meng (Virginia Tech), Jon Richter (Beijing University)
+		<p>Fellows: Sarah Gilbert, James Liu</br>			
+      </div>
+
+      <b class="greenbox">
+      <b class="greenbox5"></b>
+      <b class="greenbox4"></b>
+      <b class="greenbox3"></b>
+      <b class="greenbox2"><b></b></b>
+      <b class="greenbox1"><b></b></b></b>
+    </div>	
+  </div>  
+</div>
+
+
+{% if name %}
+<div style="float: left;padding-top:10px">
+{% include "giv/templates/curveboxbegin" %}
+<div style="width: 440px;padding-right: 10px; text-align: justify;">
+
+{% ifequal name "ehannum" %}
+<h2>Dr. Emily Hannum</h2>
+<p>
+
+	Emily Hannum is currently a University Lecturer in the Sociology of
+	China, Oxford University.  She will be returning to the University
+	of Pennsylvania in the fall term. Her research focuses on education,
+	child and youth welfare, and social inequality, particularly in
+	China.  In China, she has conducted research on gender, ethnic, and
+	geographic disparities in education and employment, changes in the
+	impact of education on income and occupational attainment under
+	market reforms, rural teachers and their links to student outcomes,
+	and children's and adolescents' welfare under market reforms.  She
+	co-directs the Gansu Survey of Children and Families, a
+	collaborative, longitudinal study of children in rural northwest
+	China and has recently published Education and Reform in China,
+	co-edited with Albert Park. She is interested, more broadly, in
+	educational expansion and educational inequality in comparative
+	perspective. She is part of the Universal Basic and Secondary
+	Education (UBASE) collaboration at the American Academy of Arts and
+	Sciences, is co-editor of Research in Sociology of Education and
+	Comparative Education Review, and serves on the consulting editorial
+	board for American Journal of Sociology.  She is also an adviser to
+	the Rural China Education Foundation.
+
+</p>
+{% endifequal %}
+
+{% ifequal name "egrabowski" %}
+<h2>Ernst Grabowski</h2>
+<p>Ernst A. Grabowski is currently Vice President of ING's debt capital markets division in Hong Kong, and is responsible for raising growth capital, strategic financing, liability management, and distressed capital and restructuring solutions for corporates in non-Japan Asia, with a specific focus on China and Indonesia. </p>
+<p>Previously, Ernst was a debt capital markets banker for Credit Suisse's Global Markets Solutions Group in Hong Kong, focusing on bond transactions and liability management exercises for Asian corporates, financial institutions, and sovereigns.  He started his career with Credit Suisse First Boston in the Fixed Income Division in London.  Ernst holds BSc and MSc degrees from the London School of Economics. 
+	
+
+</p>
+{% endifequal %}
+
+{% ifequal name "droberts" %}
+<h2>David Roberts</h2>
+<p>
+
+	David Roberts is a Senior Managing Director of Angelo, Gordon and a
+	member of the firm's executive committee. He joined Angelo, Gordon
+	in 1993. David manages the firm's private equity and special
+	situations area and was the founder of the firm's opportunistic real
+	estate area. David has invested in a wide variety of companies and
+	special situations, including companies in the business services,
+	healthcare services and financial services industries. Previously,
+	he was a principal at Gordon Investment Corporation, a Canadian
+	merchant bank, where he participated in a wide variety of principal
+	transactions. Prior to that he worked in the Corporate Finance
+	Department at L.F. Rothschild where he specialized in mergers and
+	acquisitions. David has a B.S. degree from The Wharton School of the
+	University of Pennsylvania.
+
+</p>
+{% endifequal %}
+
+{% ifequal name "ktorrington" %}
+<h2>Katherine Torrington</h2>
+<p>
+
+	Ms. Torrington manages research and customer relationship initiatives aimed at measuring client outreach and retention at FINCA International. She is a Co-Facilitator for the SEEP Network’s Social Performance Working Group (SPWG) and serves in an advisory role to the DC Steering Committee for Women Advancing Microfinance (WAM).  Ms. Torrington previously worked as a Research Associate for The Caribbean Project on micro enterprise development. Ms. Torrington holds a Masters degree in International Development from American University.
+
+</p>
+{% endifequal %}
+
+{% ifequal name "gwade" %}
+<h2>Gene Wade</h2>
+<p>
+
+	Mr. Wade is the CEO and Co-founder of Platform Learning. Platform
+	Learning is a leading provider of supplemental educational services
+	to low-income students attending public schools that have been
+	identified as being “In Need of Improvement” under the federal No
+	Child Left Behind Law. Since March 2003, Platform has grown from a
+	startup to a company that has tutored approximately 70,000 students
+	in over a 15 school districts. Prior to co-founding Platform,
+	Mr. Wade was Executive Vice President for Development at Edison
+	Schools and CEO and Co-founder of LearnNow, Inc, an education
+	management company that managed charter schools and struggling
+	public schools throughout the United States. Over a 22-month period,
+	Mr. Wade grew LearnNow from a startup to a company serving more than
+	6,000 students attending 10 schools in four states. In July 2001,
+	LearnNow was sold to Edison in a transaction valued at more than $36
+	million.  Prior to LearnNow, Mr. Wade was a corporate and bankruptcy
+	attorney at Honigman Miller Schwartz and Cohn in Detroit, Michigan
+	and at Paul Weiss Rifkind Wharton & Garrison in New York
+	City. Mr. Wade holds a BA from Morehouse College, a JD from Harvard
+	Law School and an MBA from The Wharton School of Business at the
+	University of Pennsylvania. Mr. Wade grew up in the Roxbury section
+	of Boston, Massachusetts and has been actively involved in youth
+	development and education reform throughout the United States.
+
+</p>
+{% endifequal %}
+
+{% ifequal name "jnanduri" %}
+<h2>Jay Nanduri</h2>
+<p>
+
+	Jay Nanduri is a Principal Development Manager for the Mobile Search and MSN Mobile Experiences Team at Microsoft. He currently oversees design and development of the Next Generation Search, Mapping and Mobile Platforms for mobile devices. Jay has over 15 years of experience running high performance teams in different capacities at mid to large enterprises including the last 10 years at Microsoft Corporation. Jay has experience in working in both mature and startup businesses covering the spectrum from strategy to execution and international product launches. Jay holds a Masters degree in Computer Science from National Institute of Technology, Warangal, India and is currently pursuing an Executive MBA program at Wharton Business School. Jay lives in the greater Seattle area with his wife and two beautiful daughters. His greatest passions outside of work include hiking, tennis and spending time with his family.
+
+</p>
+{% endifequal %}
+
+
+{% ifequal name "jmeng" %}
+<h2>Joyce Meng</h2>
+<p>
+
+	Link to profile: <a href="/~joycemeng/">Joyce Meng</a><br />
+	<p>The idea of Givology came to Joyce Meng when she started thinking about ways to leverage online social networking communities to support education worldwide. Joyce is a Rhodes Scholar at Oxford University (Balliol College), reading for a MsC in Economics for Development. She graduated from the Huntsman Program of International Studies and Business at the University of Pennsylvania, majoring in Finance and International Studies with minors in Mathematics and Spanish.</p>
+
+	<p>Joyce is deeply interested in microfinance and international development, with particular focus on social entrepreneurship. In microfinance, she has done field work and social impact assessment research with FINCA International, the Nantik Lum Foundation, and Opportunity International. Her experiences in rural villages instilled in her the belief that poverty should never be tolerated – that if given the opportunity, the poor can creatively transform their lives and the lives of their children.</p>
+
+	<p>Joyce believes that Internet microphilanthropy is a powerful tool to enable individuals to make a difference. She considers education as one of the most important and sustainable resources for individual empowerment, advancement, and poverty alleviation. Givology is a manifestation of her dream of making high quality education accessible to aspiring students throughout the world. 
+
+	<p>Her website is: <a href="http://www.joycemeng.com">http://www.joycemeng.com</a></p>
+</p>
+{% endifequal %}
+
+{% ifequal name "jqchen" %}
+<h2>Jennifer Chen</h2>
+<p>
+
+	Link to profile: <a href="/~jqchen86/">Jennifer Chen</a><br />
+
+</p>
+{% endifequal %}
+
+{% ifequal name "xli" %}
+<h2>Xiang Li</h2>
+<p>
+
+	Link to profile: <a href="/~xiangli/">Xiang Li</a><br />
+
+	<p>A native of Chengdu, Xiang Li is a product manager at Microsoft. In 2008, she graduated from the Huntsman Program at the University of Pennsylvania, double-majoring in International Studies and Marketing, with a minor in East Asian Languages and Civilizations. After her move to the US at age four, she has remained very passionate about her Chinese roots and heritage. In high school, she created and taught a Mandarin course to educate her peers about the Chinese language and culture. During her semester abroad in Beijing, she led a team of Peking University students on a two-day research expedition on rural education in the villages outside Beijing. Xiang is committed to the ideals of rural education improvement for China’s underprivileged youth because she recognizes the equalizing power of education. 
+	
+</p>
+{% endifequal %}
+
+{% ifequal name "cmackey" %}
+<h2>Carl Mackey</h2>
+<p>
+
+	Link to profile: <a href="/~carl/">Carl Mackey</a><br />
+
+</p>
+{% endifequal %}
+
+{% ifequal name "lzarzar" %}
+<h2>Lauren Zarzar</h2>
+<p>
+
+	Link to profile: <a href="/~dellfin11/">Lauren Zarzar</a><br />
+
+</p>
+{% endifequal %}
+
+{% ifequal name "jjia" %}
+<h2>Jennifer Jia</h2>
+<p>
+
+	Link to profile: <a href="/~Jjia/">Jennifer Jia</a><br />
+	<p>Jennifer Jia joined Givology in July 2008 and currently serves as the Chief Marketing Officer of Givology.  Jennifer also works in the Financial Institutions Group at Morgan Stanley. She joined Morgan Stanley in 2007.  Previously, she was with HSBC Securities, where she focused on financial institutions.  Jennifer has a B.S. degree from The Wharton School of the University of Pennsylvania.</p>
+
+</p>
+{% endifequal %}
+
+{% ifequal name "mdavydenko" %}
+<h2>Maria Davydenko</h2>
+<p>
+
+	Link to profile: <a href="/~mdav/">Maria Davydenko</a><br />
+	<p>Maria is a student at the University of Pennsylvania College of Arts & Sciences, where she is currently pursuing degrees in International Relations and Economics. Her interests include foreign languages, photography, and journalism. Like any true Alaskan, she remains a fan of the great outdoors. Maria has been a member of the team since September 2008. As the Chief Creative Director, she has applied her extensive experience in web design and Photoshop in supporting the mission of Givology.</p>
+	
+</p>
+{% endifequal %}
+
+{% ifequal name "jdecosta" %}
+<h2>John DeCosta</h2>
+<p>
+
+	Link to profile: <a href="/~jmdecosta/">John DeCosta</a><br />
+	<p>A native of Honolulu, Hawaii, John graduated from the Wharton School at the University of Pennsylvania, where he majored in Finance and spent his junior year at Hitotsubashi University in Tokyo. At Penn, John was a member of the Penn Hawaii Club,  Pi Kappa Alpha fraternity, and a producer at UTV, the University's television station.</p>
+
+<p>His interests include soccer, television production, cooking, and the Daily Show. He hopes that one day Givology can leverage social networking and microfinance to create rewarding and long-lasting relationships with generous people and aspiring students in all corners of the world.</p>
+	
+</p>
+{% endifequal %}
+
+{% ifequal name "cgao" %}
+<h2>Catherine Gao</h2>
+<p>
+
+	Link to profile: <a href="/~CatherineGao/">Catherine Gao</a><br />
+	<p>Catherine is a current sophomore at the University of Pennsylvania (The Wharton School) studying Finance and Marketing.  She is extremely proud and excited to be involved with the Givology team.  She was born in Nanjing, China and moved overseas when she was 4 years old.  She has lived in Canada and the United States.  Catherine believes in the mission of Givology and knows that this organization will greatly impact the lives of many students across the globe.</p>
+	
+</p>
+{% endifequal %}
+
+{% ifequal name "dmatsumoto" %}
+<h2>Danielle Matsumoto</h2>
+<p>
+
+	Link to profile: <a href="/~DanielleFay/">Danielle Matsumoto</a><br />
+	<p>Danielle is a sophomore at the Wharton School and College of Arts & Sciences at the University of Pennsylvania, majoring in History and either Finance or Business & Public Policy. Although she was born in California and has lived in Washington, D.C. and Zurich, Switzerland, she calls the small town of Somers, New York her home. In addition to education, international development, and social entrepreneurship, her interests include cooking, running, foreign languages, existentialism, travel and the Colbert Report. At Penn, Danielle is a member of Penn International Business Volunteers, a student organization that does nonprofit consulting work in developing countries, as well as the West Philadelphia Tutoring Project and the International Affairs Association.</p>
+</p>
+{% endifequal %}
+
+{% ifequal name "tchai" %}
+<h2>Tim Chai</h2>
+<p>
+
+	Link to profile: <a href="/~pandaman0005/">Tim Chai</a><br />
+	<p>Tim Chai is a student at Carmel High School in Carmel, IN. He first noticed extreme educational inequalities when visiting his aunt's schoolhouse in rural Henan Province, China, where students were missing necessities as basic as pencils; on his latest trip to China as an international marketing intern for Moet Hennessy Louis Vuitton, he was shocked by the differences in educational opportunities in Shanghai and just a few miles outside the Metropolitan area. Other than Givoloy, he is involved with various other organizations and ventures. He serves on the national Youth Advisory Council and consults on the marketing team for Do Something, North America's leading teen-based non-profit, and the Alliance Youth Network (a national advisory team comprised of high school, college and graduate students from America's largest non-profits) for America's Promise Alliance, the largest association of its kind of non-profits and service organizations. Locally, he serves on the marketing team for the Youth Service Bureau of Central Indiana (currently in progress of being re-branded), which provides services to at-risk children and families in the greater Indianapolis area. His hobbies, interests and school activities include student government, Amnesty International, National Honor Society, orchestra, newspaper, DECA, the New York Giants (although the Indianapolis Colts come in a close second), Fashion Week, and video games (especially DotA). He plans to study economics and international studies in the future with minors in political science and public policy.</p>
+{% endifequal %}
+
+{% ifequal name "lreitz" %}
+<h2>Landon Reitz</h2>
+<p>
+
+	Link to profile: <a href="/~reitzls/">Landon Reitz</a><br />
+	<p>Landon is a sophomore in the College of Arts and Sciences at the University of Pennsylvania, majoring in Medieval and Renaissance English Literature and minoring in Germanic Languages and Literatures as well as Classical Studies. When he is not buried under a pile of books, he is examining submissions for the Penn Review, a literary magazine on campus, or perhaps he is playing volleyball, running, or exploring the city. Landon was raised and educated in Halifax, Pa a small town with more cows than people. Despite or maybe because of his passion for ageless literature, Landon is also very interested in current education practice and theory.</p>
+	
+{% endifequal %}
+
+
+</div>
+{% include "giv/templates/curveboxend" %}
+</div>
+{% endif %}
+
+{% endblock %}

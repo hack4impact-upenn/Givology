@@ -1,0 +1,120 @@
+<div class="blogpost">
+	<div class="blogheader">
+	<div class="blogheaderin">
+		<div class="blogauth">
+			<a href="/~{{post.uname}}/">{{post.author}}</a>
+		</div>
+		<span class="blogsubj">
+			<a href="{{post.url}}">{%if post.subject%}{{post.subject}}{%else%}No Subject{%endif%}</a>
+		</span>
+	</div>
+	</div>
+	
+	<div class="blogbody">
+	<div class="blogbodyin">
+	<div style="border-bottom: 1px dotted #666666; padding-bottom:5px; margin-bottom:5px;">
+		<span style="color:#417fb9;
+		             font-size:10px;">{{post.created}}</span> |
+		<span style="color:#417fb9;
+		             font-size:10px;
+		             font-weight:bold;"><span style="display: inline; margin-right: 10px">Tags:</span>
+                {%for tag in post.tags%}
+                <a href="{{post.baseurl}}?tagfilter={{tag}}" style="display: inline; margin-right: 15px;">{{tag}}</a>
+                {%endfor%}
+                </span>
+		
+		{% if post.parent %}{% else %}{% if http %}
+		<div style="margin-top: 0px; margin-bottom: -3px;">
+
+<div style="height:21px; margin-top: 1px;">
+
+<div style="float: left; height: 21px;">
+<iframe
+src="http://www.facebook.com/plugins/like.php?href=http://www.givology.org{{post.url}}&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21"
+scrolling="no" frameborder="0" style="border:none; overflow:hidden;
+width:100px; height:21px;" allowTransparency="true"></iframe>
+</div>
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style "
+            addthis:url="http://www.givology.org{{post.url}}"
+            addthis:title="{{post.subject}}">
+<a class="addthis_button_email"></a>
+<a class="addthis_button_twitter"></a>
+<a class="addthis_button_delicious"></a>
+<a class="addthis_button_digg"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript" src="https://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4d922e36140ca7c0"></script>
+<!-- AddThis Button END -->
+
+</div>
+
+		</div>
+		{% endif %}{% endif %}
+		
+	</div>
+		<div id="blogposttext_{{post.id}}">
+		{% autoescape off %}
+                {{post.text}}
+		{% endautoescape %}
+                </div>
+                <script type="text/javascript">
+                        var e = document.getElementById('blogposttext_{{post.id}}')
+                        BBC.setContent(e.innerHTML);
+                        BBC.bbcode2html();
+                        e.innerHTML = BBC.getContent();
+                </script>
+               {% if post.parent %}
+                <a href="{{post.parenturl}}">View Parent</a>{% endif %}
+		{% ifnotequal post.numcomments 0 %} 
+		<a href="{{post.url}}#comments"> {% endifnotequal %}
+		<div style="border-top: 1px dotted #666666; padding-top:5px; margin-top:5px;">
+		{{post.numcomments}} Comment{% ifnotequal post.numcomments 1%}s{% endifnotequal%}
+		{% ifnotequal post.numcomments 0 %} </a> {% endifnotequal %}
+		{% if user %}
+			| <a href="/compose/?type=comment&parent={{post.id}}&subject=re:{{post.subject}}">Add a Comment</a>
+		{% else %}
+			| Must be logged in to comment.
+		{% endif %}
+		{% ifequal user.username post.uname %}
+			| <a href="/compose/?type={% if post.parent %}comment&parent={{post.parentid}}{% else %}blogpost{% endif %}&id={{post.id}}">Edit</a>
+			| <a href="/deleteblogpost/{{post.id}}/">Delete</a>
+		{% endifequal %}
+                {% if user.is_staff %}
+                   {% ifequal post.spamclass 'ham' %}
+                      <form method="POST" action="/markblogspam/">
+                      <input type="hidden" name="postid" value="{{post.id}}" />
+                      <input type="submit" value="Mark as Spam" name="admin_action" />
+                      </form>
+                      {% if post.spamtrained %}{% else %}
+                      <form method="POST" action="/markblogham/">
+                      <input type="hidden" name="postid" value="{{post.id}}" />
+                      <input type="submit" value="Mark as Ham" name="admin_action" />
+                      </form>
+                      {% endif %}
+                   {% endifequal %}
+                   {% ifequal post.spamclass 'spam' %}
+                      <form method="POST" action="/markblogham/">
+                      <input type="hidden" name="postid" value="{{post.id}}" />
+                      <input type="submit" value="Mark as Ham" name="admin_action" />
+                      </form>
+                   {% endifequal %}
+                {% endif %}
+		{% if post.approved %}{% else %}
+                {% if user.is_staff %}
+                  <form method="POST" action="/approvepost/">
+                  <input type="hidden" name="postid" value="{{post.id}}" />
+                  <input type="submit" value="Approve" name="admin_action" />
+                  </form>
+                {% else %}
+                  | Post not yet Approved
+                {% endif %}{% endif %}
+		
+	</div>
+	</div>
+	</div>
+</div>
+
+>>>>>>> origin/django1.3:source/proj/giv/templates/blogpost

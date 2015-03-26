@@ -1,0 +1,15 @@
+<div class="blog">
+
+{% include "blogpagination" %}
+
+{% for post in blog.posts %}
+{% ifequal post.spamclass 'spam' %}{% if user.is_staff %}
+	{% include "blogpost" %}
+{% endif %}{% else %}
+	{% include "blogpost" %}
+{% endifequal %}
+{% endfor %}
+
+{% include "blogpagination" %}
+
+</div>

@@ -1,0 +1,17 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+
+<form method="POST" action="/addproject/">
+{% if studentadded %}
+Project <a href="/~{{studentun}}/">{{studentname}}</a> Added!<br />
+Fill out the form again to add another.<br />
+{% endif %}
+<table>
+{% autoescape off %}
+{{ form }}
+{% endautoescape %}
+</table>
+<input type="submit" value="submit"> </input>
+</form>
+{% endblock %}

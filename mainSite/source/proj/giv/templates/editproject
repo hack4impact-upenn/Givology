@@ -1,0 +1,12 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+<form method="POST" action=".">
+<table>
+{% autoescape off %}
+{{ form }}
+{% endautoescape %}
+</table>
+<input type="submit" value="Submit" />
+</form>
+{% endblock %}

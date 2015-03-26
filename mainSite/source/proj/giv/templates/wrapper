@@ -1,0 +1,308 @@
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+<!--[if ie]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+	<title>{{title}}</title>
+
+<!--
+  <link   rel="stylesheet"
+         type="text/css"
+        media="all"
+         href="/givstyle.css" />
+  <link    id="jsqstyle"
+          rel="stylesheet"
+         type="text/css"
+        media="all"
+         href="/static/javascript.yes.css" />
+-->
+	<link rel="stylesheet" type="text/css" media="all" href="/staticcontent.givology.netdna-cdn.com/wysiwyg-bbcode-carl/editor.css" />
+	<link rel="shortcut icon" type="image/x-icon" href="{% if icon %}{{ icon }}{% else %}/images/givicon.ico{% endif %}" />
+	{% if feedurl %}
+	<link rel="alternate" type="application/rss+xml" {% if feedtitle %} title="{{ feedtitle }}" {% endif %} href="{{ feedurl }}" />
+	{% else %}
+	<link rel="alternate" type="application/rss+xml" title="Givology News" href="/rss/givology news/" />
+	<link rel="alternate" type="application/rss+xml" title="Givology Notes from the Field" href="/rss/notes from the field/" />
+	<link rel="alternate" type="application/rss+xml" title="Givology News and Notes" href="/rss/givology news,notes from the field/" />
+	{% endif %}
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="/static/lightbringer/assets/css/layout.css">
+	<link rel="stylesheet" href="/static/lightbringer/assets/css/content.css">
+	<script src="/static/lightbringer/assets/js/libs/modernizr-2.5.3.min.js">
+	</script>
+	{% block moreheader %}{% endblock %}
+	<script type="text/javascript" src="/static/wysiwyg-bbcode-carl/editor.js">
+	</script>
+	<script type="text/javascript" src="/static/sorttable.js">
+	</script>
+	<script type="text/javascript" src="/static/gradualfader.js">
+
+
+/***********************************************
+* Gradual Element Fader- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* Visit http://www.dynamicDrive.com for hundreds of DHTML scripts
+* This notice must stay intact for legal use
+***********************************************/
+
+	</script>
+	<script type="text/javascript" src="/static/menu.js">
+	</script>
+
+<!--[if lt IE 7]>
+<noscript>
+<style type="text/css" media="screen">
+@import "/static/menu_ie.css";
+</style>
+</noscript>
+<![endif]-->
+<!--[if IE 5]>
+<style type="text/css" media="screen">
+@import "/static/menu_ie5.css";
+</style>
+<![endif]-->
+	<script type="text/javascript" src="/static/lightbringer/assets/js/libs/jquery-1.7.2.min.js">
+	</script>
+	<script type="text/javascript" src="/static/jquery.form.min.js">
+	</script>
+	<script type="text/javascript" src="/static/jquery.validate.min.js">
+	</script>
+<!--script type="text/javascript" src="/static/jquery.tools.min.js"></script-->
+	<script type="text/javascript">
+
+$(document).ready(function(){
+
+//Challenge page flip on hover
+
+	$("#pageflip").hover(function() {
+		$("#pageflip img , .msg_block").stop()
+			.animate({
+				width: '384px',
+				height: '415px'
+			}, 500);
+		} , function() {
+		$("#pageflip img").stop()
+			.animate({
+				width: '60px',
+				height: '60px'
+			}, 900);
+		$(".msg_block").stop()
+			.animate({
+				width: '366px',
+				height: '291px'
+			}, 900);
+	});
+
+
+});
+	</script>
+</head>
+<body>
+{% block main %} {% endblock %}
+<footer>
+	<ul class="footer-widgets">
+		<li class="widget get-involved">
+		<h4 class="widget-title">
+			Get Involved
+		</h4>
+		<div class="widget-content">
+			<p>
+				<a href="/get-involved/">Join the Givology Team! Volunteer <span>and make a difference!</span> <span class="button">Learn More</span></a>
+			</div>
+
+<!-- .widget-content -->
+			</li>
+<!-- .widget -->
+			<li class="widget shop-givology">
+			<h4 class="widget-title">
+				Shop Givology
+			</h4>
+			<div class="widget-content">
+				<p>
+					<a href="/shop/">Buy Givology Merchandise <span>from our online store!</span> <span class="button">Visit the Shop</span></a>
+				</p>
+			</div>
+			</li>
+			<li class="widget twitter">
+			<h4 class="widget-title">
+				Twitter
+			</h4>
+			<div class="widget-content">
+				<p>
+					<span class="tweet-text">Follow us on Twitter to hear about our latest updates, campaigns, activities, and events!</span> <span class="tweet-date"></span>
+				</p>
+				<a href="http://twitter.com/givology" class="follow-us">Follow Us</a>
+			</div>
+
+<!-- .widget-content -->
+			</li>
+<!-- .widget -->
+		</ul>
+		<nav id="footer-nav">
+		<ul class="clearfix">
+			<li>
+			<h5>
+				<a href="/who-we-are/">Who We Are</a>
+			</h5>
+			<ul>
+				<li><a href="/who-we-are/how-it-works/">How It Works</a></li>
+				<li><a href="/who-we-are/mission-vision/">Mission &amp; Vision</a></li>
+				<li><a href="/who-we-are/executive-team/">Our Team</a></li>
+				<li><a href="/who-we-are/partnerships/">Partnerships</a></li>
+				<li><a href="/who-we-are/faq/">FAQ</a></li>
+				<li><a href="/who-we-are/contact-us/">Contact Us</a></li>
+			</ul>
+			</li>
+			<li>
+			<h5>
+				<a href="/our-community/">Our Community</a>
+			</h5>
+			<ul>
+				<li><a href="/our-community/our-donors/">Donors</a></li>
+				<li><a href="/our-community/field-partners/">Field Partners</a></li>
+				<li><a href="/our-community/giving-teams/">GIV Teams</a></li>
+			</ul>
+			</li>
+			<li>
+			<h5>
+				<a href="/giv-now/">GIV Now</a>
+			</h5>
+			<ul>
+				<li><a href="/giv-now/giv-givology/">GIV to Givology</a></li>
+				<li><a href="/giv-now/giv-students/">GIV to a Student</a></li>
+				<li><a href="/giv-now/giv-projects/">GIV to a Project</a></li>
+				<li><a href="/giv-now/gift-certificates/">GIV a Gift Certificate</a></li>
+			</ul>
+			</li>
+			<li>
+			<h5>
+				<a href="/get-involved/">Get Involved</a>
+			</h5>
+			<ul>
+				<li><a href="/get-involved/start-chapter/">Start a Chapter</a></li>
+				<li><a href="/get-involved/volunteer/">Volunteer</a></li>
+				<li><a href="/get-involved/internships/">Internships</a></li>
+				<li><a href="/get-involved/fellowships/">Fellowships</a></li>
+				<li><a href="/get-involved/spread-the-word/">Spread the Word</a></li>
+			</ul>
+			</li>
+			<li>
+			<h5>
+				<a href="/blogs/">Blogs</a>
+			</h5>
+			<ul>
+				<li><a href="/blogs/">Givology News</a></li>
+				<li><a href="/blogs/students/">Student Updates</a></li>
+				<li><a href="/blogs/projects/">Project Updates</a></li>
+			</ul>
+			</li>
+			<li>
+			<h5>
+				<a href="/giv-media/">Media</a>
+			</h5>
+			<ul>
+				<li><a href="/giv-media/videos/">Video Gallery</a></li>
+				<li><a href="/giv-media/photos/">Photo Gallery</a></li>
+				<li><a href="/giv-media/press/">Press</a></li>
+				<li><a href="/giv-media/annual-reports/">Annual Reports</a></li>
+			</ul>
+			</li>
+		</ul>
+		</nav>
+		<ul class="social">
+			<li class="facebook"><a href="http://www.facebook.com/Givology">Facebook</a></li>
+			<li class="twitter"><a href="http://twitter.com/givology">Twitter</a></li>
+			<li class="linkedin"><a href="http://www.linkedin.com/in/givology">LinkedIn</a></li>
+		</ul>
+
+<!-- .social -->
+		<div id="footer-meta" class="clearfix">
+			<div id="copyright">
+				&copy; 2012 Givology. Givology does not guarantee any repayment or return on your grant of any kind.
+			</div>
+			<div id="lightmaker">
+				<a target="_blank" href="http://www.lightmaker.com">Site by Lightmaker</a>
+			</div>
+		</div>
+
+<!-- #footer-meta -->
+	</footer>
+	<div id="modal-overlay">
+	</div>
+	<div id="modal-login" class="modal">
+		<div class="modal-content">
+			<h2 id="page-title">
+				Login
+			</h2>
+			{% if login_fail %}
+			<p>
+				Login attempt failed. Please try again.
+			</p>
+			{% endif %}
+			<form method="post" name="loginform" action="/login/">
+				<label for="name">Username</label>
+				<input type="text" id="username" name="username" />
+				<label for="password">Password</label>
+				<input type="password" id="password" name="password" />
+				<a href="/newpassword/" class="forgot">Forgot Password?</a>
+				<div class="button-container">
+					<a href="/register/" class="button">Not Registered? Signup Now!</a> <button class="button button-cta" type="submit">Login</button>
+				</div>
+			</form>
+			<a href="#" class="modal-close">Close</a>
+		</div>
+	</div>
+
+<!--script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/static/lightbringer/assets/js/libs/jquery-1.7.2.min.js"><\/script>')</script-->
+	<script src="/static/lightbringer/assets/js/plugins.js">
+	</script>
+	<script src="/static/lightbringer/assets/js/siteFunctions.js">
+	</script>
+<!-- Facebook Connect -->
+	<div id="fb-root">
+	</div>
+	<script>
+
+			(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+
+	</script>
+<!-- Twitter API -->
+	<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+	</script>
+	<script type="text/javascript">
+
+			{% block morejavascript %}{% endblock %}
+
+	</script>
+	{% block googleanalyticsjs %} {% if isstaff %} {% else %} {% if islive %}
+	<script type="text/javascript">
+
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-8705765-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    //ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+	</script>
+	{% endif %} {% endif %} {% endblock %}
+	</body>
+	</html>

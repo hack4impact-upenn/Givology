@@ -1,0 +1,16 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+<div id="container">
+  <p>
+    The following students and projects have benefitted from your generosity!
+  </p>
+  
+  <div>
+  {% for obj in recs %}
+    <a href="{{obj.url}}">{{obj.name}}</a>
+  {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
