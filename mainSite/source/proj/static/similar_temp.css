@@ -14,8 +14,8 @@
   padding: 5px 1px 7px 7px;
   text-decoration: none;
   position: absolute;
-  top: 5%;
-  left: 17%;
+  top: 20px;
+  left: 140px;
   z-index: 10;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -37,9 +37,8 @@
   padding: 5px 1px 7px 7px;
   text-decoration: none;
   position: absolute;
-  position: absolute;
-  top: 138%;
-  left: 17%;
+  top: 480px;
+  left: 140px;
   z-index: 10;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);

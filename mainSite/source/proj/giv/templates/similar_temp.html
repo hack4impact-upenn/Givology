@@ -5,20 +5,19 @@
 
 <script>
 var similar_organizations = [];
-{% for result in results %}
+console.log(data);
+// {{ print data }}
+{% for result in data %}
 var orginfo = [];
-orginfo["pic"] = "{{result.picurl}}";
-orginfo["url"] = "{{result.url}}";
-orginfo["name"] = "{{result.name}}"
+console.log("h1");
+console.log(result);
+console.log("{{result[0]}}");
+orginfo["pic"] = "{{result[0]}}";
+orginfo["url"] = "{{result[1]}}";
 similar_organizations.push(orginfo);
 {% endfor %}
 </script>
 <script type="text/javascript">
-<<<<<<< HEAD
-
-
-=======
->>>>>>> d2451536aa0939edf17504d41e8833b9d1c4a870
 /***********************************************
 * Conveyor belt slideshow script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
 * This notice MUST stay intact for legal use
@@ -35,7 +34,6 @@ slidebgcolor="#ffffff"
 //Specify the slider's images
 var leftrightslide=new Array()
 var finalslide=''
-<<<<<<< HEAD
 for (i = 0; i < similar_organizations.length; i++) {
   leftrightslide[i] = '<a href=' + similar_organizations[i].url +'><img src=' + similar_organizations[i].pic+' border=0 height="200" width="200"></a>'
 }
@@ -103,7 +101,7 @@ function slideleft(){
 }
 if (iedom||document.layers){
   with (document){
-    document.write('<table id=slideshow border="15" cellspacing="0" cellpadding="0" borderColor: "#FF8000"><td>')
+    document.write('<table id=slideshow border="15" cellspacing="0" cellpadding="0" borderColor= "#FF8000"><td>')
     document.getElementById("slideshow").style.borderColor="FF8000";
     if (iedom){
       write('<div style="position:relative;width:'+sliderwidth+';height:'+sliderheight+';overflow:hidden;background-color: #0000ff">')
