@@ -14,15 +14,16 @@ similar_organizations.push(orginfo);
 {% endfor %}
 </script>
 <script type="text/javascript">
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d2451536aa0939edf17504d41e8833b9d1c4a870
 /***********************************************
 * Conveyor belt slideshow script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
 * This notice MUST stay intact for legal use
 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
 ***********************************************/
-
-
 //Specify the slider's width (in pixels)
 var sliderwidth="230px"
 //Specify the slider's height
@@ -31,17 +32,15 @@ var sliderheight="450px"
 var slidespeed=0
 //configure background color:
 slidebgcolor="#ffffff"
-
 //Specify the slider's images
 var leftrightslide=new Array()
 var finalslide=''
+<<<<<<< HEAD
 for (i = 0; i < similar_organizations.length; i++) {
   leftrightslide[i] = '<a href=' + similar_organizations[i].url +'><img src=' + similar_organizations[i].pic+' border=0 height="200" width="200"></a>'
 }
 
-
 ////NO NEED TO EDIT BELOW THIS LINE////////////
-
 var copyspeed=slidespeed
 leftrightslide='<nobr>'+leftrightslide.join('<br>')+'</nobr>'
 var iedom=document.all||document.getElementById
@@ -57,7 +56,6 @@ var cross_slide, ns_slide
       slidespeed = 3; 
       setInterval(function () {copyspeed = 0; slidespeed = 0}, 2000);
     });
-
 function fillup(){
   if (iedom){
     cross_slide=document.getElementById? document.getElementById("test2") : document.all.test2
@@ -78,7 +76,6 @@ function fillup(){
   lefttime=setInterval("slideleft()",30)
 }
 window.onload=fillup
-
 function slideleft(){
   if (iedom){
     if (parseInt(cross_slide.style.top)>(actualheight*(-1)+8))
@@ -104,8 +101,6 @@ function slideleft(){
       ns_slide2.top=ns_slide.top+actualheight
   }
 }
-
-
 if (iedom||document.layers){
   with (document){
     document.write('<table id=slideshow border="15" cellspacing="0" cellpadding="0" borderColor: "#FF8000"><td>')
@@ -136,4 +131,3 @@ if (iedom||document.layers){
   }
 }
 </script>
-
