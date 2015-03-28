@@ -3,9 +3,10 @@ $(document).ready(function() {
 	$("#sectionInfo").hide();
 
 	// set svg properties
-	var width = 960;
-	var height = 500;
-	var svg = d3.select("body").append("svg")
+	var width = 300;
+	var height = 300;
+	var svg = d3.select("#display")
+	.append("svg")
 	.attr("width", width)
 	.attr("height", height)
 	.append("g")
@@ -15,7 +16,7 @@ $(document).ready(function() {
 	var radius = Math.min(width, height) / 2;
 	var arc = d3.svg.arc()
 	.outerRadius(radius - 10)
-	.innerRadius(radius - 70);
+	.innerRadius(radius - 55);
 
 	// pull in arc values from template
 	var arcvalues = [];
@@ -100,7 +101,7 @@ $(document).ready(function() {
 		});
 
 		$("#sectionInfo").empty();
-		$("#sectionInfo").hide();
+		// $("#sectionInfo").hide();
 	}
 
 });

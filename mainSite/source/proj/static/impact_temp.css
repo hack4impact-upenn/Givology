@@ -1,16 +1,73 @@
+@font-face {
+	font-family: 'Bebas';
+	src: url('fonts/BebasNeue\ Regular.ttf');
+}
+
 body {
-  font: 10px sans-serif;
+	font: 10px sans-serif;
 }
 
 .arc path {
-  stroke: #fff;
-  stroke-width: 5px;
+	stroke: #fff;
+	stroke-width: 5px;
 }
 
 #sectionInfo {
-	height: 200px;
+	height: 250px;
 	background-color: #F4F4F4;
-	width: 500px;
+	width: 700px;
 	position: absolute;
 	right: 0;
+	padding: 10px;
+}
+
+.picname {
+	width: 250px;
+	position: absolute;
+}
+
+.name {
+	font-family: 'Bebas';
+	font-size: 1.4vw;
+}
+
+.pic {
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+}
+.pic img {
+	max-width: 200px;
+	height: 100%;
+	width: 200;
+}
+.pic img.landscape {
+  max-width: none;
+  max-height: 200px;
+}
+
+.funds {
+	right: 0;
+	position: absolute;
+}
+
+
+/*TOTAL*/
+#display {
+	width: 300px;
+	height: 300px;
+	position: relative;
+	text-align: center;
+}
+
+#total {
+	position: absolute;
+	top: 50%;
+	left: 50%;	
+	-webkit-transform: translate(-50%, -50%);  
+	transform: translate(-50%, -50%);  
+
+	font-family: 'Bebas';
+	color: #000;
+	font-size: 80px;
 }
