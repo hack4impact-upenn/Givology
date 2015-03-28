@@ -1,13 +1,8 @@
-#slides {
-	display: none
+.slider-nav-thumbnails .slick-slide {
+	opacity: 0.5;
 }
 
-.container {
-	border-style: solid;
-	border-width: 15px;
-	margin: 0 auto
-}
-
-.slidesjs-pagination .active {
-	color:red;
+.slider-nav-thumbnails .slick-slide.slick-active {
+	opacity: 1;
+  background: green;
 }
