@@ -59,16 +59,19 @@ function slideleft(){
       cross_slide.style.top=parseInt(cross_slide.style.top)-copyspeed+"px"
     else
       cross_slide.style.top=parseInt(cross_slide2.style.top)+actualheight+slideshowgap+"px"
+
     if (parseInt(cross_slide2.style.top)>(actualheight*(-1)+8))
       cross_slide2.style.top=parseInt(cross_slide2.style.top)-copyspeed+"px"
     else
       cross_slide2.style.top=parseInt(cross_slide.style.top)+actualheight+slideshowgap+"px"
+
   }
   else if (document.layers){
     if (ns_slide.top>(actualheight*(-1)+8))
       ns_slide.top-=copyspeed
     else
       ns_slide.top=ns_slide2.top+actualheight+slideshowgap
+
     if (ns_slide2.left>(actualheight*(-1)+8))
       ns_slide2.top-=copyspeed
     else
