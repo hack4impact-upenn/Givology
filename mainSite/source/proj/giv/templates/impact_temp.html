@@ -6,24 +6,26 @@
 
 <body>
 
-  <div id="sectionInfo">
+	<div id="sectionInfo">
+	</div>
 
-  </div>
+	<script>
+	var impact_organizations = [];
 
- <script>
- 	var impact_organizations = [];
- 	{% for result in results %}
- 	var orginfo = [];
- 	orginfo["given"] = {{result.my_given}};
- 	orginfo["need"] = {{result.grant_want_total}};
- 	orginfo["sofar"] = {{result.grant_have_total}};
- 	orginfo["pic"] = "{{result.picurl57}}";
- 	orginfo["name"] = "{{result.name}}";
+	{% for result in results %}
+	var orginfo = [];
+	orginfo["given"] = {{result.my_given}};
+	orginfo["need"] = {{result.grant_want_total}};
+	orginfo["sofar"] = {{result.grant_have_total}};
+	orginfo["pic"] = "{{result.picurl57}}";
+	orginfo["name"] = "{{result.name}}";
 
- 	impact_organizations.push(orginfo);
- 	{% endfor %}
- </script>
- <script src="//d3js.org/d3.v3.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="/static/impact_temp.js"></script>
+	impact_organizations.push(orginfo);
+	{% endfor %}
+	</script>
+
+	<script src="//d3js.org/d3.v3.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="/static/impact_temp.js"></script>
+	
 </body>

@@ -27,7 +27,7 @@ $(document).ready(function() {
 	var pie = d3.layout.pie(arcvalues)
 	.sort(null);
 	
-
+	// create svg groups with pie values
 	var g = svg.selectAll(".arc")
 	.data(pie(arcvalues))
 	.enter().append("g")
@@ -35,21 +35,26 @@ $(document).ready(function() {
 	.on("mouseover", sectionMouseOver)
 	.on("mouseout", sectionMouseOut);
 
+	// add arcs to pie
 	g.append("path")
 	.attr("d", arc)
 	.style("fill", function(d) { return d3.rgb("#41B5D9"); });
 	
-
+	// add unique ids to arcs for later identification
     $(".arc").each(function(i) {
     	console.log("here?");
     	$(this).attr("id", impact_organizations[i].name);
     });
 
+    // when mouse over arc
 	function sectionMouseOver(d) {
+
+		// change color to yellow
 		d3.select(this).select("path").style("fill", function(d) {
 			return d3.rgb("#EAC223");
 		});
 
+		// pull out specific organization info
 		var picurl, name, given, have, need;
 		for (i = 0; i < impact_organizations.length; i++) {
 			if (impact_organizations[i].name == $(this).attr("id")) {
@@ -62,11 +67,12 @@ $(document).ready(function() {
 			}
 		}
 
+		// load html
 		$("#sectionInfo")
 		.append(
 			$("<div>").attr("class", "picname")
 			.append(
-				$("<div>").attr("class", "pic").html(picurl)
+				$("<div>").attr("class", "pic").html("<img src=" + picurl + " >")
 				)
 			.append (
 				$("<div>").attr("class", "name").html(name)
