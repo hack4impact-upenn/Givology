@@ -3057,8 +3057,11 @@ def similar(request, user, profile, obj):
     donatees_exclude = [donatee for donatee in donatees if donatee not in recs]
     random_sample = random.sample(donatees_exclude, (20 if 20 < len(donatees_exclude) else len(donatees_exclude)))
 
-    ret = [(org.profile.get_image_url(206, 206), org.profile.url()) for org in random_sample]
+    ret = []
+    for org in random_sample:
+        temp = {'img':org.profile.get_image_url(206, 206), 'url':org.profile.url()}
+        ret.append(temp)
 
-    return render_to_response(tloc+'similar_temp.html', dictcombine([maindict(request),{'data': ret}]))
+    return render_to_response(tloc+'similar_temp.html', dictcombine([maindict(request),{'results': ret}]))
 
 
