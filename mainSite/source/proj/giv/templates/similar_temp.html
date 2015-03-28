@@ -5,15 +5,13 @@
 
 <script>
 var similar_organizations = [];
-console.log(data);
-// {{ print data }}
 {% for result in data %}
 var orginfo = [];
 console.log("h1");
 console.log(result);
-console.log("{{result[0]}}");
-orginfo["pic"] = "{{result[0]}}";
-orginfo["url"] = "{{result[1]}}";
+//console.log("{{result[0]}}");
+//orginfo["pic"] = "{{result[0]}}";
+//orginfo["url"] = "{{result[1]}}";
 similar_organizations.push(orginfo);
 {% endfor %}
 </script>
