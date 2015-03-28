@@ -1,7 +1,0 @@
-{% extends "giv/templates/main" %}
-
-{% block mainbody %}
-
-<p> my stuff </p>
-
-{% endblock %}

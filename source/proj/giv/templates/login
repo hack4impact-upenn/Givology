@@ -1,9 +1,0 @@
-{% extends "giv/templates/main" %}
-
-
-{% block morejavascript %}
-$(function(){
-  setTimeout(function() { window.activate_login_modal(); }, 100);
-});
-{% endblock %}
-

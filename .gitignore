@@ -1,9 +1,3 @@
-config
-mainSite/source/proj/images/user
-cathy_backup.sql
+venv
 *.pyc
-*.pyc
-
-*.pyc
-
-source/proj/urls.pyc
+.DS_Store

@@ -1,5 +1,0 @@
-{% extends "giv/templates/main" %}
-
-{% block mainbody %}
-	Coming Soon!
-{% endblock %}
