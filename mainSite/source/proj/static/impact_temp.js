@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-<<<<<<< HEAD
   $("#sectionInfo").hide();
 
   console.log("here at least");
@@ -169,7 +168,6 @@ $(document).ready(function() {
 		$("#sectionInfo").empty();
 		// $("#sectionInfo").hide();
 	}
->>>>>>> origin/master
 
 });
 
