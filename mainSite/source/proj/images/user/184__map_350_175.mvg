@@ -1,0 +1,40 @@
+
+push graphic-context
+	viewbox 0 0 350 175
+
+	stroke rgb(50,200,100)
+
+	stroke-antialias 1
+
+	fill-opacity 0
+
+	stroke-width 1.5
+
+	stroke-linecap round
+
+	image src 0,0 350,175 "/home/giv/webapps/django/proj/images/Equirectangular-projection.jpg"
+
+	
+		
+			bezier 258.543497917,62.2374102778 180.233786736,26.7620448046 101.924075556,48.65812875
+		
+		circle 101.924075556,48.65812875 106.924075556,48.65812875
+	
+		
+			bezier 258.543497917,62.2374102778 180.80587,26.2331629455 103.068242083,47.8760586111
+		
+		circle 103.068242083,47.8760586111 108.068242083,47.8760586111
+	
+
+
+
+
+	
+	stroke rgb(50,100,200)
+
+	
+		circle 258.543497917,62.2374102778 263.543497917,62.2374102778
+	
+
+
+pop graphic-context
