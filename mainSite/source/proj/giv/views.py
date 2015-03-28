@@ -3032,7 +3032,33 @@ def impact(request, user, profile, obj):
         {'results': recs,
         'total': total}]))
 
-def similar(request):
-    return render_to_response(tloc+'similar_temp.html', dictcombine([maindict(request),{}]))
+@reqUser
+def similar(request, user, profile, obj):
+    profile = user.get_profile()
+    obj = profile.get_object()
+
+    possible_curr = list(Donor.objects.filter(profile=profile))
+    if (len(possible_curr) == 1):
+        recs = possible_curr[0].get_donatees()
+    else:
+        recs = []
+
+    other_donors = []
+    # maybe break this out early if it gets to 5
+    for rec in recs:
+        for donor in rec.get_donors():
+            other_donors.append(donor)
+
+    donatees = set()
+    for other_donor in other_donors:
+        for donatee in other_donor.get_donatees(): 
+            donatees.add(donatee)
+
+    donatees_exclude = [donatee for donatee in donatees if donatee not in recs]
+    random_sample = random.sample(donatees_exclude, (20 if 20 < len(donatees_exclude) else len(donatees_exclude)))
+
+    imgs = [img.profile.get_image_url(206, 206) for img in random_sample]
+
+    return render_to_response(tloc+'similar_temp.html', dictcombine([maindict(request),{'imgs': imgs}]))
 
 
