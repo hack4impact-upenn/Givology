@@ -22,8 +22,9 @@
 	orginfo["given"] = {{result.my_given}};
 	orginfo["need"] = {{result.grant_want_total}};
 	orginfo["sofar"] = {{result.grant_have_total}};
-	orginfo["pic"] = "{{result.picurl57}}";
+	orginfo["pic"] = "{{result.picurl}}";
 	orginfo["name"] = "{{result.name}}";
+	orginfo["url"] = "{{result.url}}";
 
 	impact_organizations.push(orginfo);
 	{% endfor %}
