@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="../static/similar_temp.css">
+
+<script>
+var similar_organizations = [];
+console.log(data);
+// {{ print data }}
+{% for result in data %}
+var orginfo = [];
+console.log("h1");
+console.log(result);
+console.log("{{result[0]}}");
+orginfo["pic"] = "{{result[0]}}";
+orginfo["url"] = "{{result[1]}}";
+similar_organizations.push(orginfo);
+{% endfor %}
+</script>
 <script type="text/javascript">
 /***********************************************
 * Conveyor belt slideshow script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
@@ -15,23 +34,26 @@ slidebgcolor="#ffffff"
 //Specify the slider's images
 var leftrightslide=new Array()
 var finalslide=''
-leftrightslide[0]='<a href="/giv-now"><img src="/images/vis_pic1.jpg" border=0 height="200" width="230"></a>'
-leftrightslide[1]='<a href="/giv-now"><img src="/images/vis_pic2.jpg" border=0 height="200" width="230"></a>'
-leftrightslide[2]='<a href="/giv-now"><img src="/images/vis_pic1.jpg" border=0 height="200" width="230"></a>'
-leftrightslide[3]='<a href="/giv-now"><img src="/images/vis_pic2.jpg" border=0 height="200" width="230"></a>'
-leftrightslide[4]='<a href="/giv-now"><img src="/images/vis_pic1.jpg" border=0 height="200" width="230"></a>'
-//Specify gap between each image (use HTML):
-var imagegap=" "
-//Specify pixels gap between each slideshow rotation (use integer):
-var slideshowgap=0
+for (i = 0; i < similar_organizations.length; i++) {
+  leftrightslide[i] = '<a href=' + similar_organizations[i].url +'><img src=' + similar_organizations[i].pic+' border=0 height="200" width="200"></a>'
+}
+
 ////NO NEED TO EDIT BELOW THIS LINE////////////
 var copyspeed=slidespeed
-leftrightslide='<nobr>'+leftrightslide.join(imagegap + '<br>')+'</nobr>'
+leftrightslide='<nobr>'+leftrightslide.join('<br>')+'</nobr>'
 var iedom=document.all||document.getElementById
 if (iedom)
   document.write('<span id="temp" style="visibility:hidden;position:absolute;top:-100px;left:-9000px">'+leftrightslide+'</span>')
+document.write('<div style="width:25px" id="btn_up" class = "btn" width: 50px>&#x25B2</div>')
 var actualwidth=''
 var cross_slide, ns_slide
+    var button_up = document.getElementById("btn_up");
+    button_up.addEventListener('click', function(event) {
+      console.log("here");
+      copyspeed = 5;
+      slidespeed = 3; 
+      setInterval(function () {copyspeed = 0; slidespeed = 0}, 2000);
+    });
 function fillup(){
   if (iedom){
     cross_slide=document.getElementById? document.getElementById("test2") : document.all.test2
@@ -46,7 +68,6 @@ function fillup(){
     ns_slide.document.write(leftrightslide)
     ns_slide.document.close()
     actualheight=ns_slide.document.width
-    //ns_slide2.left=actualheight+slideshowgap
     ns_slide2.document.write(leftrightslide)
     ns_slide2.document.close()
   }
@@ -58,29 +79,29 @@ function slideleft(){
     if (parseInt(cross_slide.style.top)>(actualheight*(-1)+8))
       cross_slide.style.top=parseInt(cross_slide.style.top)-copyspeed+"px"
     else
-      cross_slide.style.top=parseInt(cross_slide2.style.top)+actualheight+slideshowgap+"px"
+      cross_slide.style.top=parseInt(cross_slide2.style.top)+actualheight+"px"
 
     if (parseInt(cross_slide2.style.top)>(actualheight*(-1)+8))
       cross_slide2.style.top=parseInt(cross_slide2.style.top)-copyspeed+"px"
     else
-      cross_slide2.style.top=parseInt(cross_slide.style.top)+actualheight+slideshowgap+"px"
+      cross_slide2.style.top=parseInt(cross_slide.style.top)+actualheight+"px"
 
   }
   else if (document.layers){
     if (ns_slide.top>(actualheight*(-1)+8))
       ns_slide.top-=copyspeed
     else
-      ns_slide.top=ns_slide2.top+actualheight+slideshowgap
+      ns_slide.top=ns_slide2.top+actualheight
 
     if (ns_slide2.left>(actualheight*(-1)+8))
       ns_slide2.top-=copyspeed
     else
-      ns_slide2.top=ns_slide.top+actualheight+slideshowgap
+      ns_slide2.top=ns_slide.top+actualheight
   }
 }
 if (iedom||document.layers){
   with (document){
-    document.write('<table id=slideshow border="15" cellspacing="0" cellpadding="0" borderColor: "#FF8000"><td>')
+    document.write('<table id=slideshow border="15" cellspacing="0" cellpadding="0" borderColor= "#FF8000"><td>')
     document.getElementById("slideshow").style.borderColor="FF8000";
     if (iedom){
       write('<div style="position:relative;width:'+sliderwidth+';height:'+sliderheight+';overflow:hidden;background-color: #0000ff">')
@@ -96,6 +117,15 @@ if (iedom||document.layers){
       write('</ilayer>')
     }
     document.write('</td></table>')
+    document.write('<div style="width:25px" id="btn_down" class = "btn" width: 50px>&#x25BC</div>')
+        var button_down = document.getElementById("btn_down");
+    button_down.addEventListener('click', function(event) {
+      console.log("here");
+      copyspeed = -3;
+      slidespeed = 3; 
+      setInterval(function () {copyspeed = 0; slidespeed = 0}, 2000);
+    });
+
   }
 }
 </script>
