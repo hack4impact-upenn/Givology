@@ -24,6 +24,10 @@ img:hover {
 	<div id="sectionInfo">
 	</div>
 
+	<div id="display">
+		<div id="total">${{total}}</div>
+	</div>
+
 	<script>
 	var impact_organizations = [];
 
@@ -44,7 +48,8 @@ img:hover {
 
 	<script src="//d3js.org/d3.v3.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-	<script src="/static/impact_temp.js"></script>
+	<script src="/static/jquery.fittext.js"></script>
+	<script src="/static/impact_temp.js"></script>	
 	<script type="text/javascript">
 
 /***********************************************
@@ -52,7 +57,6 @@ img:hover {
 * This notice MUST stay intact for legal use
 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
 ***********************************************/
-
 
 //Specify the slider's width (in pixels)
 var sliderwidth="450px"
