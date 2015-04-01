@@ -1,7 +1,7 @@
 $(document).ready(function() {
  
- 	$("#sectionInfo").hide();
- 
+ 	// $("#sectionInfo").hide();
+
  	// set svg properties
  	var width = 300;
  	var height = 300;
@@ -22,6 +22,8 @@ $(document).ready(function() {
  	impact_organizations.forEach( function (arrayItem){
  		arcvalues.push(arrayItem.given);
  	});
+
+	if (arcvalues.length == 0) arcvalues.push(-1);
  
  	// create chart with values
  	var pie = d3.layout.pie(arcvalues)
@@ -34,29 +36,32 @@ $(document).ready(function() {
  	.enter().append("g")
  	.attr("class", "arc")
  	.on("mouseover", sectionMouseOver)
- 	.on("mouseout", sectionMouseOut);
+ 	.on("mouseout", sectionMouseOut)
+ 	.on("click" , sectionMouseClick);
  
 	// add arcs to pie
  	g.append("path")
  	.attr("d", arc)
- 	.style("fill", function(d) { return d3.rgb("#41B5D9"); });
+ 	.style("fill", function(d) { 
+ 		if (arcvalues[0] == -1) {
+ 			return d3.rgb("#EEEEEE");
+ 		}
+ 		else {
+ 			return d3.rgb("#41B5D9"); 
+ 		}
+
+ 	});
  	
 
 	// add unique ids to arcs for later identification
-     $(".arc").each(function(i) {
-     	console.log("here?");
-     	$(this).attr("id", impact_organizations[i].name);
-     });
+	$(".arc").each(function(i) {
+		$(this).attr("id", impact_organizations[i].name);
+	});
  
     // when mouse over arc
  	function sectionMouseOver(d) {
 
-		// change color to yellow
- 		d3.select(this).select("path").style("fill", function(d) {
- 			return d3.rgb("#EAC223");
- 		});
- 
-		// pull out specific organization info
+ 		// pull out specific organization info
  		var picurl, name, given, have, need;
  		for (i = 0; i < impact_organizations.length; i++) {
  			if (impact_organizations[i].name == $(this).attr("id")) {
@@ -68,41 +73,132 @@ $(document).ready(function() {
  				break;
  			}
  		}
- 
-		// load html
- 		$("#sectionInfo")
- 		.append(
- 			$("<div>").attr("class", "picname")
- 			.append(
-				$("<div>").attr("class", "pic").html("<img src=" + picurl + " >")
- 				)
- 			.append (
- 				$("<div>").attr("class", "name").html(name)
- 				)
- 			)
- 		.append(
- 			$("<div>").attr("class", "funds")
- 			.append(
- 				$("<div>").attr("class", "given").html(given)
- 				)
- 			.append(
- 				$("<div>").attr("class", "progressbar").html("progress bar")
- 				)
- 			.append(
- 				$("<div>").attr("class", "wantneed").html(have + " -- " + need)
- 				)
- 			);
- 
- 		$("#sectionInfo").show();
+
+ 		$("#sectionInfo").empty();
+
+ 		var hover_color;
+
+ 		// when nothing donated
+ 		if (arcvalues[0] == -1) {
+
+ 			hover_color = "#DDDDDD";
+
+			// load html
+	 		$("#sectionInfo")
+	 		.append(
+	 			$("<div>").attr("class", "nothing").html("You haven't made any donations yet. Click to Giv Now!")
+	 			)
+ 		}
+
+ 		else {
+
+ 			hover_color = "#EAC223"
+
+	 		// calculating progress bar widths
+	 		var have_width = Math.min(have/need * 464, 464);
+	 		var given_width = Math.min(given/need * 464, 464);
+	 
+			// load html
+	 		$("#sectionInfo")
+	 		.append(
+	 			$("<div>").attr("class", "picname")
+	 			.append(
+					$("<div>").attr("class", "pic").html("<img src=" + picurl + " >")
+	 				)
+	 			.append (
+	 				$("<div>").attr("class", "nameouter").append(
+	 					$("<div>").attr("class", "name").append(
+	 						$("<span>").html(name)
+	 						)
+	 					)
+	 				)
+	 			)
+	 		.append(
+	 			$("<div>").attr("class", "funds")
+	 			.append(
+	 				$("<div>").attr("class", "given").html("<span style='color:#E98A23'>$" + given + "</span> contributed")
+	 				)
+	 			.append(
+	 				$("<div>").attr("class", "progress")
+	 				.append(
+	 					$("<div>").attr("id", "progressbar")
+	 					.append(
+	 						$("<div>").attr("id", "sofar").attr("style", "width: " + have_width + "px")
+	 						.append(
+	 							$("<div>").attr("id", "given").attr("style", "width: " + given_width + "px")
+	 							)
+	 						)
+	 					.append(
+	 						$("<div>").attr("id", "sofarnum").html("$" + have)
+	 						)
+	 					)
+	 				)
+	 			.append(
+	 				$("<div>").attr("class", "wantneed").html("<span style='color:#41B5D9'>$" + have + "</span> raised out of <span style='color:#7DC031'>$" + need + "</span> needed")
+	 				)
+	 			);
+	 		
+	 		$(".name").bigtext();
+ 		}
+
+ 		// set hover_color
+ 		d3.select(this).select("path").style("fill", function(d) {
+	 			return d3.rgb(hover_color);
+	 		});
+
  	}
  
  	function sectionMouseOut(d) {
+ 		var color;
+ 		if (arcvalues[0] == -1 ) {
+ 			color = "#EEEEEE";
+ 		}
+ 		else {
+ 			color = "#41B5D9";
+ 		}
  		d3.select(this).select("path").style("fill", function(d) {
- 			return d3.rgb("#41B5D9");
- 		});
- 
+ 				return d3.rgb(color);
+ 			});
+
+
  		$("#sectionInfo").empty();
- 		$("#sectionInfo").hide();
+
+ 		reloadSection();
+
+
+ 	}
+
+ 	function reloadSection() {
+ 		$("#sectionInfo").append(
+ 			$("<div>").attr("class", "")
+ 			
+ 			);
+ 	}
+
+ 	function sectionMouseClick(d) {
+
+ 		var url;
+
+ 		if (arcvalues[0] == -1) {
+
+ 			url = "/giv-now/"
+ 		}
+ 		else {
+
+ 			// pull out specific organization url
+	 		for (i = 0; i < impact_organizations.length; i++) {
+	 			if (impact_organizations[i].name == $(this).attr("id")) {
+	 				url = impact_organizations[i].url;
+	 				break;
+ 				}
+ 			}
+ 		}
+
+ 		console.log(url);
+
+ 		var win = window.open(url, '_blank');
+  		win.focus();
+
  	}
  
  });
