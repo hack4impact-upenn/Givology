@@ -3070,6 +3070,6 @@ def similar(request, user, profile, obj):
         temp = {'img':org.profile.get_image_url(206, 206), 'url':org.profile.url()}
         ret.append(temp)
 
-    return render_to_response(tloc+'similar_temp.html', dictcombine([maindict(request),{'results': ret}]))
+    return render_to_response(tloc+'similar_temp.html', dictcombine([maindict(request),{'data': ret}]))
 
 
