@@ -3,8 +3,8 @@
 
 <head>
 
-	<link rel="stylesheet" type="text/css" href="/static/blog_temp.css">
 	<link rel="stylesheet" type="text/css" href="/static/foundation-5/css/foundation.css">
+	<link rel="stylesheet" type="text/css" href="/static/blog_temp.css">
 
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script src="/static/blog_temp.js"></script>
@@ -17,30 +17,54 @@
 			<div id="volunteer-header">You've Volunteered:</div>
 		</div>
 	</div>
-	<form>
+	<form action="/volunteered/" method="POST" class="volunteering clearfix">
 		<div class="row">
 			<div class="small-1 columns">
 	          <label for="right-label" class="inline blog-label">I spent</label>
 	        </div>
 	        <div class="small-4 columns">
-	          <input type="text" placeholder="30 minutes" class="blog-input">
+	          	<select name="minutes" id="volunteering-hours">
+                  	<option value="30">30 minutes</option>
+                  	<option value="60">1 hour</option>
+                  	<option value="120">2 hours</option>
+                  	<option value="240">4 hours</option>
+                </select>
 	        </div>
 	        <div class="small-2 columns">
 	          <label for="right-label" class="inline blog-label">volunteering by</label>
 	        </div>
 	        <div class="small-4 columns">
-	          <input type="text" class="blog-input" placeholder="Fundraising">
+	          	<select name="action" id="volunteering-activity">
+                  	<option>spreading the word</option>
+                  	<option>fundraising</option>
+                  	<option>writing a letter</option>
+                  	<option>participating in a campaign</option>
+                  	<option>blogging</option>
+                  	<option>interacting on social media</option>
+                  	<option>programming</option>
+                  	<option>other</option>
+                </select>
 	        </div>
 	        <div class="small-1 columns">
-	        	<div class="submit-button">Submit</div>
+	        	<input type="submit" class="button" value="Submit" />
+	        	<!--<div class="submit-button">Submit</div>-->
 	    	</div>
 	  	</div>
 	</div>
 	<div class="row">
 		<div class="small-12 columns">
-			{% for vw in volunteer_works %}
-				<span class="volunteer-description"><strong>{{vw.minutes}} minutes</strong> volunteering by <strong>{{vw.action}}.</strong></span>
-			{% endfor %}
+			<div id="volunteering-activities">
+				{% for vw in volunteer_works %}
+					<div class="row">
+						<div class="small-3 columns">
+							{{ vw.when|date:"m/d/y" }}
+						</div>
+						<div class="small-9 columns">
+							{{ vw.minutes }} minutes volunteering by {{ vw.action }} 
+						</div>
+					</div>
+				{% endfor %}
+			</div>
 		</div>
 	</div>
 </body>

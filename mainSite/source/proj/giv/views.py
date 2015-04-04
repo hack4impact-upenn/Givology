@@ -1771,7 +1771,7 @@ def gcheckoutnotification(request):
 def volunteered(request, user, profile, obj):
     try:
         when = datetime.datetime.now()
-        # TODO: actually get the time from the request
+        # TODO: Actually get the time from the request.
         vw = VolunteerWork(
             volunteer=user,
             minutes=int(request.POST['minutes']),
@@ -1780,11 +1780,11 @@ def volunteered(request, user, profile, obj):
         vw.save()
         invalidatecache('impactthisweek')
     except:
-        #really ought to do something here...
+        # TODO: Add appropriate error response.
         print 'error in volunteered'
         pass
     return render_to_response(tloc+'redirect', {
-        'destination':'/account/'})
+        'destination':'/blog/'})
 
 @reqDonor
 def walletadd(request, user, profile, donor):

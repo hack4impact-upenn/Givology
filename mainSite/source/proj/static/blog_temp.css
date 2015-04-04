@@ -12,10 +12,9 @@
 	font-size: 3rem;
 }
 
-.submit-button {
+input[type="submit"] {
 	background-color:#8dc63e;
 	text-indent: 0;
-	border: 1px solid #84bbf3;
 	display: inline-block;
 	color: #ffffff;
 	font-family: 'Bebas';
@@ -23,7 +22,6 @@
 	font-style: normal;
 	height: 2.3125rem;
 	line-height: 40px;
-	width: 100px;
 	text-decoration: none;
 	text-align: center;
 	padding-top: 1px;
@@ -38,7 +36,28 @@ label.inline.blog-label {
 	margin: 0.5rem 0 1rem 0;
 }
 
-input[type="text"].blog-input {
+select {
+	border-style: solid;
+    border-color: #ffffff #ffffff #41b4d9 #ffffff;
+    border-width: 5px;
+    font-family: 'Bebas';
+    font-size: 1.5rem;
+    height: 2.83rem;
+    text-align: center;
+    color: #f3d23a;
+    margin: 0.2rem 0 1rem 0;
+    box-shadow: none;
+    background-color: #ffffff;
+}
+
+#volunteering-activities {
+	height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/*input[type="text"].blog-input {
 	border-style: solid;
     border-color: #ffffff #ffffff #41b4d9 #ffffff;
     border-width: 5px;
@@ -49,7 +68,7 @@ input[type="text"].blog-input {
     color: #f3d23a;
     margin: 0.3rem 0 1rem 0;
     box-shadow: none;
-}
+}*/
 
 /* This button was generated using CSSButtonGenerator.com */
 
