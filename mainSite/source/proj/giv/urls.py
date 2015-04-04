@@ -11,6 +11,7 @@ urlpatterns = patterns(
     (r'^impact/$', 'impact'), 
     (r'^similar/$', 'similar'), 
     (r'^dashboard/$', 'dashboard'),
+    (r'^trending/$', 'trending'),
 
 
 
