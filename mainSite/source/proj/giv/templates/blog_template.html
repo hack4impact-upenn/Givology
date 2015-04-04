@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="/static/blog_temp.css">
+	<link rel="stylesheet" type="text/css" href="/static/foundation-5/css/foundation.css">
+
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="/static/blog_temp.js"></script>
+
+</head>
+
+<body>
+	<div class="row">
+		<div class="small-12 columns">
+			<div id="volunteer-header">You've Volunteered:</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns">
+			{% for vw in volunteer_works %}
+				{{ vw.actionIsCustom }} <br>
+			{% endfor %}
+		</div>
+	</div>
+</body>

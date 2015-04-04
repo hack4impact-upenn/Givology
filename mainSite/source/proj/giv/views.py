@@ -3064,4 +3064,23 @@ def similar(request, user, profile, obj):
 
     return render_to_response(tloc+'similar_temp.html', dictcombine([maindict(request),{'results': ret}]))
 
+@reqUser
+def blog(request, user, profile, obj):
+    volunteer_works = list(VolunteerWork.objects.filter(volunteer=user).order_by('-when'))
+    #return render_to_response(tloc+'blog_template.html', dictcombine({}))
+
+    r = render_to_response(tloc+'blog_template.html', dictcombine(
+            [
+                maindict(request),
+                {
+                    'title' : 'Givology: Account',
+                    'volunteer_works' : volunteer_works,
+                    #'volunteer_total_hours' : volunteer_total_hours,
+                    #'has_volunteer_works' : len(volunteer_works),
+                }
+            ]
+        )
+    )
+    return r
+
 
