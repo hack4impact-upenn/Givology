@@ -115,6 +115,7 @@ urlpatterns = patterns(
     (r'^partnerships/$', 'partnerships'),
     (r'^gdonate/$', 'getinvolveddonate'),
 
+    (r'^save/$', 'saveVolunteerHours'),
     (r'^volunteered/$', 'volunteered'),
     (r'^account/$', 'account'),
     (r'^autodonate/$', 'autodonate'),

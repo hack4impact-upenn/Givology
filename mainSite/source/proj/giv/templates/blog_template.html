@@ -17,7 +17,7 @@
 			<div id="volunteer-header">You've Volunteered:</div>
 		</div>
 	</div>
-	<form action="/volunteered/" method="POST" class="volunteering clearfix">
+	<form onsubmit="updateVolunteerHours()" method="POST">
 		<div class="row">
 			<div class="small-1 columns">
 	          <label for="right-label" class="inline blog-label">I spent</label>
@@ -50,7 +50,7 @@
 	        	<!--<div class="submit-button">Submit</div>-->
 	    	</div>
 	  	</div>
-	</div>
+	</form>
 	<div class="row">
 		<div class="small-12 columns">
 			<div id="volunteering-activities">

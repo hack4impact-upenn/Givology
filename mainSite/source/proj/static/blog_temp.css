@@ -12,13 +12,14 @@
 	font-size: 3rem;
 }
 
-input[type="submit"] {
+input[type="submit"], .submit-button {
 	background-color:#8dc63e;
 	text-indent: 0;
 	display: inline-block;
 	color: #ffffff;
 	font-family: 'Bebas';
 	font-size: 1.8rem;
+	width: 100px;
 	font-style: normal;
 	height: 2.3125rem;
 	line-height: 40px;
