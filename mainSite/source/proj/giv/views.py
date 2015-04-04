@@ -3067,9 +3067,34 @@ def similar(request, user, profile, obj):
 
     ret = []
     for org in random_sample:
-        temp = {'img':org.profile.get_image_url(206, 206), 'url':org.profile.url()}
+        temp = {
+            'img':org.profile.get_image_url(206, 206),
+            'url':org.profile.url()
+            }
         ret.append(temp)
 
     return render_to_response(tloc+'similar_temp.html', dictcombine([maindict(request),{'data': ret}]))
+
+@reqUser
+def trending(request, user, profile, obj):
+    ret = []
+    seen = set()
+    grant_count = Paymenttogrant.objects.count()
+    for i in range(0, grant_count, 10):
+        if len(ret) >= 5:
+            break
+        recent_payments = list(Paymenttogrant.objects.order_by('-created')[i:i+10])
+        if len(recent_payments) == 0:
+            break
+        for payment in recent_payments:
+            if payment in seen:
+                continue
+            seen.add(payment)
+            temp = {
+                'img':payment.grant.rec.profile.get_image_url(206, 206),
+                'url':payment.grant.rec.profile.url()
+                }
+            ret.append(temp)
+    return render_to_response(tloc+'trending_temp.html', dictcombine([maindict(request),{'data': ret}]))
 
 
