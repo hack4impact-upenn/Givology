@@ -17,10 +17,29 @@
 			<div id="volunteer-header">You've Volunteered:</div>
 		</div>
 	</div>
+	<form>
+		<div class="row">
+			<div class="small-1 columns">
+	          <label for="right-label" class="inline blog-label">I spent</label>
+	        </div>
+	        <div class="small-4 columns">
+	          <input type="text" placeholder="30 minutes" class="blog-input">
+	        </div>
+	        <div class="small-2 columns">
+	          <label for="right-label" class="inline blog-label">volunteering by</label>
+	        </div>
+	        <div class="small-4 columns">
+	          <input type="text" class="blog-input" placeholder="Fundraising">
+	        </div>
+	        <div class="small-1 columns">
+	        	<div class="submit-button">Submit</div>
+	    	</div>
+	  	</div>
+	</div>
 	<div class="row">
 		<div class="small-12 columns">
 			{% for vw in volunteer_works %}
-				{{ vw.actionIsCustom }} <br>
+				<span class="volunteer-description"><strong>{{vw.minutes}} minutes</strong> volunteering by <strong>{{vw.action}}.</strong></span>
 			{% endfor %}
 		</div>
 	</div>
