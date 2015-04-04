@@ -170,7 +170,7 @@ $(document).ready(function() {
 
  	function reloadSection() {
  		$("#sectionInfo").append(
- 			$("<div>").attr("class", "")
+ 			$("<div>").attr("class", "test")
  			
  			);
  	}

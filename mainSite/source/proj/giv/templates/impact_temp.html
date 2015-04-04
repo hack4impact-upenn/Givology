@@ -2,6 +2,21 @@
 <meta charset="utf-8">
 
 <link rel="stylesheet" type="text/css" href="/static/impact_temp.css">
+<head>
+<style type="text/css">
+img {
+  filter: gray; /* IE6-9 */
+  filter: grayscale(1); /* Firefox 35+ */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+}
+
+/* Disable grayscale on hover */
+img:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
+}
+</style>
+</head>
 
 
 <body>
@@ -9,7 +24,6 @@
 	<div id="sectionInfo">
 	</div>
 
-	
 	<div id="display">
 		<div id="total">${{total}}</div>
 	</div>
@@ -18,6 +32,7 @@
 	var impact_organizations = [];
 
 	{% for result in results %}
+	//var result2 = {{result}};
 	var orginfo = [];
 	orginfo["given"] = {{result.my_given}};
 	orginfo["need"] = {{result.grant_want_total}};
@@ -25,6 +40,7 @@
 	orginfo["pic"] = "{{result.picurl}}";
 	orginfo["name"] = "{{result.name}}";
 	orginfo["url"] = "{{result.url}}";
+	orginfo["large_pic"] = "{{result.large_img}}";
 
 	impact_organizations.push(orginfo);
 	{% endfor %}
@@ -33,6 +49,129 @@
 	<script src="//d3js.org/d3.v3.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script src="/static/jquery.fittext.js"></script>
-	<script src="/static/impact_temp.js"></script>
+	<script src="/static/impact_temp.js"></script>	
+	<script type="text/javascript">
+
+/***********************************************
+* Conveyor belt slideshow script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+//Specify the slider's width (in pixels)
+var sliderwidth="450px"
+//Specify the slider's height
+var sliderheight="160px"
+//Specify the slider's slide speed (larger is faster 1-10)
+var slidespeed=2
+//configure background color:
+slidebgcolor="#FFFFFF"
+
+//Specify the slider's images
+
+var leftrightslide=new Array()
+var finalslide=''
+for (i = 0; i < impact_organizations.length; i++) {
+	leftrightslide[i]='<a href='+impact_organizations[i].url +'><img src='+impact_organizations[i].large_pic+' border=0 height="160" width="200" class="bw"></a>'
+		
+}
+//console.log(result2);
+/*
+leftrightslide[0]='<a href="/giv-now"><img src="/images/vis_pic1.jpg" border=0 height="200" width="230"></a>'
+leftrightslide[1]='<a href="/giv-now"><img src="/images/vis_pic2.jpg" border=0 height="200" width="230"></a>'
+leftrightslide[2]='<a href="/giv-now"><img src="/images/vis_pic1.jpg" border=0 height="200" width="230"></a>'
+leftrightslide[3]='<a href="/giv-now"><img src="/images/vis_pic2.jpg" border=0 height="200" width="230"></a>'
+leftrightslide[4]='<a href="/giv-now"><img src="/images/vis_pic1.jpg" border=0 height="200" width="230"></a>'
+*/
+
+//Specify gap between each image (use HTML):
+var imagegap=" "
+
+//Specify pixels gap between each slideshow rotation (use integer):
+var slideshowgap=0
+
+
+////NO NEED TO EDIT BELOW THIS LINE////////////
+
+var copyspeed=slidespeed
+leftrightslide='<nobr>'+leftrightslide.join(imagegap)+'</nobr>'
+var iedom=document.all||document.getElementById
+if (iedom)
+document.write('<span id="temp" style="visibility:hidden;position:absolute;top:-100px;left:-9000px">'+leftrightslide+'</span>')
+var actualwidth=''
+var cross_slide, ns_slide
+
+function fillup(){
+if (iedom){
+cross_slide=document.getElementById? document.getElementById("test2") : document.all.test2
+cross_slide2=document.getElementById? document.getElementById("test3") : document.all.test3
+cross_slide.innerHTML=cross_slide2.innerHTML=leftrightslide
+actualwidth=document.all? cross_slide.offsetWidth : document.getElementById("temp").offsetWidth
+cross_slide2.style.left=actualwidth+slideshowgap+"px"
+}
+else if (document.layers){
+ns_slide=document.ns_slidemenu.document.ns_slidemenu2
+ns_slide2=document.ns_slidemenu.document.ns_slidemenu3
+ns_slide.document.write(leftrightslide)
+ns_slide.document.close()
+actualwidth=ns_slide.document.width
+ns_slide2.left=actualwidth+slideshowgap
+ns_slide2.document.write(leftrightslide)
+ns_slide2.document.close()
+}
+lefttime=setInterval("slideleft()",30)
+}
+window.onload=fillup
+
+function slideleft(){
+if (iedom){
+if (parseInt(cross_slide.style.left)>(actualwidth*(-1)+8))
+cross_slide.style.left=parseInt(cross_slide.style.left)-copyspeed+"px"
+else
+cross_slide.style.left=parseInt(cross_slide2.style.left)+actualwidth+slideshowgap+"px"
+
+if (parseInt(cross_slide2.style.left)>(actualwidth*(-1)+8))
+cross_slide2.style.left=parseInt(cross_slide2.style.left)-copyspeed+"px"
+else
+cross_slide2.style.left=parseInt(cross_slide.style.left)+actualwidth+slideshowgap+"px"
+
+}
+else if (document.layers){
+if (ns_slide.left>(actualwidth*(-1)+8))
+ns_slide.left-=copyspeed
+else
+ns_slide.left=ns_slide2.left+actualwidth+slideshowgap
+
+if (ns_slide2.left>(actualwidth*(-1)+8))
+ns_slide2.left-=copyspeed
+else
+ns_slide2.left=ns_slide.left+actualwidth+slideshowgap
+}
+}
+
+
+if (iedom||document.layers){
+with (document){
+document.write('<table id=slideshow_update border="7" cellspacing="0" cellpadding="0" borderColor= "#41B5D9" ><td>')
+document.getElementById("slideshow_update").style.borderColor="41B5D9";
+if (iedom){
+write('<div style="position:relative;width:'+sliderwidth+';height:'+sliderheight+';overflow:hidden">')
+write('<div style="position:absolute;width:'+sliderwidth+';height:'+sliderheight+';background-color:'+slidebgcolor+'" onMouseover="copyspeed=0" onMouseout="copyspeed=slidespeed">')
+write('<div id="test2" style="position:absolute;left:0px;top:0px"></div>')
+write('<div id="test3" style="position:absolute;left:-1000px;top:0px"></div>')
+write('</div></div>')
+}
+else if (document.layers){
+write('<ilayer width='+sliderwidth+' height='+sliderheight+' name="ns_slidemenu" bgColor='+slidebgcolor+'>')
+write('<layer name="ns_slidemenu2" left=0 top=0 onMouseover="copyspeed=0" onMouseout="copyspeed=slidespeed"></layer>')
+write('<layer name="ns_slidemenu3" left=0 top=0 onMouseover="copyspeed=0" onMouseout="copyspeed=slidespeed"></layer>')
+write('</ilayer>')
+}
+document.write('</td></table>')
+}
+}
+</script>
+
+
 
 </body>

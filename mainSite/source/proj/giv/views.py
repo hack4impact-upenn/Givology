@@ -3018,14 +3018,22 @@ def impact(request, user, profile, obj):
 
 
     total = 0;
+    recs2=[];
+    for rec in recs:
+        rec2 = rec.profile.summary();
+        rec2['large_img']= rec.profile.get_image_url(206, 206);
+        recs2.append(rec2);
 
-    recs = [r.profile.summary() for r in recs]
+
+    recs = recs2;
     for rec in recs:
         rec['messageme']=True
         rec['my_given'] = sum(
             [pg.amount for pg in pgs if pg.grant.rec.id == rec['obj_id']])
         total += rec['my_given'];
         rec['my_given_percent'] = int((100.0*rec['my_given']) / rec['grant_have_total'])
+        print rec['large_img'];
+        print (" -------------------");
 
     return render_to_response(tloc+'impact_temp.html', dictcombine(
         [maindict(request), 
@@ -3062,7 +3070,7 @@ def similar(request, user, profile, obj):
         temp = {'img':org.profile.get_image_url(206, 206), 'url':org.profile.url()}
         ret.append(temp)
 
-    return render_to_response(tloc+'similar_temp.html', dictcombine([maindict(request),{'results': ret}]))
+    return render_to_response(tloc+'similar_temp.html', dictcombine([maindict(request),{'data': ret}]))
 
 @reqUser
 def blog(request, user, profile, obj):

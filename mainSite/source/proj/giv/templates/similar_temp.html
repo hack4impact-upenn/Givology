@@ -5,15 +5,11 @@
 
 <script>
 var similar_organizations = [];
-console.log(data);
-// {{ print data }}
 {% for result in data %}
 var orginfo = [];
-console.log("h1");
-console.log(result);
-console.log("{{result[0]}}");
-orginfo["pic"] = "{{result[0]}}";
-orginfo["url"] = "{{result[1]}}";
+console.log("{{result.img}}");
+orginfo["pic"] = "{{result.img}}";
+orginfo["url"] = "{{result.url}}";
 similar_organizations.push(orginfo);
 {% endfor %}
 </script>
@@ -37,7 +33,6 @@ var finalslide=''
 for (i = 0; i < similar_organizations.length; i++) {
   leftrightslide[i] = '<a href=' + similar_organizations[i].url +'><img src=' + similar_organizations[i].pic+' border=0 height="200" width="200"></a>'
 }
-
 ////NO NEED TO EDIT BELOW THIS LINE////////////
 var copyspeed=slidespeed
 leftrightslide='<nobr>'+leftrightslide.join('<br>')+'</nobr>'
@@ -80,19 +75,16 @@ function slideleft(){
       cross_slide.style.top=parseInt(cross_slide.style.top)-copyspeed+"px"
     else
       cross_slide.style.top=parseInt(cross_slide2.style.top)+actualheight+"px"
-
     if (parseInt(cross_slide2.style.top)>(actualheight*(-1)+8))
       cross_slide2.style.top=parseInt(cross_slide2.style.top)-copyspeed+"px"
     else
       cross_slide2.style.top=parseInt(cross_slide.style.top)+actualheight+"px"
-
   }
   else if (document.layers){
     if (ns_slide.top>(actualheight*(-1)+8))
       ns_slide.top-=copyspeed
     else
       ns_slide.top=ns_slide2.top+actualheight
-
     if (ns_slide2.left>(actualheight*(-1)+8))
       ns_slide2.top-=copyspeed
     else
@@ -125,7 +117,6 @@ if (iedom||document.layers){
       slidespeed = 3; 
       setInterval(function () {copyspeed = 0; slidespeed = 0}, 2000);
     });
-
   }
 }
 </script>
