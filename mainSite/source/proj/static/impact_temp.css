@@ -10,6 +10,17 @@ body {
 	margin-top: 50px;
 }
 
+img {
+  filter: gray; /* IE6-9 */
+  filter: grayscale(1); /* Firefox 35+ */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+}
+
+/* Disable grayscale on hover */
+img:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
+}
 .arc path {
 	stroke: #fff;
 	stroke-width: 5px;
@@ -47,7 +58,7 @@ body {
 	position: relative;
 	top: 50%;
 	left: 50%;	
-	-webkit-transform: translate(-50%, -50%);  
+	webkit-transform: translate(-50%, -50%);  
 	transform: translate(-50%, -50%);  
 }
 
@@ -149,4 +160,47 @@ body {
 	font-family: 'Bebas';
 	color: #000;
 	font-size: 80px;
+}
+#btn_up {
+  background: #EAC223;
+
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  color: #ffffff;
+
+  font-size: 20px;
+  padding: 76px 0px 76px 7px;
+  text-decoration: none;
+  position: absolute;
+  top: 438px;
+  left: 155px;
+  z-index: 10;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+
+}
+#btn_down {
+  background: #EAC223;
+
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  color: #ffffff;
+
+  font-size: 20px;
+  padding: 76px 2px 76px 4px;
+  text-decoration: none;
+  position: absolute;
+  top: 438px;
+  left: 654px;
+  z-index: 10;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+
+}
+
+
 }
