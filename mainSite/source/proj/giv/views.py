@@ -3018,14 +3018,22 @@ def impact(request, user, profile, obj):
 
 
     total = 0;
+    recs2=[];
+    for rec in recs:
+        rec2 = rec.profile.summary();
+        rec2['large_img']= rec.profile.get_image_url(206, 206);
+        recs2.append(rec2);
 
-    recs = [r.profile.summary() for r in recs]
+
+    recs = recs2;
     for rec in recs:
         rec['messageme']=True
         rec['my_given'] = sum(
             [pg.amount for pg in pgs if pg.grant.rec.id == rec['obj_id']])
         total += rec['my_given'];
         rec['my_given_percent'] = int((100.0*rec['my_given']) / rec['grant_have_total'])
+        print rec['large_img'];
+        print (" -------------------");
 
     return render_to_response(tloc+'impact_temp.html', dictcombine(
         [maindict(request), 
@@ -3059,9 +3067,78 @@ def similar(request, user, profile, obj):
 
     ret = []
     for org in random_sample:
-        temp = {'img':org.profile.get_image_url(206, 206), 'url':org.profile.url()}
+        temp = {
+            'img':org.profile.get_image_url(206, 206),
+            'url':org.profile.url()
+            }
         ret.append(temp)
 
-    return render_to_response(tloc+'similar_temp.html', dictcombine([maindict(request),{'results': ret}]))
+    return render_to_response(tloc+'similar_temp.html', dictcombine([maindict(request),{'data': ret}]))
+
+@reqUser
+def trending(request, user, profile, obj):
+    ret = []
+    seen = set()
+    grant_count = Paymenttogrant.objects.count()
+    for i in range(0, grant_count, 10):
+        if len(ret) >= 5:
+            break
+        recent_payments = list(Paymenttogrant.objects.order_by('-created')[i:i+10])
+        if len(recent_payments) == 0:
+            break
+        for payment in recent_payments:
+            if payment in seen:
+                continue
+            seen.add(payment)
+            temp = {
+                'img':payment.grant.rec.profile.get_image_url(206, 206),
+                'url':payment.grant.rec.profile.url()
+                }
+            ret.append(temp)
+    return render_to_response(tloc+'trending_temp.html', dictcombine([maindict(request),{'data': ret}]))
+
+
+@reqUser
+def dashboard(request, user, profile, obj):
+    # d = searchrecipients(request, 's')
+
+    profile = user.get_profile()
+    obj = profile.get_object()
+
+    pgs = list(Paymenttogrant.objects.filter(
+        donor=obj).order_by('-created'))
+
+    recs =[Recipient.objects.get(id=i)
+           for i in xremoveduplicates(
+            pg.grant.rec.id for pg
+            in pgs)
+           ]
+
+
+    print time.clock()
+
+
+    total = 0;
+    recs2=[];
+    for rec in recs:
+        rec2 = rec.profile.summary();
+        rec2['large_img']= rec.profile.get_image_url(206, 206);
+        recs2.append(rec2);
+
+
+    recs = recs2;
+    for rec in recs:
+        rec['messageme']=True
+        rec['my_given'] = sum(
+            [pg.amount for pg in pgs if pg.grant.rec.id == rec['obj_id']])
+        total += rec['my_given'];
+        rec['my_given_percent'] = int((100.0*rec['my_given']) / rec['grant_have_total'])
+        print rec['large_img'];
+        print (" -------------------");
+
+    return render_to_response(tloc+'dashboard.html', dictcombine(
+        [maindict(request), 
+        {'results': recs,
+        'total': total}]))
 
 
