@@ -5,24 +5,22 @@
 
 <script>
 var similar_organizations = [];
-{% for result in data %}
+{% for result in results %}
 var orginfo = [];
-console.log("h1");
-console.log(result);
-//console.log("{{result[0]}}");
-//orginfo["pic"] = "{{result[0]}}";
-//orginfo["url"] = "{{result[1]}}";
+orginfo["pic"] = "{{result.img}}";
+orginfo["url"] = "{{result.url}}";
 similar_organizations.push(orginfo);
 {% endfor %}
 </script>
 <script type="text/javascript">
+document.write('<div id="title">SIMILAR PROJECTS</div>')
 /***********************************************
 * Conveyor belt slideshow script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
 * This notice MUST stay intact for legal use
 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
 ***********************************************/
 //Specify the slider's width (in pixels)
-var sliderwidth="230px"
+var sliderwidth="200px"
 //Specify the slider's height
 var sliderheight="450px"
 //Specify the slider's slide speed (larger is faster 1-10)
@@ -36,29 +34,31 @@ for (i = 0; i < similar_organizations.length; i++) {
   leftrightslide[i] = '<a href=' + similar_organizations[i].url +'><img src=' + similar_organizations[i].pic+' border=0 height="200" width="200"></a>'
 }
 
-////NO NEED TO EDIT BELOW THIS LINE////////////
 var copyspeed=slidespeed
 leftrightslide='<nobr>'+leftrightslide.join('<br>')+'</nobr>'
 var iedom=document.all||document.getElementById
 if (iedom)
   document.write('<span id="temp" style="visibility:hidden;position:absolute;top:-100px;left:-9000px">'+leftrightslide+'</span>')
 document.write('<div style="width:25px" id="btn_up" class = "btn" width: 50px>&#x25B2</div>')
+document.write('<div style="width:25px" id="btn_shadow_up" class = "btn" width: 50px>&#x25B2</div>')
 var actualwidth=''
 var cross_slide, ns_slide
     var button_up = document.getElementById("btn_up");
-    button_up.addEventListener('click', function(event) {
-      console.log("here");
-      copyspeed = 5;
-      slidespeed = 3; 
-      setInterval(function () {copyspeed = 0; slidespeed = 0}, 2000);
+    button_up.addEventListener('mouseover', function(event) {
+      copyspeed = 3;
+      //slidespeed = 3;
     });
+    button_up.addEventListener('mouseout', function(event) {
+      copyspeed = 0;
+      slidespeed = 0;
+    })
+
 function fillup(){
   if (iedom){
     cross_slide=document.getElementById? document.getElementById("test2") : document.all.test2
     cross_slide2=document.getElementById? document.getElementById("test3") : document.all.test3
     cross_slide.innerHTML=cross_slide2.innerHTML=leftrightslide
     actualheight=document.all? cross_slide.offsetHeight : document.getElementById("temp").offsetHeight
-    //cross_slide2.style.left=0+"px"
   }
   else if (document.layers){
     ns_slide=document.ns_slidemenu.document.ns_slidemenu2
@@ -99,10 +99,10 @@ function slideleft(){
 }
 if (iedom||document.layers){
   with (document){
-    document.write('<table id=slideshow border="15" cellspacing="0" cellpadding="0" borderColor= "#FF8000"><td>')
-    document.getElementById("slideshow").style.borderColor="FF8000";
+    document.write('<table id=slideshow border="15" cellspacing="0" cellpadding="10" borderColor= "#EAC223"><td>')
+    document.getElementById("slideshow").style.borderColor="EAC223";
     if (iedom){
-      write('<div style="position:relative;width:'+sliderwidth+';height:'+sliderheight+';overflow:hidden;background-color: #0000ff">')
+      write('<div style="position:relative;width:'+sliderwidth+';height:'+sliderheight+';overflow:hidden;background-color: #EAC223">')
       write('<div style="position:absolute;width:'+sliderwidth+';height:'+sliderheight+';background-color:'+slidebgcolor+'" onMouseover="copyspeed=0" onMouseout="copyspeed=slidespeed">')
       write('<div id="test2" style="position:absolute;left:0px;top:0px"></div>')
       write('<div id="test3" style="position:absolute;left:0px;top:-1016px"></div>')
@@ -116,13 +116,15 @@ if (iedom||document.layers){
     }
     document.write('</td></table>')
     document.write('<div style="width:25px" id="btn_down" class = "btn" width: 50px>&#x25BC</div>')
-        var button_down = document.getElementById("btn_down");
-    button_down.addEventListener('click', function(event) {
-      console.log("here");
+    document.write('<div style="width:25px" id="btn_shadow_down" class = "btn" width: 50px>&#x25BC</div>')    
+    var button_down = document.getElementById("btn_down");
+    button_down.addEventListener('mouseover', function(event) {
       copyspeed = -3;
-      slidespeed = 3; 
-      setInterval(function () {copyspeed = 0; slidespeed = 0}, 2000);
     });
+    button_down.addEventListener('mouseout', function(event) {
+      copyspeed = 0;
+      slidespeed = 0;
+    })
 
   }
 }
