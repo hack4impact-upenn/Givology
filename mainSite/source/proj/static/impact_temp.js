@@ -3,8 +3,8 @@ $(document).ready(function() {
  	// $("#sectionInfo").hide();
 
  	// set svg properties
- 	var width = 300;
- 	var height = 300;
+ 	var width = 220;
+ 	var height = 220;
  	var svg = d3.select("#display").append("svg")
  	.attr("width", width)
  	.attr("height", height)
@@ -15,7 +15,7 @@ $(document).ready(function() {
  	var radius = Math.min(width, height) / 2;
  	var arc = d3.svg.arc()
  	.outerRadius(radius - 10)
- 	.innerRadius(radius - 55);
+ 	.innerRadius(radius - 45);
  
  	// pull in arc values from template
  	var arcvalues = [];
@@ -95,8 +95,8 @@ $(document).ready(function() {
  			hover_color = "#EAC223"
 
 	 		// calculating progress bar widths
-	 		var have_width = Math.min(have/need * 464, 464);
-	 		var given_width = Math.min(given/need * 464, 464);
+	 		var have_width = Math.min(have/need * 365, 365);
+	 		var given_width = Math.min(given/need * 365, 365);
 	 
 			// load html
 	 		$("#sectionInfo")

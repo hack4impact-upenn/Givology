@@ -12,6 +12,8 @@ urlpatterns = patterns(
     (r'^similar/$', 'similar'), 
     (r'^blog/$', 'blog'),
     (r'^save/$', 'saveVolunteerHours'), 
+    (r'^dashboard/$', 'dashboard'),
+    (r'^trending/$', 'trending'),
 
 
 

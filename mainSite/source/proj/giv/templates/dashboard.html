@@ -1,0 +1,48 @@
+{% extends "giv/templates/main" %}
+
+{% block mainbody %}
+
+<link rel="stylesheet" type="text/css" href="/static/dashboard.css">
+
+<div id="wrap">
+
+	<div id="sidebar">
+		<div class="sidebarhead" style="color: #41B5D9">RECENTLY DONATED</div>
+		<div class="sidebarhead" style="color: #EAC223">SIMILAR PROJECTS</div>
+	</div>
+	<div id="main">
+		<div id="sectionInfo">
+		</div>
+
+		<div id="display">
+			<div id="total">${{total}}</div>
+		</div>
+
+	</div>
+</div>
+
+<script>
+	var impact_organizations = [];
+
+	{% for result in results %}
+	//var result2 = {{result}};
+	var orginfo = [];
+	orginfo["given"] = {{result.my_given}};
+	orginfo["need"] = {{result.grant_want_total}};
+	orginfo["sofar"] = {{result.grant_have_total}};
+	orginfo["pic"] = "{{result.picurl}}";
+	orginfo["name"] = "{{result.name}}";
+	orginfo["url"] = "{{result.url}}";
+	orginfo["large_pic"] = "{{result.large_img}}";
+
+	impact_organizations.push(orginfo);
+	{% endfor %}
+	</script>
+	
+
+	<script src="//d3js.org/d3.v3.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="/static/jquery.fittext.js"></script>
+	<script src="/static/impact_temp.js"></script>	
+
+{% endblock %}

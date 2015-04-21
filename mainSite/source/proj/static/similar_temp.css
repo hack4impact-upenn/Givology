@@ -1,45 +1,98 @@
 #btn_up {
-  background: #3498db;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  background: transparent;
   -webkit-border-radius: 10;
   -moz-border-radius: 10;
-  border-radius: 30px;
+  border-radius: 5px;
   font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 5px 1px 7px 7px;
+  color: #41b5d9;
+  font-size: 50px;
+  padding: 0px 1px 1px 7px;
   text-decoration: none;
   position: absolute;
-  top: 20px;
-  left: 140px;
+  top: 73px;
+  left: 120px;
+  z-index: 10;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 8px 5px -8.5px rgba(0,0,0,0.5);
+}
+
+#btn_down {
+  background: transparent;
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #41b5d9;
+  font-size: 50px;
+  padding: 0px 0px 0px 0px;
+  text-decoration: none;
+  position: absolute;
+  top: 506px;
+  left: 120px;
   z-index: 10;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
-#btn_down {
-  background: #3498db;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+#btn_shadow_up {
+  background: transparent;
   -webkit-border-radius: 10;
   -moz-border-radius: 10;
-  border-radius: 30px;
+  border-radius: 5px;
   font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 5px 1px 7px 7px;
+  color: black;
+  font-size: 50px;
+  padding: 0px 1px 1px 7px;
   text-decoration: none;
   position: absolute;
-  top: 480px;
-  left: 140px;
-  z-index: 10;
+  top: 75px;
+  left: 125px;
+  z-index: 5;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  box-shadow: 0 8px 5px -8.5px rgba(0,0,0,0.5);
+}
+
+#btn_shadow_down {
+  background: transparent;
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 5px;
+  font-family: Arial;
+  color: black;
+  font-size: 50px;
+  padding: 0px 0px 0px 0px;
+  text-decoration: none;
+  position: absolute;
+  top: 504px;
+  left: 125px;
+  z-index: 5;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+img {
+  filter: gray; /* IE6-9 */
+  filter: grayscale(1); /* Firefox 35+ */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+}
+
+/* Disable grayscale on hover */
+img:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
+}
+
+@font-face {
+  font-family: 'Bebas';
+  src: url('fonts/BebasNeue\ Regular.ttf');
+}
+
+#title {
+  font-family: 'Bebas';
+  font-size: 30px;
+  color: #EAC223;
+  padding-left: 50px;
+  font: bold;
 }

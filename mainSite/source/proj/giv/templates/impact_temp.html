@@ -4,18 +4,8 @@
 <link rel="stylesheet" type="text/css" href="/static/impact_temp.css">
 <head>
 <style type="text/css">
-img {
-  filter: gray; /* IE6-9 */
-  filter: grayscale(1); /* Firefox 35+ */
-  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
-}
-
-/* Disable grayscale on hover */
-img:hover {
-  filter: none;
-  -webkit-filter: grayscale(0);
-}
 </style>
+
 </head>
 
 
@@ -45,6 +35,7 @@ img:hover {
 	impact_organizations.push(orginfo);
 	{% endfor %}
 	</script>
+	
 
 	<script src="//d3js.org/d3.v3.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -63,7 +54,7 @@ var sliderwidth="450px"
 //Specify the slider's height
 var sliderheight="160px"
 //Specify the slider's slide speed (larger is faster 1-10)
-var slidespeed=2
+var slidespeed=0
 //configure background color:
 slidebgcolor="#FFFFFF"
 
@@ -98,8 +89,35 @@ leftrightslide='<nobr>'+leftrightslide.join(imagegap)+'</nobr>'
 var iedom=document.all||document.getElementById
 if (iedom)
 document.write('<span id="temp" style="visibility:hidden;position:absolute;top:-100px;left:-9000px">'+leftrightslide+'</span>')
+
+document.write('<div style="width:20px" id="btn_up" class = "btn"  >&#x25C0</div>')
+//document.write('<div style="width:20px" id="btn_down" class = "btn"  >&#x25B6</div>')
+
 var actualwidth=''
 var cross_slide, ns_slide
+
+var button_up = document.getElementById("btn_up");
+    button_up.addEventListener('mouseover', function(event) {
+      console.log("here");
+      copyspeed = 3; 
+    });
+    button_up.addEventListener('mouseout', function(event) {
+      console.log("here");
+      copyspeed = 0; 
+    });
+    /*
+var button_down = document.getElementById("btn_down");
+    button_down.addEventListener('mouseover', function(event) {
+      console.log("here");
+      copyspeed = -3; 
+    });
+    button_down.addEventListener('mouseout', function(event) {
+      console.log("here");
+      copyspeed = 0; 
+    }); */
+
+
+$('')
 
 function fillup(){
 if (iedom){
