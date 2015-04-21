@@ -56,7 +56,7 @@
 				{% for vw in volunteer_works %}
 					<div class="row">
 						<div class="small-3 columns">
-							{{ vw.when|date:"m/d/y" }}
+							{{ vw.when|date:"n/j/y" }}
 						</div>
 						<div class="small-9 columns">
 							{{ vw.minutes }} minutes volunteering by {{ vw.action }} 
@@ -89,6 +89,7 @@
     		event.preventDefault();
     		var volunteerHours = $( "#volunteering-hours option:selected" ).val();
 			var volunteerActivity = $( "#volunteering-activity option:selected" ).val(); 
+			var now = new Date();
 
 			$.ajax({
 			    url: "/save/",
@@ -97,8 +98,25 @@
 			    	volunteer_hours: volunteerHours, 
 			    	volunteer_activity: volunteerActivity
 			    },
-			    dataType: "json",
-			    success: function(response) { console.log("asdf"); },
+			    //dataType: "json",
+			    success: function(response) {
+			    	console.log(response);
+			    	if (response != 'failed') {
+			    		var month = now.getMonth() + 1;
+			    		var date = now.getDate();
+			    		var year = String(now.getFullYear()).substring(2, 4);
+			    		var newHtml = 
+			    			"<div class='row'>" + 
+			    				"<div class='small-3 columns'>" + 
+			    					month + "/" + date + "/" + year + 
+			    				"</div>" + 
+			    				"<div class='small-9 columns'>" + 
+			    					volunteerHours + " minutes volunteering by " + volunteerActivity  + 
+			    				"</div>" + 
+			    			"</div>"; 
+			    		$("#volunteering-activities").prepend(newHtml);
+			    	} 
+			    },
 			    error: function(jqXHR, textStatus, errorThrown) {
 				  console.log(textStatus, errorThrown);
 				}
