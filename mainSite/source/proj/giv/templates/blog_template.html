@@ -17,7 +17,7 @@
 			<div id="volunteer-header">You've Volunteered:</div>
 		</div>
 	</div>
-	<form onsubmit="updateVolunteerHours()" method="POST">
+	<form id="volunteer-hours-form"> 
 		<div class="row">
 			<div class="small-1 columns">
 	          <label for="right-label" class="inline blog-label">I spent</label>
@@ -47,7 +47,6 @@
 	        </div>
 	        <div class="small-1 columns">
 	        	<input type="submit" class="button" value="Submit" />
-	        	<!--<div class="submit-button">Submit</div>-->
 	    	</div>
 	  	</div>
 	</form>
@@ -68,3 +67,64 @@
 		</div>
 	</div>
 </body>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    	var userId = {{ user.id }};
+    	//var csrftoken = getCookie('csrftoken'); 
+
+    	/*function csrfSafeMethod(method) {
+		    // these HTTP methods do not require CSRF protection
+		    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+		}
+		$.ajaxSetup({
+		    beforeSend: function(xhr, settings) {
+		        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+		            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+		        }
+		    }
+		});*/
+
+    	$("#volunteer-hours-form").submit(function(event) {
+    		event.preventDefault();
+    		var volunteerHours = $( "#volunteering-hours option:selected" ).val();
+			var volunteerActivity = $( "#volunteering-activity option:selected" ).val(); 
+
+			$.ajax({
+			    url: "/save/",
+			    type: "POST",
+			    data: {
+			    	volunteer_hours: volunteerHours, 
+			    	volunteer_activity: volunteerActivity
+			    },
+			    dataType: "json",
+			    success: function(response) { console.log("asdf"); },
+			    error: function(jqXHR, textStatus, errorThrown) {
+				  console.log(textStatus, errorThrown);
+				}
+			});
+			return false; 
+		});
+
+		// using jQuery
+
+
+
+	});
+
+	/*function getCookie(name) {
+	    var cookieValue = null;
+	    if (document.cookie && document.cookie != '') {
+	        var cookies = document.cookie.split(';');
+	        for (var i = 0; i < cookies.length; i++) {
+	            var cookie = jQuery.trim(cookies[i]);
+	            // Does this cookie string begin with the name we want?
+	            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+	                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+	                break;
+	            }
+	        }
+	    }
+	    return cookieValue;
+	}*/
+</script>

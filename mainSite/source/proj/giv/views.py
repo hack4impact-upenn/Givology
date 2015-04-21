@@ -49,6 +49,9 @@ from proj.giv.messaging import *
 from proj.giv.profile import *
 from proj.giv.gradgift import *
 
+from django.utils import simplejson
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
+
 @adminOnly
 def memcachedpage(request,user):
     try:
@@ -3092,8 +3095,17 @@ def blog(request, user, profile, obj):
     return r
 
 @reqUser
+@csrf_exempt
 def saveVolunteerHours(request, user, profile, obj):
-    try:
+    print request.POST["volunteer_activity"]
+    if request.is_ajax():
+        message = "Yes, I am the king!!!"
+    else:
+        message = "No, I am going to cry!!"
+    return django.http.HttpResponse(message)
+
+    #return { "Success!" : "Derp" }
+    '''try:
         when = datetime.datetime.now()
         # TODO: Actually get the time from the request
         vw = VolunteerWork(
@@ -3108,6 +3120,6 @@ def saveVolunteerHours(request, user, profile, obj):
         print 'error in volunteered'
         pass
     return render_to_response(tloc+'redirect', {
-        'destination':'/blog/'})
+        'destination':'/blog/'})'''
 
 
