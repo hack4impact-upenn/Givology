@@ -1,0 +1,98 @@
+#btn_up {
+  background: transparent;
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #EAC223;
+  font-size: 50px;
+  padding: 0px 1px 1px 7px;
+  text-decoration: none;
+  position: absolute;
+  top: 73px;
+  left: 120px;
+  z-index: 10;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 8px 5px -8.5px rgba(0,0,0,0.5);
+}
+
+#btn_down {
+  background: transparent;
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #EAC223;
+  font-size: 50px;
+  padding: 0px 0px 0px 0px;
+  text-decoration: none;
+  position: absolute;
+  top: 506px;
+  left: 120px;
+  z-index: 10;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#btn_shadow_up {
+  background: transparent;
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 5px;
+  font-family: Arial;
+  color: black;
+  font-size: 50px;
+  padding: 0px 1px 1px 7px;
+  text-decoration: none;
+  position: absolute;
+  top: 75px;
+  left: 125px;
+  z-index: 5;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 8px 5px -8.5px rgba(0,0,0,0.5);
+}
+
+#btn_shadow_down {
+  background: transparent;
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 5px;
+  font-family: Arial;
+  color: black;
+  font-size: 50px;
+  padding: 0px 0px 0px 0px;
+  text-decoration: none;
+  position: absolute;
+  top: 504px;
+  left: 125px;
+  z-index: 5;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+img {
+  filter: gray; /* IE6-9 */
+  filter: grayscale(1); /* Firefox 35+ */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+}
+
+/* Disable grayscale on hover */
+img:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
+}
+
+@font-face {
+  font-family: 'Bebas';
+  src: url('fonts/BebasNeue\ Regular.ttf');
+}
+
+#title {
+  font-family: 'Bebas';
+  font-size: 30px;
+  color: #41b5d9;
+  padding-left: 50px;
+  font: bold;
+}
