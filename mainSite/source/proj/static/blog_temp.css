@@ -1,6 +1,8 @@
 /* light green: #8dc63e */
 /* light blue: #41b4d9 */
 /* yellow: #f3d23a */
+/* light gray: #f3f3f3 */
+/* dark gray: #7a7a7a */
 
 @font-face {
 	font-family: 'Bebas';
@@ -10,6 +12,28 @@
 #volunteer-header {
 	font-family: 'Bebas';
 	font-size: 3rem;
+	color: #7a7a7a;
+}
+
+.volunteer-text {
+	font-family: 'Bebas';
+	font-size: 1.8rem;
+}	
+
+.volunteer-date {
+	color: #8dc63e;
+}
+
+.volunteer-activity,
+.volunteer-minutes {
+	color: #41b4d9;
+	display: inline;
+}
+
+.volunteer-header-text {
+	font-size: 1rem;
+	font-family: 'Bebas';
+	color: #7a7a7a;
 }
 
 input[type="submit"], .submit-button {
@@ -19,7 +43,6 @@ input[type="submit"], .submit-button {
 	color: #ffffff;
 	font-family: 'Bebas';
 	font-size: 1.8rem;
-	width: 100px;
 	font-style: normal;
 	height: 2.3125rem;
 	line-height: 40px;
@@ -52,172 +75,10 @@ select {
 }
 
 #volunteering-activities {
-	height: 200px;
+	height: 300px;
     overflow-y: auto;
     overflow-x: hidden;
     width: 100%;
+    background-color: #f3f3f3;
+    padding: 20px;
 }
-
-/*input[type="text"].blog-input {
-	border-style: solid;
-    border-color: #ffffff #ffffff #41b4d9 #ffffff;
-    border-width: 5px;
-    font-family: 'Bebas';
-    font-size: 1.5rem;
-    height: 2.6rem;
-    text-align: center;
-    color: #f3d23a;
-    margin: 0.3rem 0 1rem 0;
-    box-shadow: none;
-}*/
-
-/* This button was generated using CSSButtonGenerator.com */
-
-/*body {
-	font: 10px sans-serif;
-	width: 1030px;
-	margin: auto;
-	margin-top: 50px;
-}
-
-.arc path {
-	stroke: #fff;
-	stroke-width: 5px;
-}
-
-.arc path:hover {
-	cursor: pointer;
-}
-
-#sectionInfo {
-	height: 250px;
-	background-color: #F4F4F4;
-	width: 700px;
-	position: relative;
-	float: right;
-	padding: 10px;
-}
-
-.picname {
-	width: 200px;
-	position: absolute;
-	text-align: center;
-}
-
-.nameouter {
-	width: 200px;
-	height: 50px;
-	position: relative;
-	text-align: center;
-}
-
-.name {
-	font-family: 'Bebas';
-	display: block;
-	position: relative;
-	top: 50%;
-	left: 50%;	
-	-webkit-transform: translate(-50%, -50%);  
-	transform: translate(-50%, -50%);  
-}
-
-.pic {
-	width: 200px;
-	height: 200px;
-}
-
-.pic img {
-	max-width: 200px;
-	height: 100%;
-	width: 200;
-	overflow: hidden;
-}
-.pic img.landscape {
-	max-width: none;
-	max-height: 200px;
-}
-
-.funds {
-	right: 0;
-	position: absolute;
-	width: 500px;
-	font-family: 'Bebas';
-}
-
-.given {
-	font-size: 35px;
-	padding-top: 30px;
-	line-height: 35px;
-}
-
-.wantneed {
-	font-size: 35px;
-	line-height: 35px;
-}
-
-.progress {
-	height: 100px;
-	width: 480px;
-	text-align: center;
-	vertical-align: middle;
-}
-
-#progressbar {
-	height: 50px;
-	background-color: white;
-	position: relative;
-	top: 25px;	
-	z-index: 0;
-	text-align: center;
-	vertical-align: middle;
-}
-
-#sofar {
-	background-color: #EAC223;
-	width: 50px;
-	height: 34px;
-	position: relative;
-	z-index: 1;
-	top: 8px;
-	left: 8px;
-}
-
-#given {
-	background-color: #E98A23;
-	height: 34px;
-	position: relative;
-	z-index: 2;
-}
-
-#sofarnum {
-	font-family: 'Bebas';
-	z-index: 3;
-	font-size: 20px;
-	position: absolute;
-	height: 34px;
-	top: 8px;
-	right: 15px;
-	line-height: 34px;
-
-}*/
-
-
-/*TOTAL*/
-/*#display {
-	width: 300px;
-	height: 300px;
-	position: relative;
-	text-align: center;
-}
-
-#total {
-	position: absolute;
-	top: 50%;
-	left: 50%;	
-	-webkit-transform: translate(-50%, -50%);  
-	transform: translate(-50%, -50%);  
-
-	font-family: 'Bebas';
-	color: #000;
-	font-size: 80px;
-}*/

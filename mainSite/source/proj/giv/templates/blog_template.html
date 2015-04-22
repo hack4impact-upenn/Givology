@@ -17,12 +17,12 @@
 			<div id="volunteer-header">You've Volunteered:</div>
 		</div>
 	</div>
-	<form id="volunteer-hours-form"> 
+	<form id="volunteer-hours-form">
 		<div class="row">
 			<div class="small-1 columns">
 	          <label for="right-label" class="inline blog-label">I spent</label>
 	        </div>
-	        <div class="small-4 columns">
+	        <div class="small-3 columns">
 	          	<select name="minutes" id="volunteering-hours">
                   	<option value="30">30 minutes</option>
                   	<option value="60">1 hour</option>
@@ -45,7 +45,7 @@
                   	<option>other</option>
                 </select>
 	        </div>
-	        <div class="small-1 columns">
+	        <div class="small-2 columns">
 	        	<input type="submit" class="button" value="Submit" />
 	    	</div>
 	  	</div>
@@ -53,13 +53,21 @@
 	<div class="row">
 		<div class="small-12 columns">
 			<div id="volunteering-activities">
+					<div class="row">
+						<div class="small-3 columns volunteer-header-text">
+							Date
+						</div>
+						<div class="small-9 columns volunteer-header-text">
+							Activity
+						</div>
+					</div> 
 				{% for vw in volunteer_works %}
 					<div class="row">
-						<div class="small-3 columns">
-							{{ vw.when|date:"n/j/y" }}
+						<div class="small-3 columns volunteer-text volunteer-date">
+							{{ vw.when|date:"n.j.y" }}
 						</div>
-						<div class="small-9 columns">
-							{{ vw.minutes }} minutes volunteering by {{ vw.action }} 
+						<div class="small-9 columns volunteer-text">
+							<div class="volunteer-minutes">{{ vw.minutes }} minutes</div> volunteering by <div class="volunteer-activity">{{ vw.action }}</div> 
 						</div>
 					</div>
 				{% endfor %}
@@ -94,11 +102,11 @@
 			    		console.log(year);
 			    		var newHtml = 
 			    			"<div class='row'>" + 
-			    				"<div class='small-3 columns'>" + 
-			    					month + "/" + date + "/" + year + 
+			    				"<div class='small-3 columns volunteer-text volunteer-date'>" + 
+			    					month + "." + date + "." + year + 
 			    				"</div>" + 
-			    				"<div class='small-9 columns'>" + 
-			    					volunteerHours + " minutes volunteering by " + volunteerActivity  + 
+			    				"<div class='small-9 columns volunteer-text'>" + 
+			    					"<div class='volunteer-minutes'>" + volunteerHours + " minutes</div> volunteering by " + '<div class="volunteer-activity">' + volunteerActivity + "</div>" + 
 			    				"</div>" + 
 			    			"</div>"; 
 			    		$("#volunteering-activities").prepend(newHtml);
