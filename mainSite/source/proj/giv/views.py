@@ -49,6 +49,10 @@ from proj.giv.messaging import *
 from proj.giv.profile import *
 from proj.giv.gradgift import *
 
+from django.utils import simplejson
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
+import json
+
 @adminOnly
 def memcachedpage(request,user):
     try:
@@ -1771,7 +1775,7 @@ def gcheckoutnotification(request):
 def volunteered(request, user, profile, obj):
     try:
         when = datetime.datetime.now()
-        # TODO: actually get the time from the request
+        # TODO: Actually get the time from the request
         vw = VolunteerWork(
             volunteer=user,
             minutes=int(request.POST['minutes']),
@@ -1780,11 +1784,11 @@ def volunteered(request, user, profile, obj):
         vw.save()
         invalidatecache('impactthisweek')
     except:
-        #really ought to do something here...
+        # TODO: Add appropriate error response.
         print 'error in volunteered'
         pass
     return render_to_response(tloc+'redirect', {
-        'destination':'/account/'})
+        'destination':'/blog/'})
 
 @reqDonor
 def walletadd(request, user, profile, donor):
@@ -3074,6 +3078,76 @@ def similar(request, user, profile, obj):
         ret.append(temp)
 
     return render_to_response(tloc+'similar_temp.html', dictcombine([maindict(request),{'data': ret}]))
+
+@reqUser
+def blog(request, user, profile, obj):
+    volunteer_works = list(VolunteerWork.objects.filter(volunteer=user).order_by('-when'))
+    #return render_to_response(tloc+'blog_template.html', dictcombine({}))
+
+    r = render_to_response(tloc+'blog_template.html', dictcombine(
+            [
+                maindict(request),
+                {
+                    'title' : 'Givology: Account',
+                    'volunteer_works' : volunteer_works,
+                    #'volunteer_total_hours' : volunteer_total_hours,
+                    #'has_volunteer_works' : len(volunteer_works),
+                }
+            ]
+        )
+    )
+    return r
+
+@reqUser
+@csrf_exempt
+def saveVolunteerHours(request, user, profile, obj):
+    print request.POST["volunteer_activity"]
+    print request.POST["volunteer_hours"] 
+    print "hello"   
+    message = "failed"
+    if request.is_ajax():
+        try:
+            when = datetime.datetime.now()
+            vw = VolunteerWork(
+                volunteer=user,
+                minutes=int(request.POST["volunteer_hours"]),
+                action=request.POST["volunteer_activity"],
+                when=when
+           )
+            vw.save()
+            message = "success"
+        except:
+            #message = "failed"
+            print 'error in volunteered'
+            pass
+    #else:
+    #    message = "failed"
+    #print message
+    #json_data = json.dumps({"message" : "asdf"})
+    #json_data = "{'asdf': 1}"
+    #print json_data
+    #response_data = {}
+    #response_data['result'] = 'success'
+    #response_data['date'] = str(when)
+    return django.http.HttpResponse(message)
+
+    #return { "Success!" : "Derp" }
+    '''try:
+        when = datetime.datetime.now()
+        # TODO: Actually get the time from the request
+        vw = VolunteerWork(
+            volunteer=user,
+            minutes=int(request.POST['minutes']),
+            action=request.POST['action'],
+            when=when)
+        vw.save()
+        invalidatecache('impactthisweek')
+    except:
+        # TODO: Add appropriate error response.
+        print 'error in volunteered'
+        pass
+    return render_to_response(tloc+'redirect', {
+        'destination':'/blog/'})'''
 
 @reqUser
 def trending(request, user, profile, obj):

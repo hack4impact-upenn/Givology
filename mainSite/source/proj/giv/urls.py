@@ -10,6 +10,8 @@ urlpatterns = patterns(
     # HACK4IMPACT TEMP URLS - TO DELETE
     (r'^impact/$', 'impact'), 
     (r'^similar/$', 'similar'), 
+    (r'^blog/$', 'blog'),
+    (r'^save/$', 'saveVolunteerHours'), 
     (r'^dashboard/$', 'dashboard'),
     (r'^trending/$', 'trending'),
 

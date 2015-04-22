@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+
+	<link rel="stylesheet" type="text/css" href="/static/foundation-5/css/foundation.css">
+	<link rel="stylesheet" type="text/css" href="/static/blog_temp.css">
+
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="/static/blog_temp.js"></script>
+
+</head>
+
+<body>
+	<div class="row">
+		<div class="small-12 columns">
+			<div id="volunteer-header">You've Volunteered:</div>
+		</div>
+	</div>
+	<form id="volunteer-hours-form"> 
+		<div class="row">
+			<div class="small-1 columns">
+	          <label for="right-label" class="inline blog-label">I spent</label>
+	        </div>
+	        <div class="small-4 columns">
+	          	<select name="minutes" id="volunteering-hours">
+                  	<option value="30">30 minutes</option>
+                  	<option value="60">1 hour</option>
+                  	<option value="120">2 hours</option>
+                  	<option value="240">4 hours</option>
+                </select>
+	        </div>
+	        <div class="small-2 columns">
+	          <label for="right-label" class="inline blog-label">volunteering by</label>
+	        </div>
+	        <div class="small-4 columns">
+	          	<select name="action" id="volunteering-activity">
+                  	<option>spreading the word</option>
+                  	<option>fundraising</option>
+                  	<option>writing a letter</option>
+                  	<option>participating in a campaign</option>
+                  	<option>blogging</option>
+                  	<option>interacting on social media</option>
+                  	<option>programming</option>
+                  	<option>other</option>
+                </select>
+	        </div>
+	        <div class="small-1 columns">
+	        	<input type="submit" class="button" value="Submit" />
+	    	</div>
+	  	</div>
+	</form>
+	<div class="row">
+		<div class="small-12 columns">
+			<div id="volunteering-activities">
+				{% for vw in volunteer_works %}
+					<div class="row">
+						<div class="small-3 columns">
+							{{ vw.when|date:"n/j/y" }}
+						</div>
+						<div class="small-9 columns">
+							{{ vw.minutes }} minutes volunteering by {{ vw.action }} 
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    	var userId = {{ user.id }};
+    	//var csrftoken = getCookie('csrftoken'); 
+
+    	/*function csrfSafeMethod(method) {
+		    // these HTTP methods do not require CSRF protection
+		    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+		}
+		$.ajaxSetup({
+		    beforeSend: function(xhr, settings) {
+		        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+		            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+		        }
+		    }
+		});*/
+
+    	$("#volunteer-hours-form").submit(function(event) {
+    		event.preventDefault();
+    		var volunteerHours = $( "#volunteering-hours option:selected" ).val();
+			var volunteerActivity = $( "#volunteering-activity option:selected" ).val(); 
+			var now = new Date();
+
+			$.ajax({
+			    url: "/save/",
+			    type: "POST",
+			    data: {
+			    	volunteer_hours: volunteerHours, 
+			    	volunteer_activity: volunteerActivity
+			    },
+			    //dataType: "json",
+			    success: function(response) {
+			    	console.log(response);
+			    	if (response != 'failed') {
+			    		var month = now.getMonth() + 1;
+			    		var date = now.getDate();
+			    		var year = String(now.getFullYear()).substring(2, 4);
+			    		var newHtml = 
+			    			"<div class='row'>" + 
+			    				"<div class='small-3 columns'>" + 
+			    					month + "/" + date + "/" + year + 
+			    				"</div>" + 
+			    				"<div class='small-9 columns'>" + 
+			    					volunteerHours + " minutes volunteering by " + volunteerActivity  + 
+			    				"</div>" + 
+			    			"</div>"; 
+			    		$("#volunteering-activities").prepend(newHtml);
+			    	} 
+			    },
+			    error: function(jqXHR, textStatus, errorThrown) {
+				  console.log(textStatus, errorThrown);
+				}
+			});
+			return false; 
+		});
+
+		// using jQuery
+
+
+
+	});
+
+	/*function getCookie(name) {
+	    var cookieValue = null;
+	    if (document.cookie && document.cookie != '') {
+	        var cookies = document.cookie.split(';');
+	        for (var i = 0; i < cookies.length; i++) {
+	            var cookie = jQuery.trim(cookies[i]);
+	            // Does this cookie string begin with the name we want?
+	            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+	                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+	                break;
+	            }
+	        }
+	    }
+	    return cookieValue;
+	}*/
+</script>
