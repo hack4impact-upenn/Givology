@@ -3101,9 +3101,6 @@ def blog(request, user, profile, obj):
 @reqUser
 @csrf_exempt
 def saveVolunteerHours(request, user, profile, obj):
-    print request.POST["volunteer_activity"]
-    print request.POST["volunteer_hours"] 
-    print "hello"   
     message = "failed"
     if request.is_ajax():
         try:
@@ -3117,37 +3114,9 @@ def saveVolunteerHours(request, user, profile, obj):
             vw.save()
             message = "success"
         except:
-            #message = "failed"
             print 'error in volunteered'
             pass
-    #else:
-    #    message = "failed"
-    #print message
-    #json_data = json.dumps({"message" : "asdf"})
-    #json_data = "{'asdf': 1}"
-    #print json_data
-    #response_data = {}
-    #response_data['result'] = 'success'
-    #response_data['date'] = str(when)
     return django.http.HttpResponse(message)
-
-    #return { "Success!" : "Derp" }
-    '''try:
-        when = datetime.datetime.now()
-        # TODO: Actually get the time from the request
-        vw = VolunteerWork(
-            volunteer=user,
-            minutes=int(request.POST['minutes']),
-            action=request.POST['action'],
-            when=when)
-        vw.save()
-        invalidatecache('impactthisweek')
-    except:
-        # TODO: Add appropriate error response.
-        print 'error in volunteered'
-        pass
-    return render_to_response(tloc+'redirect', {
-        'destination':'/blog/'})'''
 
 @reqUser
 def trending(request, user, profile, obj):

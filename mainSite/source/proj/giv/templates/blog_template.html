@@ -71,19 +71,6 @@
 <script type="text/javascript">
     $(document).ready(function() {
     	var userId = {{ user.id }};
-    	//var csrftoken = getCookie('csrftoken'); 
-
-    	/*function csrfSafeMethod(method) {
-		    // these HTTP methods do not require CSRF protection
-		    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-		}
-		$.ajaxSetup({
-		    beforeSend: function(xhr, settings) {
-		        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-		            xhr.setRequestHeader("X-CSRFToken", csrftoken);
-		        }
-		    }
-		});*/
 
     	$("#volunteer-hours-form").submit(function(event) {
     		event.preventDefault();
@@ -98,13 +85,13 @@
 			    	volunteer_hours: volunteerHours, 
 			    	volunteer_activity: volunteerActivity
 			    },
-			    //dataType: "json",
 			    success: function(response) {
 			    	console.log(response);
 			    	if (response != 'failed') {
 			    		var month = now.getMonth() + 1;
 			    		var date = now.getDate();
 			    		var year = String(now.getFullYear()).substring(2, 4);
+			    		console.log(year);
 			    		var newHtml = 
 			    			"<div class='row'>" + 
 			    				"<div class='small-3 columns'>" + 
@@ -123,26 +110,5 @@
 			});
 			return false; 
 		});
-
-		// using jQuery
-
-
-
 	});
-
-	/*function getCookie(name) {
-	    var cookieValue = null;
-	    if (document.cookie && document.cookie != '') {
-	        var cookies = document.cookie.split(';');
-	        for (var i = 0; i < cookies.length; i++) {
-	            var cookie = jQuery.trim(cookies[i]);
-	            // Does this cookie string begin with the name we want?
-	            if (cookie.substring(0, name.length + 1) == (name + '=')) {
-	                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-	                break;
-	            }
-	        }
-	    }
-	    return cookieValue;
-	}*/
 </script>
