@@ -46,7 +46,6 @@ var cross_slide, ns_slide
     var button_up = document.getElementById("btn_up");
     button_up.addEventListener('mouseover', function(event) {
       copyspeed = 3;
-      //slidespeed = 3;
     });
     button_up.addEventListener('mouseout', function(event) {
       copyspeed = 0;
@@ -69,10 +68,13 @@ function fillup(){
     ns_slide2.document.write(leftrightslide)
     ns_slide2.document.close()
   }
-  lefttime=setInterval("slideleft()",30)
+  lefttime = setInterval("slideleft()", 30)
 }
 window.onload=fillup
 function slideleft(){
+  console.log(parseInt(cross_slide2.style.top));
+  console.log(parseInt(cross_slide.style.top));
+  console.log(actualheight);
   if (iedom){
     if (parseInt(cross_slide.style.top)>(actualheight*(-1)+8))
       cross_slide.style.top=parseInt(cross_slide.style.top)-copyspeed+"px"
@@ -93,7 +95,16 @@ function slideleft(){
     else
       ns_slide2.top=ns_slide.top+actualheight
   }
+  if (parseInt(cross_slide2.style.top) > 0) {
+    copyspeed = 0;
+    //slidespeed = 0;
+  }
+  else if (parseInt(cross_slide2.style.top) < (-1) * 4 * actualheight / 5) {
+    copyspeed = 0;
+  }
+
 }
+
 if (iedom||document.layers){
   with (document){
     document.write('<table id=slideshow border="15" cellspacing="0" cellpadding="10" borderColor= "#41b5d9"><td>')
@@ -116,7 +127,7 @@ if (iedom||document.layers){
     document.write('<div style="width:25px" id="btn_shadow_down" class = "btn" width: 50px>&#x25BC</div>')    
     var button_down = document.getElementById("btn_down");
     button_down.addEventListener('mouseover', function(event) {
-      copyspeed = -3;
+      copyspeed = -3;      
     });
     button_down.addEventListener('mouseout', function(event) {
       copyspeed = 0;
