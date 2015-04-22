@@ -3101,9 +3101,6 @@ def blog(request, user, profile, obj):
 @reqUser
 @csrf_exempt
 def saveVolunteerHours(request, user, profile, obj):
-    print request.POST["volunteer_activity"]
-    print request.POST["volunteer_hours"] 
-    print "hello"   
     message = "failed"
     if request.is_ajax():
         try:
@@ -3117,37 +3114,9 @@ def saveVolunteerHours(request, user, profile, obj):
             vw.save()
             message = "success"
         except:
-            #message = "failed"
             print 'error in volunteered'
             pass
-    #else:
-    #    message = "failed"
-    #print message
-    #json_data = json.dumps({"message" : "asdf"})
-    #json_data = "{'asdf': 1}"
-    #print json_data
-    #response_data = {}
-    #response_data['result'] = 'success'
-    #response_data['date'] = str(when)
     return django.http.HttpResponse(message)
-
-    #return { "Success!" : "Derp" }
-    '''try:
-        when = datetime.datetime.now()
-        # TODO: Actually get the time from the request
-        vw = VolunteerWork(
-            volunteer=user,
-            minutes=int(request.POST['minutes']),
-            action=request.POST['action'],
-            when=when)
-        vw.save()
-        invalidatecache('impactthisweek')
-    except:
-        # TODO: Add appropriate error response.
-        print 'error in volunteered'
-        pass
-    return render_to_response(tloc+'redirect', {
-        'destination':'/blog/'})'''
 
 @reqUser
 def trending(request, user, profile, obj):
@@ -3155,20 +3124,21 @@ def trending(request, user, profile, obj):
     seen = set()
     grant_count = Paymenttogrant.objects.count()
     for i in range(0, grant_count, 10):
-        if len(ret) >= 5:
+        if len(ret) >= 10:
             break
         recent_payments = list(Paymenttogrant.objects.order_by('-created')[i:i+10])
         if len(recent_payments) == 0:
             break
         for payment in recent_payments:
-            if payment in seen:
+            if payment.grant.rec.profile.url() in seen:
                 continue
-            seen.add(payment)
+            seen.add(payment.grant.rec.profile.url())
             temp = {
                 'img':payment.grant.rec.profile.get_image_url(206, 206),
                 'url':payment.grant.rec.profile.url()
                 }
             ret.append(temp)
+            print len(ret)
     return render_to_response(tloc+'trending_temp.html', dictcombine([maindict(request),{'data': ret}]))
 
 
