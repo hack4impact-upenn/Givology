@@ -3120,25 +3120,7 @@ def saveVolunteerHours(request, user, profile, obj):
 
 @reqUser
 def trending(request, user, profile, obj):
-    ret = []
-    seen = set()
-    grant_count = Paymenttogrant.objects.count()
-    for i in range(0, grant_count, 10):
-        if len(ret) >= 10:
-            break
-        recent_payments = list(Paymenttogrant.objects.order_by('-created')[i:i+10])
-        if len(recent_payments) == 0:
-            break
-        for payment in recent_payments:
-            if payment.grant.rec.profile.url() in seen:
-                continue
-            seen.add(payment.grant.rec.profile.url())
-            temp = {
-                'img':payment.grant.rec.profile.get_image_url(206, 206),
-                'url':payment.grant.rec.profile.url()
-                }
-            ret.append(temp)
-            print len(ret)
+    
     return render_to_response(tloc+'trending_temp.html', dictcombine([maindict(request),{'data': ret}]))
 
 
@@ -3180,9 +3162,32 @@ def dashboard(request, user, profile, obj):
         print rec['large_img'];
         print (" -------------------");
 
+
+    # trending
+    ret = []
+    seen = set()
+    grant_count = Paymenttogrant.objects.count()
+    for i in range(0, grant_count, 10):
+        if len(ret) >= 10:
+            break
+        recent_payments = list(Paymenttogrant.objects.order_by('-created')[i:i+10])
+        if len(recent_payments) == 0:
+            break
+        for payment in recent_payments:
+            if payment.grant.rec.profile.url() in seen:
+                continue
+            seen.add(payment.grant.rec.profile.url())
+            temp = {
+                'img':payment.grant.rec.profile.get_image_url(206, 206),
+                'url':payment.grant.rec.profile.url()
+                }
+            ret.append(temp)
+            print len(ret)
+
     return render_to_response(tloc+'dashboard.html', dictcombine(
         [maindict(request), 
         {'results': recs,
+        'data': ret,
         'total': total}]))
 
 

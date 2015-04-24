@@ -1,7 +1,5 @@
 $(document).ready(function() {
  
- 	// $("#sectionInfo").hide();
-
  	// set svg properties
  	var width = 220;
  	var height = 220;
