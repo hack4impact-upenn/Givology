@@ -3138,7 +3138,6 @@ def trending(request, user, profile, obj):
                 'url':payment.grant.rec.profile.url()
                 }
             ret.append(temp)
-            print len(ret)
     return render_to_response(tloc+'trending_temp.html', dictcombine([maindict(request),{'data': ret}]))
 
 
