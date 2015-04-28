@@ -1,3 +1,8 @@
+#trending {
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+
 .btn {
   font-size: 50px;
   position: absolute;
@@ -6,17 +11,17 @@
 .btn-light {
   color: #EAC223;
   z-index: 10;
-  margin-left: 90px;
+  margin-left: 40px;
 }
 
 .btn-shadow {
   color: black;
   z-index: 5;
-  margin-left: 95px;
+  margin-left: 45px;
 }
 
 .btn-down {
-  margin-top: -65px;
+  margin-top: -85px;
 }
 
 img {
@@ -29,18 +34,6 @@ img {
 img:hover {
   filter: none;
   -webkit-filter: grayscale(0);
-}
-
-@font-face {
-  font-family: 'Bebas';
-  src: url('fonts/BebasNeue\ Regular.ttf');
-}
-
-#title {
-  font-family: 'Bebas';
-  font-size: 30px;
-  color: #41b5d9;
-  padding-left: 30px;
 }
 
 #carousel {

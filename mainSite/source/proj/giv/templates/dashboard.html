@@ -3,22 +3,10 @@
 {% block mainbody %}
 
 <link rel="stylesheet" type="text/css" href="/static/dashboard.css">
-<link rel="stylesheet" type="text/css" href="/static/trending_temp.css">
+<link type="text/css" rel="stylesheet" href="/static/rcarousel.css" />
 <link href="/static/owl-carousel/owl.carousel.css" rel="stylesheet">
 <link href="/static/owl-carousel/owl.theme.css" rel="stylesheet">
 
-<style type="text/css">
-	#owl-demo .item{
-	  margin: 3px;
-	  width:206px;
-	}
-
-	#owl-demo .item img{
-	  display: block;
-	  width: 100%;
-	  height: auto;
-	}
-</style>
 
 <div id="wrap">
 
@@ -26,18 +14,83 @@
 		<div class="sidebarhead" style="color: #41B5D9">RECENTLY DONATED</div>
 
 
-<!-- 		<div id="trending"> </div>
- -->
+		<div id="trending"> 
+			<div id="scroll-up" class="btn btn-light">&#x25B2</div>
+			<div class="btn btn-shadow">&#x25B2</div>
+			<div id="carousel">
+				{% for result in data %}
+				<a href='{{result.url}}'><img src='{{result.img}}' width="100" height="100"></a>
+				{% endfor %}
+			</div>
+			<div id="scroll-down" class="btn btn-light btn-down">&#x25BC</div>
+			<div class="btn btn-shadow btn-down">&#x25BC</div>
 
-
-		<div class="sidebarhead" style="color: #EAC223">SIMILAR PROJECTS</div>
-	</div>
-	<div id="main">
-		<div id="sectionInfo">
 		</div>
 
+		<div class="sidebarhead" style="color: #EAC223">SIMILAR PROJECTS</div>
+
+		<div id="similar"> 
+			<div id="scroll-up2" class="btn btn-light2">&#x25B2</div>
+			<div class="btn btn-shadow">&#x25B2</div>
+			<div id="carousel2">
+				{% for result in data2 %}
+				<a href='{{result.url}}'><img src='{{result.img}}' width="100" height="100"></a>
+				{% endfor %}
+			</div>
+			<div id="scroll-down2" class="btn btn-light2 btn-down">&#x25BC</div>
+			<div class="btn btn-shadow btn-down">&#x25BC</div>
+
+		</div>
+
+
+	</div>
+	<div id="main">
+
+		<div id="sectionInfo"></div>
 		<div id="display">
 			<div id="total">${{total}}</div>
+		</div>
+
+		<div id="goals">
+
+			<table>
+
+				<tr>
+					<td id="dollars-goal">
+						<div class="goalHeading">
+								Dollars Donated
+						</div>
+						<div id="dollar-bar">
+							<div id="dollar-met"></div>
+							<div id="dollar-met-text"></div>
+						</div>
+					</td>
+
+					<td class="goal-toggle">
+						<div id="dollars-toggle"></div>
+						<div class="challenge-text">Givology Challenge</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td id="hours-goal">
+						<div class="goalHeading">
+							Volunteer Hours
+						</div>
+						<div id="hours-bar">
+							<div id="hours-met"></div>
+							<div id="hours-met-text"></div>
+						</div>
+					</td>
+
+					<td class="goal-toggle">
+						<div id="hours-toggle"></div>
+						<div class="challenge-text">Givology Challenge</div>
+					</td>
+				</tr>
+
+			</table>
+
 		</div>
 
 		<div class="titles">YOU'VE DONATED TO</div>
@@ -55,6 +108,52 @@
 
 		</div>
 
+		<div class="titles">YOU'VE VOLUNTEERED:</div>
+
+		<form id="volunteer-hours-form">
+			<label for="right-label" class="inline blog-label">I spent</label>
+			<select name="minutes" id="volunteering-hours">
+				<option value="30">30 minutes</option>
+				<option value="60">1 hour</option>
+				<option value="120">2 hours</option>
+				<option value="240">4 hours</option>
+			</select>
+			<label for="right-label" class="inline blog-label">volunteering by</label>
+			<select name="action" id="volunteering-activity">
+				<option>spreading the word</option>
+				<option>fundraising</option>
+				<option>writing a letter</option>
+				<option>participating in a campaign</option>
+				<option>blogging</option>
+				<option>interacting on social media</option>
+				<option>programming</option>
+				<option>other</option>
+			</select>
+			<input type="submit" class="button" value="Submit" />
+		</form>
+		
+		<div id="volunteering-activities">
+			<table>
+				<tr class="volunteering-row" id="blog-title">
+					<td class="volunteer-header-text left-side">
+						Date
+					</td>
+					<td class="volunteer-header-text">
+						Activity
+					</td>
+				</tr>
+				{% for vw in volunteer_works %}
+				<tr class="volunteering-row">
+					<td class="volunteer-text volunteer-date left-side">
+						{{ vw.when|date:"n.j.y" }}
+					</td>
+					<td class="volunteer-text">
+						<div class="volunteer-minutes">{{ vw.minutes }} minutes</div> volunteering by <div class="volunteer-activity">{{ vw.action }}</div> 
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
 		
 		
 
@@ -63,57 +162,40 @@
 
 
 <script>
-var impact_organizations = [];
+	var impact_organizations = [];
 
-{% for result in results %}
-	//var result2 = {{result}};
-	var orginfo = [];
-	orginfo["given"] = {{result.my_given}};
-	orginfo["need"] = {{result.grant_want_total}};
-	orginfo["sofar"] = {{result.grant_have_total}};
-	orginfo["pic"] = "{{result.picurl}}";
-	orginfo["name"] = "{{result.name}}";
-	orginfo["url"] = "{{result.url}}";
-	orginfo["large_pic"] = "{{result.large_img}}";
+	{% for result in results %}
 
-	impact_organizations.push(orginfo);
+		var orginfo = [];
+		orginfo["given"] = {{result.my_given}};
+		orginfo["need"] = {{result.grant_want_total}};
+		orginfo["sofar"] = {{result.grant_have_total}};
+		orginfo["pic"] = "{{result.picurl}}";
+		orginfo["name"] = "{{result.name}}";
+		orginfo["url"] = "{{result.url}}";
+		orginfo["large_pic"] = "{{result.large_img}}";
+
+		impact_organizations.push(orginfo);
+
 	{% endfor %}
-	</script>
 
-	<script>
-	// var trending_organizations = [];
-	// {% for result in data %}
-	// var orginfo = [];
+	var total_dollars_given = {{total}};
 
-	// orginfo["pic"] = "{{result.img}}";
-	// orginfo["url"] = "{{result.url}}";
-	// trending_organizations.push(orginfo);
-	// {% endfor %}
+	var userId = {{ user.id }};
 
-	</script>
+</script>
 
-	<script src="//d3js.org/d3.v3.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-	<script src="/static/jquery.fittext.js"></script>
-	<script src="/static/impact_temp.js"></script>
-
-	<script src="/static/owl-carousel/owl.carousel.js"></script>
-	<script>
-		$(document).ready(function() {
-	 
-	  		$("#owl-demo").owlCarousel({
-	 
-	      		autoPlay: 3000, //Set AutoPlay to 3 seconds
-
-	      		items : 4,
-	      		itemsDesktop : [1199,3],
-	      		itemsDesktopSmall : [979,3]
-	 
-			});
-	 
-		});
-	</script>		
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="/static/jquery.fittext.js"></script>
+<script src="/static/dashboard-impact.js"></script>
+<script src="/static/dashboard-goals.js"></script>
+<script src="/static/owl-carousel/owl.carousel.js"></script>
+<script src="/static/jquery.ui.rcarousel.min.js"></script>
+<script src="/static/dashboard-ticker.js"></script>
+<script src="/static/dashboard-sidebar.js"></script>
+<script src="/static/dashboard-blog.js"></script>
 	
-	<!--  <script src="/static/trending_temp.js"></script> -->
 
-	{% endblock %}
+{% endblock %}

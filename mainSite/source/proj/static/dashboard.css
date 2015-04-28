@@ -7,7 +7,7 @@ html {
 #wrap {
 	width:1000px;
 	margin:0 auto;
-	height: 500px;
+	height: 1000px;
 }
 
 #main {
@@ -25,7 +25,7 @@ h2 {
 
 .sidebarhead {
 	font-family:'Bebas';
-	font-size: 25px;
+	font-size: 20px;
 	text-align: center;
 }
 
@@ -55,7 +55,7 @@ h2 {
 
 #sectionInfo {
 	height: 190px;
-	background-color: #F4F4F4;
+	background-color: #EFEFEF;
 	width: 550px;
 	position: relative;
 	float: right;
@@ -95,6 +95,8 @@ h2 {
 	height: 100%;
 	width: 150px;
 	overflow: hidden;
+	filter: none;
+  	-webkit-filter: grayscale(0);
 }
 .pic img.landscape {
 	max-width: none;
@@ -126,7 +128,7 @@ h2 {
 	width: 380px;
 	text-align: center;
 	vertical-align: middle;
-	background: #F4F4F4;
+	background: #EFEFEF;
 }
 
 #progressbar {
@@ -186,3 +188,273 @@ h2 {
 	color: #000;
 	font-size: 70px;
 }
+
+
+/* GOAL FEATURE */
+
+.goalHeading {
+	height: 14px;
+	font-size: 14px;
+	line-height: 14px;
+	font-family: 'Bebas';
+	margin-bottom: 10px;
+	margin-top: 30px;
+}
+
+/* Disable grayscale on toggle */
+#dollars-toggle img,
+#hours-toggle img {
+	filter: none;
+	-webkit-filter: grayscale(0);
+	height: 35px;
+ 	width: auto;
+  	position: absolute;
+  	bottom: 0;
+}
+
+#dollars-toggle img:hover,
+#hours-toggle img:hover {
+	cursor: pointer;
+}
+
+
+#dollars-toggle,
+#hours-toggle {
+	position: absolute;
+	height: 90px;
+	padding-left: 20px;
+}
+
+.goal-toggle {
+	width: 180px;
+	position: relative;
+}
+
+.challenge-text {
+	font-family: 'Bebas';
+	font-size: 14px;
+	color: #41B5D9;
+	top: 70px;
+	right: 0;
+	position: absolute;
+}
+
+#dollars-goal,
+#hours-goal {
+	width: 600px;
+}
+
+#dollar-bar,
+#hours-bar {
+	height: 35px;
+	background-color: #EFEFEF;
+	position: relative;
+	z-index: 0;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#dollar-met,
+#hours-met {
+	background-color: #EAC223;
+	width: 50px;
+	height: 25px;
+	position: relative;
+	z-index: 1;
+	top: 5px;
+	left: 5px;
+}
+
+
+#dollar-met-text,
+#hours-met-text {
+	font-family: 'Bebas';
+	z-index: 3;
+	font-size: 20px;
+	position: absolute;
+	height: 25px;
+	top: 5px;
+	right: 15px;
+	line-height: 25px;
+	color: #000;
+}
+
+/*TRENDING/SIMILAR FEATURE*/
+
+#trending, #similar {
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  font-size: 40px;
+  position: absolute;
+}
+
+.btn:hover {
+	cursor: pointer;
+}
+
+.btn-light {
+  color: #EAC223;
+  z-index: 10;
+  margin-left: 45px;
+}
+
+.btn-shadow {
+  color: black;
+  z-index: 5;
+  margin-left: 50px;
+}
+
+.btn-down {
+  margin-top: -70px;
+}
+
+img {
+  filter: gray; /* IE6-9 */
+  filter: grayscale(1); /* Firefox 35+ */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+}
+
+/* Disable grayscale on hover */
+img:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
+}
+
+#carousel {
+  border: solid 10px #41b5d9;
+  padding: 5px;
+}
+
+.btn-light2 {
+  color: #41b5d9;
+  z-index: 10;
+  margin-left: 45px;
+}
+
+#carousel2 {
+  border: solid 10px #EAC223;
+  padding: 5px;
+}
+
+
+/* BLOG FEATURE */
+
+#volunteer-header {
+	font-family: 'Bebas';
+	font-size: 20px;
+	color: #7a7a7a;
+}
+
+.volunteer-text {
+	font-family: 'Bebas';
+	font-size: 20px;
+}	
+
+.volunteer-date {
+	color: #8dc63e;
+}
+
+.volunteer-activity,
+.volunteer-minutes {
+	color: #41b4d9;
+	display: inline;
+}
+
+.volunteer-header-text {
+	font-size: 12px;
+	font-family: 'Bebas';
+	color: #7a7a7a;
+}
+
+#volunteering-hours,
+#volunteering-activity {
+	float: left;
+	display: block;
+}
+
+input[type="submit"], .submit-button {
+	background-color:#8dc63e;
+	text-indent: 0;
+	display: inline-block;
+	color: #ffffff;
+	font-family: 'Bebas';
+	font-size: 20px;
+	font-style: normal;
+	height: 40px;
+	line-height: 40px;
+	text-decoration: none;
+	text-align: center;
+	padding-top: 1px;
+	margin-top: 0 !important;
+	float: left;
+	border: 0px !important;
+	margin-left: 50px;
+}
+
+label.inline.blog-label {
+	cursor: default;
+	font-family: 'Bebas';
+	font-size: 25px;
+	padding: 0;
+	/*margin: 0.5rem 0 1rem 0;*/
+	float: left;
+	/*display: block;*/
+	color: #000;
+	line-height: 40px;
+	height: 40px;
+}
+
+select {
+	border-style: solid;
+    border-color: #ffffff #ffffff #41b4d9 #ffffff;
+    border-width: 5px;
+    font-family: 'Bebas';
+    font-size: 25px !important;
+    height: 40px !important;
+    line-height: 40px;
+    text-align: center;
+    color: #f3d23a;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    box-shadow: none;
+    background-color: #ffffff;
+    margin-bottom: 30px !important;
+}
+
+#volunteering-activities {
+	height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 770px;
+    background-color: #EFEFEF;
+    padding: 20px;
+    padding-left: 50px;
+    margin-top: 30px;
+}
+
+.left-side {
+	padding-right: 80px;
+}
+
+.volunteering-row {
+	line-height: 30px;
+	height: 30px;
+}
+
+/* TICKER FEATURE */
+
+#owl-demo .item{
+	margin: 3px;
+	width:200px;
+}
+
+#owl-demo .item img{
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+

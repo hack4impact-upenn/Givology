@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="/static/impact_temp.css">
 <head>
 	<link href="/static/owl-carousel/owl.carousel.css" rel="stylesheet">
- 	<link href="/static/owl-carousel/owl.theme.css" rel="stylesheet">
+	<link href="/static/owl-carousel/owl.theme.css" rel="stylesheet">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="/static/owl-carousel/owl.carousel.js"></script>
 	<script src="//d3js.org/d3.v3.min.js"></script>
@@ -13,14 +13,14 @@
 
 	<style type="text/css">
 	#owl-demo .item{
-	  margin: 3px;
-	  width:206px;
+		margin: 3px;
+		width:206px;
 	}
 
 	#owl-demo .item img{
-	  display: block;
-	  width: 100%;
-	  height: auto;
+		display: block;
+		width: 100%;
+		height: auto;
 	}
 	</style>
 </head>
@@ -35,22 +35,23 @@
 	<div id="display">
 		<div id="total">${{total}}</div>
 	</div>
-<div id="owl-demo">
-	{% for result in results %}
-	 <div class="item"><a href="{{result.url}}"><img src="{{result.large_img}}" alt="Owl Image"></a></div>
-	{% endfor %}
-	{% for result in results %}
-	 <div class="item"><a href="{{result.url}}"><img src="{{result.large_img}}" alt="Owl Image"></a></div>
-	{% endfor %}
-	{% for result in results %}
-	 <div class="item"><a href="{{result.url}}"><img src="{{result.large_img}}" alt="Owl Image"></a></div>
-	{% endfor %}
 	
+	<div id="owl-demo">
+		{% for result in results %}
+		<div class="item"><a href="{{result.url}}"><img src="{{result.large_img}}" alt="Owl Image"></a></div>
+		{% endfor %}
+		{% for result in results %}
+		<div class="item"><a href="{{result.url}}"><img src="{{result.large_img}}" alt="Owl Image"></a></div>
+		{% endfor %}
+		{% for result in results %}
+		<div class="item"><a href="{{result.url}}"><img src="{{result.large_img}}" alt="Owl Image"></a></div>
+		{% endfor %}
+		
 
 
-	
- 
-</div>
+		
+		
+	</div>
 
 	<script>
 	var impact_organizations = [];
@@ -65,7 +66,7 @@
 	orginfo["url"] = "{{result.url}}";
 	orginfo["large_pic"] = "{{result.large_img}}";
 
-		
+	
 
 	impact_organizations.push(orginfo);
 	{% endfor %}
@@ -78,20 +79,20 @@
 
 
 
-$(document).ready(function() {
- 
-  $("#owl-demo").owlCarousel({
- 
+	$(document).ready(function() {
+		
+		$("#owl-demo").owlCarousel({
+			
       autoPlay: 3000, //Set AutoPlay to 3 seconds
 
       items : 4,
       itemsDesktop : [1199,3],
       itemsDesktopSmall : [979,3]
- 
+      
   });
- 
-});
-</script>
+		
+	});
+	</script>
 
 
 

@@ -1,23 +1,14 @@
-.btn {
-  font-size: 50px;
-  position: absolute;
+#similar {
+  margin-left: 30px;
+  margin-bottom: 20px;
 }
 
-.btn-light {
+.btn-light2 {
   color: #41b5d9;
   z-index: 10;
-  margin-left: 90px;
+  margin-left: 40px;
 }
 
-.btn-shadow {
-  color: black;
-  z-index: 5;
-  margin-left: 95px;
-}
-
-.btn-down {
-  margin-top: -65px;
-}
 
 img {
   filter: gray; /* IE6-9 */
@@ -31,19 +22,7 @@ img:hover {
   -webkit-filter: grayscale(0);
 }
 
-@font-face {
-  font-family: 'Bebas';
-  src: url('fonts/BebasNeue\ Regular.ttf');
-}
-
-#title {
-  font-family: 'Bebas';
-  font-size: 30px;
-  color: #EAC223;
-  padding-left: 30px;
-}
-
-#carousel {
+#carousel2 {
   border: solid 10px #EAC223;
   padding: 5px;
 }

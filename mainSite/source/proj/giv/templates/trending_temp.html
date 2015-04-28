@@ -7,11 +7,11 @@
 <body>
   <div id="trending">
     <div id="title">TRENDING PROJECTS</div>
-      <div id="scroll-up" class="btn btn-light">&#x25B2</div>
-      <div class="btn btn-shadow">&#x25B2</div>
+    <div id="scroll-up" class="btn btn-light">&#x25B2</div>
+    <div class="btn btn-shadow">&#x25B2</div>
     <div id="carousel">
       {% for result in data %}
-        <a href='{{result.url}}'><img src='{{result.img}}' width="200" height="200"></a>
+      <a href='{{result.url}}'><img src='{{result.img}}' width="200" height="200"></a>
       {% endfor %}
     </div>
     <div id="scroll-down" class="btn btn-light btn-down">&#x25BC</div>

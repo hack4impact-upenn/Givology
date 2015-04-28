@@ -2999,6 +2999,10 @@ def adddonor(request, user):
           }]))
 
 
+
+
+
+
 # HACK4IMPACT TEMPORARY VIEWS - TO DELETE
 
 @reqUser
@@ -3118,6 +3122,7 @@ def saveVolunteerHours(request, user, profile, obj):
             pass
     return django.http.HttpResponse(message)
 
+
 @reqUser
 def trending(request, user, profile, obj):
 
@@ -3202,10 +3207,48 @@ def dashboard(request, user, profile, obj):
             ret.append(temp)
             print len(ret)
 
+
+    # similar
+
+    possible_curr = list(Donor.objects.filter(profile=profile))
+    if (len(possible_curr) == 1):
+        recs2 = possible_curr[0].get_donatees()
+    else:
+        recs2 = []
+
+    other_donors = []
+    # maybe break this out early if it gets to 5
+    for rec in recs2:
+        for donor in rec.get_donors():
+            other_donors.append(donor)
+
+    donatees = set()
+    for other_donor in other_donors:
+        for donatee in other_donor.get_donatees(): 
+            donatees.add(donatee)
+
+    donatees_exclude = [donatee for donatee in donatees if donatee not in recs2]
+    random_sample = random.sample(donatees_exclude, (20 if 20 < len(donatees_exclude) else len(donatees_exclude)))
+
+    ret2 = []
+    for org in random_sample:
+        temp = {
+            'img':org.profile.get_image_url(206, 206),
+            'url':org.profile.url()
+            }
+        ret2.append(temp)
+
+
+    # blog
+
+    volunteer_works = list(VolunteerWork.objects.filter(volunteer=user).order_by('-when'))
+
     return render_to_response(tloc+'dashboard.html', dictcombine(
         [maindict(request), 
         {'results': recs,
         'data': ret,
+        'data2': ret2,
+        'volunteer_works' : volunteer_works,
         'total': total}]))
 
 

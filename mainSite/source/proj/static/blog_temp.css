@@ -11,13 +11,13 @@
 
 #volunteer-header {
 	font-family: 'Bebas';
-	font-size: 3rem;
+	font-size: 20px;
 	color: #7a7a7a;
 }
 
 .volunteer-text {
 	font-family: 'Bebas';
-	font-size: 1.8rem;
+	font-size: 20px;
 }	
 
 .volunteer-date {
@@ -31,9 +31,15 @@
 }
 
 .volunteer-header-text {
-	font-size: 1rem;
+	font-size: 12px;
 	font-family: 'Bebas';
 	color: #7a7a7a;
+}
+
+#volunteering-hours,
+#volunteering-activity {
+	float: left;
+	display: block;
 }
 
 input[type="submit"], .submit-button {
@@ -42,22 +48,30 @@ input[type="submit"], .submit-button {
 	display: inline-block;
 	color: #ffffff;
 	font-family: 'Bebas';
-	font-size: 1.8rem;
+	font-size: 20px;
 	font-style: normal;
-	height: 2.3125rem;
+	height: 40px;
 	line-height: 40px;
 	text-decoration: none;
 	text-align: center;
 	padding-top: 1px;
-	margin-top: 0.3rem;
+	margin-top: 0 !important;
+	float: left;
+	border: 0px !important;
+	margin-left: 50px;
 }
 
 label.inline.blog-label {
 	cursor: default;
 	font-family: 'Bebas';
-	font-size: 1.5rem;
+	font-size: 25px;
 	padding: 0;
-	margin: 0.5rem 0 1rem 0;
+	/*margin: 0.5rem 0 1rem 0;*/
+	float: left;
+	/*display: block;*/
+	color: #000;
+	line-height: 40px;
+	height: 40px;
 }
 
 select {
@@ -65,20 +79,35 @@ select {
     border-color: #ffffff #ffffff #41b4d9 #ffffff;
     border-width: 5px;
     font-family: 'Bebas';
-    font-size: 1.5rem;
-    height: 2.83rem;
+    font-size: 25px !important;
+    height: 40px !important;
+    line-height: 40px;
     text-align: center;
     color: #f3d23a;
-    margin: 0.2rem 0 1rem 0;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
     box-shadow: none;
     background-color: #ffffff;
+    margin-bottom: 30px !important;
 }
 
 #volunteering-activities {
-	height: 300px;
+	height: 150px;
     overflow-y: auto;
     overflow-x: hidden;
-    width: 100%;
-    background-color: #f3f3f3;
+    width: 770px;
+    background-color: #EFEFEF;
     padding: 20px;
+    padding-left: 50px;
+    margin-top: 30px;
 }
+
+.left-side {
+	padding-right: 80px;
+}
+
+.volunteering-row {
+	line-height: 30px;
+	height: 30px;
+}
+
