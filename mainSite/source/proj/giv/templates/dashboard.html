@@ -19,7 +19,7 @@
 			<div class="btn btn-shadow">&#x25B2</div>
 			<div id="carousel">
 				{% for result in data %}
-				<a href='{{result.url}}'><img src='{{result.img}}' width="100" height="100"></a>
+				<a href='{{result.url}}'target='_blank'><img src='{{result.img}}' width="100" height="100"></a>
 				{% endfor %}
 			</div>
 			<div id="scroll-down" class="btn btn-light btn-down">&#x25BC</div>
@@ -34,7 +34,7 @@
 			<div class="btn btn-shadow">&#x25B2</div>
 			<div id="carousel2">
 				{% for result in data2 %}
-				<a href='{{result.url}}'><img src='{{result.img}}' width="100" height="100"></a>
+				<a href='{{result.url}}' target='_blank'><img src='{{result.img}}' width="100" height="100"></a>
 				{% endfor %}
 			</div>
 			<div id="scroll-down2" class="btn btn-light2 btn-down">&#x25BC</div>

@@ -7,13 +7,9 @@ urlpatterns = patterns(
     (r'^favicon.ico$', 'faviconredir'),
 
 
-    # HACK4IMPACT TEMP URLS - TO DELETE
-    (r'^impact/$', 'impact'), 
-    (r'^similar/$', 'similar'), 
-    (r'^blog/$', 'blog'),
+    # HACK4IMPACT URLS
     (r'^save/$', 'saveVolunteerHours'), 
     (r'^dashboard/$', 'dashboard'),
-    (r'^trending/$', 'trending'),
 
 
 

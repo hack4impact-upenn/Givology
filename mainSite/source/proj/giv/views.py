@@ -3000,107 +3000,7 @@ def adddonor(request, user):
 
 
 
-
-
-
-# HACK4IMPACT TEMPORARY VIEWS - TO DELETE
-
-@reqUser
-def impact(request, user, profile, obj):
-    # d = searchrecipients(request, 's')
-
-    profile = user.get_profile()
-    obj = profile.get_object()
-
-    pgs = list(Paymenttogrant.objects.filter(
-        donor=obj).order_by('-created'))
-
-    recs =[Recipient.objects.get(id=i)
-           for i in xremoveduplicates(
-            pg.grant.rec.id for pg
-            in pgs)
-           ]
-
-
-    print time.clock()
-
-
-    total = 0;
-    recs2=[];
-    for rec in recs:
-        rec2 = rec.profile.summary();
-        rec2['large_img']= rec.profile.get_image_url(206, 206);
-        recs2.append(rec2);
-
-
-    recs = recs2;
-    for rec in recs:
-        rec['messageme']=True
-        rec['my_given'] = sum(
-            [pg.amount for pg in pgs if pg.grant.rec.id == rec['obj_id']])
-        total += rec['my_given'];
-        rec['my_given_percent'] = int((100.0*rec['my_given']) / rec['grant_have_total'])
-        print rec['large_img'];
-        print (" -------------------");
-
-    return render_to_response(tloc+'impact_temp.html', dictcombine(
-        [maindict(request), 
-        {'results': recs,
-        'total': total}]))
-
-@reqUser
-def similar(request, user, profile, obj):
-    profile = user.get_profile()
-    obj = profile.get_object()
-
-    possible_curr = list(Donor.objects.filter(profile=profile))
-    if (len(possible_curr) == 1):
-        recs = possible_curr[0].get_donatees()
-    else:
-        recs = []
-
-    other_donors = []
-    # maybe break this out early if it gets to 5
-    for rec in recs:
-        for donor in rec.get_donors():
-            other_donors.append(donor)
-
-    donatees = set()
-    for other_donor in other_donors:
-        for donatee in other_donor.get_donatees(): 
-            donatees.add(donatee)
-
-    donatees_exclude = [donatee for donatee in donatees if donatee not in recs]
-    random_sample = random.sample(donatees_exclude, (20 if 20 < len(donatees_exclude) else len(donatees_exclude)))
-
-    ret = []
-    for org in random_sample:
-        temp = {
-            'img':org.profile.get_image_url(206, 206),
-            'url':org.profile.url()
-            }
-        ret.append(temp)
-
-    return render_to_response(tloc+'similar_temp.html', dictcombine([maindict(request),{'data': ret}]))
-
-@reqUser
-def blog(request, user, profile, obj):
-    volunteer_works = list(VolunteerWork.objects.filter(volunteer=user).order_by('-when'))
-    #return render_to_response(tloc+'blog_template.html', dictcombine({}))
-
-    r = render_to_response(tloc+'blog_template.html', dictcombine(
-            [
-                maindict(request),
-                {
-                    'title' : 'Givology: Account',
-                    'volunteer_works' : volunteer_works,
-                    #'volunteer_total_hours' : volunteer_total_hours,
-                    #'has_volunteer_works' : len(volunteer_works),
-                }
-            ]
-        )
-    )
-    return r
+# HACK4IMPACT VIEWS
 
 @reqUser
 @csrf_exempt
@@ -3121,30 +3021,6 @@ def saveVolunteerHours(request, user, profile, obj):
             print 'error in volunteered'
             pass
     return django.http.HttpResponse(message)
-
-
-@reqUser
-def trending(request, user, profile, obj):
-
-    ret = []
-    seen = set()
-    grant_count = Paymenttogrant.objects.count()
-    for i in range(0, grant_count, 10):
-        if len(ret) >= 10:
-            break
-        recent_payments = list(Paymenttogrant.objects.order_by('-created')[i:i+10])
-        if len(recent_payments) == 0:
-            break
-        for payment in recent_payments:
-            if payment.grant.rec.profile.url() in seen:
-                continue
-            seen.add(payment.grant.rec.profile.url())
-            temp = {
-                'img':payment.grant.rec.profile.get_image_url(206, 206),
-                'url':payment.grant.rec.profile.url()
-                }
-            ret.append(temp)
-    return render_to_response(tloc+'trending_temp.html', dictcombine([maindict(request),{'data': ret}]))
 
 
 @reqUser
